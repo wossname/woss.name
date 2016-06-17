@@ -1,6 +1,7 @@
 require 'rake/clean'
 
 CLEAN.include 'build'
+CLOBBER.include 'node_modules', '.sass-cache'
 
 task default: :build
 
