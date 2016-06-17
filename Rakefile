@@ -19,6 +19,11 @@ task :console do
   middleman :console
 end
 
+desc 'Serve up the site locally, for development.'
+task :serve do
+  sh 'foreman start'
+end
+
 # Helper methods to run external tasks.
 def bundle(command, *args)
   sh "bundle #{command} #{args.join(' ')}"
