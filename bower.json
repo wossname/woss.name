@@ -1,0 +1,18 @@
+{
+  "name": "woss.name",
+  "description": "Wossname Industries",
+  "main": "",
+  "authors": [
+    "Graeme Mathieson"
+  ],
+  "license": "MIT",
+  "homepage": "https://woss.name/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+  }
+}

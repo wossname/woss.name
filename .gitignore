@@ -9,6 +9,7 @@
 
 # Ignore fetched packages.
 /node_modules
+/bower_components
 
 # Ignore the build directory
 /build
