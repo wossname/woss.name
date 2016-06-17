@@ -63,4 +63,6 @@ gulp.task 'build:javascripts:production', ->
 gulp.task 'serve', [ 'build:development', 'watch' ]
 
 gulp.task 'watch', ->
-  gulp.watch 'gulpfile.coffee'
+  watchedLessPaths = paths.lessPaths.map (lessPath) -> path.join(lessPath, '**', '*')
+  gulp.watch [ paths.less ].concat(watchedLessPaths), [ 'build:stylesheets:development' ]
+  gulp.watch paths.javascripts, [ 'build:javascripts:development' ]
