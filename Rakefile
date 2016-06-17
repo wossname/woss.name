@@ -13,6 +13,10 @@ task :build do
   middleman :build
 end
 
+task :console do
+  middleman :console
+end
+
 # Helper methods to run external tasks.
 def bundle(command, *args)
   sh "bundle #{command} #{args.join(' ')}"
