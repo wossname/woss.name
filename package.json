@@ -14,5 +14,7 @@
   },
   "homepage": "https://woss.name/",
   "devDependencies": {
+    "coffee-script": "^1.10.0",
+    "gulp": "^3.9.1"
   }
 }
