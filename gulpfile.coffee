@@ -3,6 +3,7 @@ gulp         = require 'gulp'
 bower        = require 'gulp-bower'
 less         = require 'gulp-less'
 autoprefixer = require 'gulp-autoprefixer'
+sourcemaps   = require 'gulp-sourcemaps'
 
 paths =
   less: 'source/stylesheets/**/*.less'
@@ -20,14 +21,18 @@ gulp.task 'install', ->
 
 gulp.task 'build:stylesheets:development', ->
   gulp.src(paths.less)
+    .pipe(sourcemaps.init())
     .pipe(less(paths: paths.lessPaths))
     .pipe(autoprefixer())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:stylesheets:production', ->
   gulp.src(paths.less)
+    .pipe(sourcemaps.init())
     .pipe(less(paths: paths.lessPaths))
     .pipe(autoprefixer())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'serve', [ 'build:development', 'watch' ]
