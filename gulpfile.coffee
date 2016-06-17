@@ -3,20 +3,31 @@ gulp  = require 'gulp'
 bower = require 'gulp-bower'
 less  = require 'gulp-less'
 
-gulp.task 'default', [ 'build' ]
+paths =
+  less: 'source/stylesheets/**/*.less'
+  lessPaths: [ path.join(__dirname, 'bower_components', 'bootstrap', 'less') ]
+  dist:
+    stylesheets: path.join(__dirname, 'dist', 'stylesheets')
+
+gulp.task 'default', [ 'build:production' ]
 
 gulp.task 'install', ->
   bower()
 
-gulp.task 'build', [ 'build:stylesheets' ], ->
-  console.log 'Hello world.'
+[ 'development', 'production' ].map (environment) ->
+  gulp.task "build:#{environment}", [ "build:stylesheets:#{environment}" ]
 
-gulp.task 'build:stylesheets', ->
-  gulp.src('source/stylesheets/**/*.less')
-    .pipe(less(paths: [ path.join(__dirname, 'bower_components', 'bootstrap', 'less') ]))
-    .pipe(gulp.dest('dist/stylesheets'))
+gulp.task 'build:stylesheets:development', ->
+  gulp.src(paths.less)
+    .pipe(less(paths: paths.lessPaths))
+    .pipe(gulp.dest(paths.dist.stylesheets))
 
-gulp.task 'serve', [ 'build', 'watch' ]
+gulp.task 'build:stylesheets:production', ->
+  gulp.src(paths.less)
+    .pipe(less(paths: paths.lessPaths))
+    .pipe(gulp.dest(paths.dist.stylesheets))
+
+gulp.task 'serve', [ 'build:development', 'watch' ]
 
 gulp.task 'watch', ->
   gulp.watch 'gulpfile.coffee'
