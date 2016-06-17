@@ -7,6 +7,7 @@ task default: :build
 desc 'Install all the dependencies required to build and deploy the site.'
 task :deps do
   bundle :install
+  npm :install
 end
 
 desc 'Build the web site and output the contents in the build/ folder.'
@@ -25,12 +26,20 @@ task :serve do
 end
 
 # Helper methods to run external tasks.
+def run(command, *args)
+  sh "#{command} #{args.join(' ')}"
+end
+
 def bundle(command, *args)
-  sh "bundle #{command} #{args.join(' ')}"
+  run :bundle, command, *args
 end
 
 def middleman(command, *args)
   args << '--verbose' if verbose == true
 
   bundle :exec, :middleman, command, *args
+end
+
+def npm(command, *args)
+  run :npm, command, *args
 end
