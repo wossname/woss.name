@@ -40,6 +40,7 @@ GEM
     kramdown (1.11.1)
     less (2.6.0)
       commonjs (~> 0.2.7)
+    libv8 (3.16.14.15)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -96,8 +97,12 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    ref (2.0.0)
     sass (3.4.22)
     servolux (0.12.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -114,6 +119,7 @@ DEPENDENCIES
   middleman (>= 4.0.0)
   middleman-livereload
   rake
+  therubyracer
   tzinfo-data
   wdm (~> 0.1.0)
 

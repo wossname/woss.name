@@ -19,7 +19,7 @@
   "scripts": {
     "install": "gulp install",
     "start": "gulp serve",
-    "build": "gulp build"
+    "build": "gulp"
   },
   "homepage": "https://woss.name/",
   "devDependencies": {

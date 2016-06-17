@@ -9,6 +9,8 @@ activate :external_pipeline,
   command: "npm #{build? ? 'run build' : 'start'}",
   source: 'dist/'
 
+ignore 'stylesheets/all'
+
 # Local development-specifc configuration.
 configure :development do
   # Reload the browser automatically whenever files change.
