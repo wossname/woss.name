@@ -4,12 +4,9 @@
 end
 
 # General configuration
-node_modules_path = File.expand_path('../node_modules', __FILE__)
-gulp_bin_path     = File.join(node_modules_path, 'gulp', 'bin')
-gulp              = File.join(gulp_bin_path, 'gulp.js')
 activate :external_pipeline,
   name: :gulp,
-  command: "#{gulp} #{build? ? 'build' : 'serve'}",
+  command: "npm #{build? ? 'run build' : 'start'}",
   source: 'dist/'
 
 # Local development-specifc configuration.

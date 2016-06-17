@@ -17,5 +17,8 @@
 /.sass-cache
 /.cache
 
+# Ignore log files.
+*.log
+
 # Ignore .DS_store file
 .DS_Store

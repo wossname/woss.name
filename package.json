@@ -12,6 +12,10 @@
   "bugs": {
     "url": "https://github.com/wossname/woss.name/issues"
   },
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp build"
+  },
   "homepage": "https://woss.name/",
   "devDependencies": {
     "coffee-script": "^1.10.0",
