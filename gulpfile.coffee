@@ -4,6 +4,7 @@ bower        = require 'gulp-bower'
 less         = require 'gulp-less'
 autoprefixer = require 'gulp-autoprefixer'
 sourcemaps   = require 'gulp-sourcemaps'
+minifyCSS    = require 'gulp-minify-css'
 
 paths =
   less: 'source/stylesheets/**/*.less'
@@ -31,6 +32,7 @@ gulp.task 'build:stylesheets:production', ->
   gulp.src(paths.less)
     .pipe(sourcemaps.init())
     .pipe(less(paths: paths.lessPaths))
+    .pipe(minifyCSS())
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist.stylesheets))
