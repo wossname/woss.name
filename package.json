@@ -7,7 +7,11 @@
     "type": "git",
     "url": "git+https://github.com/wossname/woss.name.git"
   },
-  "author": "Graeme Mathieson",
+  "author": {
+    "name": "Graeme Mathieson",
+    "email": "mathie@woss.name",
+    "url": "https://woss.name/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wossname/woss.name/issues"
