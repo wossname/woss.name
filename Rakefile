@@ -9,10 +9,12 @@ task :deps do
   bundle :install
 end
 
+desc 'Build the web site and output the contents in the build/ folder.'
 task :build do
   middleman :build
 end
 
+desc 'Launch an interactive console with Middleman loaded.'
 task :console do
   middleman :console
 end
