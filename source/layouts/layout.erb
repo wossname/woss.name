@@ -19,6 +19,10 @@
   </head>
 
   <body class="<%= page_classes %>">
+    <% navbar_link_to 'Home', '/index.html' %>
+    <% navbar_link_to 'Projects', '/projects.html' %>
+
+    <%= partial 'navbar' %>
 
     <%= yield %>
 
