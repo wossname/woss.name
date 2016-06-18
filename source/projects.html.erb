@@ -1,19 +1,37 @@
 ---
 title: Projects
 ---
-<section id="introduction" class="block text-center">
+<section id="introduction" class="block text-justify">
   <div class="container">
-    <h1 class="block-title">Projects</h1>
+    <h1 class="block-title text-center">Projects</h1>
 
     <p class="lead">
       We've got all sorts of projects on the go at any one time. Mostly we're
       trying out new ideas, practicing new techniques, or just playing with a
-      new technology.
+      new technology. I'm pretty excited about version 5 of the Ruby on Rails
+      framework, so I'm busy upgrading all our apps to take advantage of the
+      new features. (Plus, that way, I'm up to speed with the latest tech when
+      we get stuck into your project!)
+    </p>
+
+    <p>
+      My free time to spend on these projects is somewhat limited right now
+      &ndash; especially when I've got client projects to focus on! &ndash; so
+      they're all making slow progress, but they'll get there eventually. The
+      advantage of having several projects on the go is that I'm never short of
+      something to do, no matter what takes my fancy. If you'd be interested in
+      helping me to pursue any of these projects, do
+      <%= mail_to_link 'get in touch' %>. I'd love to find a way to spend more
+      time on them, and I'd be delighted to have other people get involved.
+    </p>
+
+    <p>
+      Meanwhile, do check out the projects!
     </p>
   </div>
 </section>
 
-<section id="projects" class="container text-justify">
+<section id="projects" class="container">
   <div class="row">
     <div class="col-md-6">
       <ul class="featured-list featured-list-bordered">
@@ -24,6 +42,23 @@ title: Projects
 
           <h3>The Happiness Project</h3>
 
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info">Mental Health</span>
+              <span class="label label-info">Happiness</span>
+              <span class="label label-info">Quantified Self</span>
+            </dd>
+            <dt>Technologies</dt>
+            <dd>
+              <span class="label label-warning">Ruby on Rails 5</span>
+              <span class="label label-warning">iOS (iPhone &amp; iPad)</span>
+              <span class="label label-warning">Amazon Web Services</span>
+            </dd>
+          </dl>
+
+          <hr>
+
           <p>
             The Happiness Project's goal is to give you a tool that you can
             use to improve your happiness. In particular, this tool allows
@@ -33,8 +68,10 @@ title: Projects
 
           <p>
             This project has been my main focus in 2016. Right now, we're
-            trying to figure out how to effectively measure happiness. It's a
-            tricky one!
+            trying to figure out how to effectively measure happiness. How to
+            you objectively measure how content you are? It's a tricky one!
+            We're performing some experiments of our own to see if we can
+            figure out how.
           </p>
 
           <p class="text-center">
@@ -44,13 +81,35 @@ title: Projects
             <% end %>
           </p>
         </li>
+      </ul>
+    </div>
 
+    <div class="col-md-6">
+      <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-code"></span>
           </div>
 
           <h3>How I Code</h3>
+
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info">Productivity</span>
+              <span class="label label-info">Development</span>
+              <span class="label label-info">Mental Wellbeing</span>
+              <span class="label label-info">Environment</span>
+            </dd>
+            <dt>Media</dt>
+            <dd>
+              <span class="label label-success">Podcast</span>
+              <span class="label label-success">Articles</span>
+              <span class="label label-success">Email</span>
+            </dd>
+          </dl>
+
+          <hr>
 
           <p>
             I want to go on a holistic exploration of how developers write code
@@ -75,13 +134,38 @@ title: Projects
             <% end %>
           </p>
         </li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-image"></span>
           </div>
 
           <h3>Rock (Climbing) Club</h3>
+
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info">Fitness</span>
+              <span class="label label-info">Rock Climbing</span>
+              <span class="label label-info">Performance</span>
+              <span class="label label-info">Quantified Self</span>
+            </dd>
+            <dt>Technologies</dt>
+            <dd>
+              <span class="label label-warning">Ruby on Rails 5</span>
+              <span class="label label-warning">iPhone</span>
+              <span class="label label-warning">Apple Health</span>
+              <span class="label label-warning">Sensors</span>
+            </dd>
+          </dl>
+
+          <hr>
 
           <p>
             Have you ever wondered how well you're climbing, how much better
@@ -121,6 +205,25 @@ title: Projects
 
           <h3>A Sneak Peek at The Internet</h3>
 
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info"><abbr class="initialism" title="Transmission Control Protocol/Internet Protocol">TCP/IP</abbr></span>
+              <span class="label label-info"><abbr class="initialism" title="HyperText Transfer Protocol">HTTP</abbr></span>
+              <span class="label label-info"><abbr class="initialism" title="Domain Name System">DNS</abbr></span>
+              <span class="label label-info">Routing</span>
+              <span class="label label-info">Ethernet</span>
+              <span class="label label-info">Wi-Fi</span>
+            </dd>
+            <dt>Media</dt>
+            <dd>
+              <span class="label label-success">Book</span>
+              <span class="label label-success">Articles</span>
+            </dd>
+          </dl>
+
+          <hr>
+
           <p>
             How does The Internet work? When you type
             <code>www.google.com</code> into your browser bar and hit enter,
@@ -145,14 +248,35 @@ title: Projects
               <span class="icon icon-export"></span>
             <% end %>
           </p>
-        </li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-home"></span>
           </div>
 
           <h3>The HomeKit Family</h3>
+
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info">Apple HomeKit</span>
+              <span class="label label-info">Home Automation</span>
+              <span class="label label-info">Energy Saving</span>
+              <span class="label label-info">Home Security</span>
+            </dd>
+            <dt>Media</dt>
+            <dd>
+              <span class="label label-success">Articles</span>
+            </dd>
+          </dl>
+
+          <hr>
 
           <p>
             I’ve always dreamed of having a “smart” house, where I can control
@@ -176,13 +300,32 @@ title: Projects
             <% end %>
           </p>
         </li>
+      </ul>
+    </div>
 
+    <div class="col-md-6">
+      <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-link"></span>
           </div>
 
           <h3>Amazon Link</h3>
+
+          <dl class="text-muted small dl-horizontal tags">
+            <dt>Subjects</dt>
+            <dd>
+              <span class="label label-info">Affiliate Marketing</span>
+            </dd>
+            <dt>Technology</dt>
+            <dd>
+              <span class="label label-warning">Ruby on Rails 5</span>
+              <span class="label label-warning">Amazon Web Services</span>
+            </dd>
+          </dl>
+
+          <hr>
+
 
           <p>
             This is a daft wee side project, just to play around with Rails 5.
