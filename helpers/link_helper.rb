@@ -1,10 +1,23 @@
 require 'active_support/inflector'
 
 module LinkHelper
-  def mail_to_link(options = {})
+  def mail_to_link(title_or_options = {}, maybe_options = nil)
+    if maybe_options.nil?
+      if title_or_options.is_a?(Hash)
+        title   = nil
+        options = title_or_options
+      else
+        title = title_or_options
+        options = {}
+      end
+    else
+      title = title_or_options
+      options = maybe_options
+    end
+
     email_address = options.delete(:email_address) || config[:default_email_address]
 
-    mail_to email_address, email_address, options
+    mail_to email_address, title || email_address, options
   end
 
   def utm_link_to(title_or_url, url_or_options = nil, options = {}, &block)
