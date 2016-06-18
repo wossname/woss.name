@@ -5,6 +5,7 @@ config[:default_email_address] = "hello@#{config[:domain]}"
 config[:default_utm_source]    = config[:domain]
 config[:default_utm_medium]    = 'website'
 config[:default_utm_campaign]  = 'Wossname Industries website'
+config[:gtm_id]                = 'GTM-KLSLNV'
 
 # Pages with no layout.
 [ :xml, :json, :txt ].each do |extension|
