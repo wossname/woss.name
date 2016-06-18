@@ -1,3 +1,10 @@
+# Defaults for the site.
+config[:domain]                = 'woss.name'
+config[:default_email_address] = "hello@#{config[:domain]}"
+config[:default_utm_source]    = config[:domain]
+config[:default_utm_medium]    = 'website'
+config[:default_utm_campaign]  = 'Wossname Industries website'
+
 # Pages with no layout.
 [ :xml, :json, :txt ].each do |extension|
   page "/*.#{extension}", layout: false
