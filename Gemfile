@@ -16,6 +16,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 # Middleman Gems
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
+gem 'middleman-minify-html'
 
 # FIXME: I shouldn't need less support in the Ruby side, since it's being built
 # with the external pipeline, but Tilt is getting upset by the mere presence of

@@ -25,4 +25,5 @@ end
 
 # Build-specific configuration
 configure :build do
+  activate :minify_html
 end
