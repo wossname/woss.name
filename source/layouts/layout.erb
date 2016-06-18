@@ -17,6 +17,18 @@
 
     <%= yield %>
 
+    <footer class="block p-y-md text-sm-right">
+      <div class="container">
+        <p>
+          <%= link_to 'Privacy Policy', '/privacy-policy/' %> |
+          <%= link_to 'Terms of Service', '/terms-of-service/' %> |
+          Copyright &copy; 2015&ndash;<%= Date.today.year %>
+          <%= link_to 'Wossname Industries', 'https://woss.name/' %>.
+          All rights reserved.
+        </p>
+      </div>
+    </footer>
+
     <%= javascript_include_tag :all %>
   </body>
 </html>
