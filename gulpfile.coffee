@@ -12,10 +12,10 @@ paths =
   less: 'source/stylesheets/**/*.less'
   javascripts: [
     path.join(__dirname, 'bower_components', 'jquery', 'dist', 'jquery.js'),
-    path.join(__dirname, 'bower_components', 'bootstrap', 'js', '*.js'),
+    path.join(__dirname, 'node_modules', 'toolkit-dashboard', '**', '*.js')
     'source/javascripts/**/*.js'
   ]
-  lessPaths: [ path.join(__dirname, 'bower_components', 'bootstrap', 'less') ]
+  lessPaths: [ path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'less') ]
   dist:
     stylesheets: path.join(__dirname, 'dist', 'stylesheets')
     javascripts: path.join(__dirname, 'dist', 'javascripts')
