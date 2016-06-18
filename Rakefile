@@ -1,3 +1,4 @@
+require 'cgi'
 require 'rake/clean'
 
 CLEAN.include 'build', 'dist'
@@ -24,6 +25,27 @@ end
 desc 'Serve up the site locally, for development.'
 task :serve do
   sh 'foreman start'
+end
+
+desc 'Deploy the site to S3. Assumes you have AWS credentials in your environment. Assumes you have already run :build.'
+task :deploy do
+  middleman :sync
+  middleman :invalidate
+
+  # Rake::Task['ping'].invoke
+end
+
+task :ping do
+  domain = File.basename File.dirname(__FILE__)
+  sitemap = "https://#{domain}/sitemap.xml"
+
+  [
+    'http://www.google.com/webmasters/tools/ping?sitemap=',
+    'http://www.bing.com/ping?sitemap='
+  ].each do |base_url|
+    url = base_url + CGI.escape(sitemap)
+    sh "curl '#{url}'"
+  end
 end
 
 # Helper methods to run external tasks.

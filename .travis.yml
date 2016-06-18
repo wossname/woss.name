@@ -6,3 +6,9 @@ cache:
   - build
 before_install: nvm install v$(< .node-version)
 install: rake deps
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: "rvm $(< .ruby-version) do bundle exec rake deploy"
+  on:
+    branch: master

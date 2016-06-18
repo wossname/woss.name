@@ -23,3 +23,8 @@ gem 'middleman-minify-html'
 # a less file in the source tree.
 gem 'less'
 gem 'therubyracer'
+
+# Deployment
+gem 'middleman-cloudfront', github: 'andrusha/middleman-cloudfront'
+gem 'middleman-s3_sync'
+gem 'mime-types'
