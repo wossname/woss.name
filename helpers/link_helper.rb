@@ -22,19 +22,21 @@ module LinkHelper
 
   def utm_link_to(title_or_url, url_or_options = nil, options = {}, &block)
     if block_given?
-      title   = nil
-      url     = title_or_url
-      options = url_or_options || {}
+      title       = capture_html(&block)
+      plain_title = strip_tags(title).strip
+      url         = title_or_url
+      options     = url_or_options || {}
     else
-      title   = title_or_url
-      url     = url_or_options
-      options = options
+      title       = title_or_url
+      plain_title = title
+      url         = url_or_options
+      options     = options
     end
 
     utm_source   = parameterize(options.delete(:source)   || config[:default_utm_source])
     utm_medium   = parameterize(options.delete(:medium)   || config[:default_utm_medium])
     utm_campaign = parameterize(options.delete(:campaign) || config[:default_utm_campaign])
-    utm_content  = parameterize(options.delete(:content)  || title)
+    utm_content  = parameterize(options.delete(:content)  || plain_title)
 
     query = {
       utm_source:   utm_source,
@@ -43,13 +45,11 @@ module LinkHelper
       utm_content:  utm_content
     }.merge(options.delete(:query) || {}).reject { |k, v| v.blank? }
 
-    options = { query: query, title: title }.merge(options)
+    options = { query: query, title: plain_title }.merge(options)
 
-    if block_given?
-      link_to url, options, &block
-    else
-      link_to title, url, options
-    end
+    output = link_to title, url, options
+
+    block_is_template?(block) ? concat_content(output) : output
   end
 
   private
