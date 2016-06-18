@@ -34,34 +34,30 @@ gulp.task 'install', ->
 
 gulp.task 'build:stylesheets:development', ->
   gulp.src(paths.less)
-    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init(loadMaps: true))
     .pipe(less(paths: paths.lessPaths))
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:stylesheets:production', ->
   gulp.src(paths.less)
-    .pipe(sourcemaps.init())
     .pipe(less(paths: paths.lessPaths))
     .pipe(minifyCSS())
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:javascripts:development', ->
   gulp.src(paths.javascripts)
-    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init(loadMaps: true))
     .pipe(concat('all.js'))
-    .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:javascripts:production', ->
   gulp.src(paths.javascripts)
-    .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:fonts', ->
