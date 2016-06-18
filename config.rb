@@ -1,5 +1,6 @@
 # Defaults for the site.
 config[:domain]                = 'woss.name'
+config[:url]                   = "https://#{config[:domain]}"
 config[:default_email_address] = "hello@#{config[:domain]}"
 config[:default_utm_source]    = config[:domain]
 config[:default_utm_medium]    = 'website'

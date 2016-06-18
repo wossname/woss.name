@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% sitemap_pages.each do |page| %>
+    <url>
+      <loc><%= config[:url] %><%= page.url %></loc>
+      <lastmod><%= xml_timestamp last_modified(page) %></lastmod>
+      <changefreq><%= page.data.sitemap_changefreq || 'monthly' %></changefreq>
+      <priority><%= page.data.sitemap_priority || 0.5 %></priority>
+    </url>
+  <% end %>
+</urlset>
