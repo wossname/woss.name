@@ -4,5 +4,5 @@ cache:
   apt: true
   directories:
   - build
-before_install: ls -la ~/.ssh && nvm install v$(< .node-version)
+before_install: nvm install v$(< .node-version)
 install: rake deps
