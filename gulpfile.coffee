@@ -12,9 +12,14 @@ paths =
   less: 'source/stylesheets/**/*.less'
   javascripts: [
     path.join(__dirname, 'bower_components', 'jquery', 'dist', 'jquery.js'),
-    path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', '**', '*.js')
+    [
+      'transition', 'alert', 'affix', 'button', 'carousel', 'collapse',
+      'dropdown', 'modal', 'tooltip', 'popover', 'scrollspy', 'tab'
+    ].map (component) ->
+      path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'bootstrap', "#{component}.js")
+    path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'custom', '*.js')
     'source/javascripts/**/*.js'
-  ]
+  ].reduce(((a, i) -> a.concat(i)), [])
   fonts: [
     path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'fonts', '*')
   ]
