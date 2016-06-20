@@ -1,7 +1,7 @@
 require 'active_support/inflector'
 
 module LinkHelper
-  def mail_to_link(title_or_options = {}, maybe_options = nil)
+  def mail_to_link(title_or_options = {}, maybe_options = nil, &block)
     if maybe_options.nil?
       if title_or_options.is_a?(Hash)
         title   = nil
@@ -15,9 +15,15 @@ module LinkHelper
       options = maybe_options
     end
 
+    if block_given?
+      title = capture_html(&block)
+    end
+
     email_address = options.delete(:email_address) || config[:default_email_address]
 
-    mail_to email_address, title || email_address, options
+    output = mail_to email_address, title || email_address, options
+
+    block_is_template?(block) ? concat_content(output) : output
   end
 
   def utm_link_to(title_or_url, url_or_options = nil, options = {}, &block)
