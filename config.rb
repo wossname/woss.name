@@ -34,7 +34,8 @@ config[:related]        = {
   twitter:  'https://twitter.com/wossname',
   facebook: 'https://www.facebook.com/wossname-industries',
   google:   'https://plus.google.com/+WossnameIndustries',
-  linkedin: 'https://www.linkedin.com/company/wossname-industries'
+  linkedin: 'https://www.linkedin.com/company/wossname-industries',
+  github:   'https://github.com/wossname'
 }
 
 # Pages with no layout.
