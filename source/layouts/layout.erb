@@ -1,19 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <%= partial 'metadata' %>
     <%= partial 'favicons' %>
-
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title>
-      <% if (title = current_page.data.title) %>
-        <%= title %> &ndash;
-      <% end %>
-      Wossname Industries
-    </title>
 
     <%= stylesheet_link_tag :all %>
   </head>

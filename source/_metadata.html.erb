@@ -1,0 +1,28 @@
+<%# charset must be within the first 1024 bytes %>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+  <% if (title = current_page.data.title) %>
+    <%= title %> &ndash;
+  <% end %>
+  <%= config[:title] %>
+</title>
+
+<%# Old skool metadata %>
+<meta name="author" content="<%= config[:company] %>">
+<meta name="description" content="<%= description_meta %>">
+<meta name="keywords" content="<%= tags_meta.join(', ') %>">
+<meta name="copyright" content="<%= config[:copyright] %>">
+
+<link rel="canonical" href="<%= url_meta %>">
+<link rel="publisher" href="https://plus.google.com/<%= config[:google_plus_id] %>">
+
+<% config[:related].each do |_, url| %>
+  <link rel="me" href="<%= url %>">
+<% end %>
+
+<%= partial 'metadata/facebook' %>
+<%= partial 'metadata/twitter' %>
+<%= partial 'metadata/schema' %>

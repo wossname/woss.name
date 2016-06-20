@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "url": "<%= config[:url] %>",
+    "logo": "<%= config[:url] %>/<%= image_path config[:logo] %>",
+    "contactPoint" : [
+      {
+        "@type" : "ContactPoint",
+        "telephone" : "<%= config[:telephone].gsub(/\(0\)/, '').gsub(/ +/, '-') %>",
+        "contactType" : "customer service"
+      }
+
+    ],
+    "sameAs" : [
+      <%= config[:related].map { |_, url| "\"#{url}\"" }.join(",\n") %>
+    ]
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "<%= config[:url] %>",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "<%= config[:url] %>/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>

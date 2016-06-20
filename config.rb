@@ -5,7 +5,37 @@ config[:default_email_address] = "hello@#{config[:domain]}"
 config[:default_utm_source]    = config[:domain]
 config[:default_utm_medium]    = 'website'
 config[:default_utm_campaign]  = 'Wossname Industries website'
-config[:gtm_id]                = 'GTM-KLSLNV'
+
+# Defaults for metadata that can be overridden on pages with more specific
+# content.
+config[:company]          = 'Wossname Industries'
+config[:title]            = config[:company]
+config[:copyright]        = "Copyright &copy; 2015-#{Date.today.year} #{config[:company]}. All rights reserved."
+config[:default_category] = 'Software Development'
+config[:default_tags]     = [ 'Ruby', 'Rails', 'Ruby on Rails', 'iOS', 'iPhone',
+                              'iPad', 'Swift', 'DevOps', 'Consulting' ]
+config[:gravatar]         = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(config[:default_email_address])}"
+config[:telephone]        = "+44 (0)7949 077744"
+config[:logo]             = 'wossname-industries.png'
+config[:twitter_owner]    = 'wossname'
+config[:twitter_creator]  = 'mathie'
+
+config[:default_description] = <<-TEXT
+  Wossname Industries is Graeme Mathieson's software consultancy. We build
+  Ruby on Rails web apps, iOS apps, and the DevOps-ian infrastructure to manage
+  it all.
+TEXT
+
+# Identifiers for various other services.
+config[:gtm_id]         = 'GTM-KLSLNV'
+config[:google_plus_id] = '103001545622534344345'
+config[:fb_app_id]      = '619490114749622'
+config[:related]        = {
+  twitter:  'https://twitter.com/wossname',
+  facebook: 'https://www.facebook.com/wossname-industries',
+  google:   'https://plus.google.com/+WossnameIndustries',
+  linkedin: 'https://www.linkedin.com/company/wossname-industries'
+}
 
 # Pages with no layout.
 [ :xml, :json, :txt ].each do |extension|
