@@ -42,27 +42,31 @@ gulp.task 'build:stylesheets:development', ->
     .pipe(sourcemaps.init(loadMaps: true))
     .pipe(less(paths: paths.lessPaths))
     .pipe(autoprefixer())
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:stylesheets:production', ->
   gulp.src(paths.less)
+    .pipe(sourcemaps.init(loadMaps: true))
     .pipe(less(paths: paths.lessPaths))
     .pipe(minifyCSS())
     .pipe(autoprefixer())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:javascripts:development', ->
   gulp.src(paths.javascripts)
     .pipe(sourcemaps.init(loadMaps: true))
     .pipe(concat('all.js'))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:javascripts:production', ->
   gulp.src(paths.javascripts)
+    .pipe(sourcemaps.init(loadMaps: true))
     .pipe(concat('all.js'))
     .pipe(uglify())
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:fonts', ->
