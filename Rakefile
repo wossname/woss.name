@@ -32,6 +32,8 @@ task :deploy do
   middleman :sync
   middleman :invalidate
 
+  rollbar
+
   # Rake::Task['ping'].invoke
 end
 
@@ -65,4 +67,13 @@ end
 
 def npm(command, *args)
   run :npm, command, *args
+end
+
+def rollbar
+  environment   = 'production'
+  rollbar_token = ENV['ROLLBAR_TOKEN']
+  user          = ENV['USER']
+  revision      = ENV['TRAVIS_COMMIT'] || `git log -n 1 --pretty = format:"%H"`.chomp
+
+  sh "curl https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{environment} -F revision=#{revision} -F local_username=#{user}"
 end

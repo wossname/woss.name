@@ -7,6 +7,7 @@ autoprefixer = require 'gulp-autoprefixer'
 sourcemaps   = require 'gulp-sourcemaps'
 minifyCSS    = require 'gulp-minify-css'
 uglify       = require 'gulp-uglify'
+rollbar      = require 'gulp-rollbar'
 
 paths =
   less: 'source/stylesheets/**/*.less'
@@ -51,6 +52,11 @@ gulp.task 'build:stylesheets:production', ->
     .pipe(less(paths: paths.lessPaths))
     .pipe(minifyCSS())
     .pipe(autoprefixer())
+    .pipe(rollbar(
+      accessToken:          process.env.ROLLBAR_TOKEN,
+      version:              process.env.TRAVIS_COMMIT,
+      sourceMappingURLPrefix: 'https://woss.name'
+    ))
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
@@ -66,6 +72,11 @@ gulp.task 'build:javascripts:production', ->
     .pipe(sourcemaps.init(loadMaps: true))
     .pipe(concat('all.js'))
     .pipe(uglify())
+    .pipe(rollbar(
+      accessToken:          process.env.ROLLBAR_TOKEN,
+      version:              process.env.TRAVIS_COMMIT,
+      sourceMappingURLPrefix: 'https://woss.name'
+    ))
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.javascripts))
 
