@@ -34,7 +34,7 @@ task :deploy do
 
   rollbar
 
-  # Rake::Task['ping'].invoke
+  Rake::Task['ping'].invoke
 end
 
 task :ping do
