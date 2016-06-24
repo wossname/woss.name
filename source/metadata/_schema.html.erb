@@ -3,30 +3,28 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "url": "<%= config[:url] %>",
+    "email": "<%= config[:default_email_address] %>",
     "logo": "<%= config[:url] %><%= asset_path :images, config[:logo], relative: false %>",
     "contactPoint" : [
       {
         "@type" : "ContactPoint",
         "telephone" : "<%= config[:telephone].gsub(/\(0\)/, '').gsub(/ +/, '-') %>",
+        "email": "<%= config[:default_email_address] %>",
+        "language": "en-GB",
         "contactType" : "customer service"
       }
 
     ],
+    "address": {
+      "streetAddress": "11 Alexandra Terrace",
+      "addressLocality": "Teignmouth",
+      "addressRegion": "Devon",
+      "postalCode": "TQ14 8HA",
+      "addressCountry": "GB"
+    },
     "sameAs" : [
       <%= config[:related].map { |_, url| "\"#{url}\"" }.join(",\n") %>
     ]
-  }
-</script>
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPost",
-    "@id": "<%= canonical_url_meta %>",
-    "url": "<%= canonical_url_meta %>",
-    "headline": "<%= title_meta %>",
-    "description": "<%= description_meta %>",
-    "articleSection": "<%= category_meta %>"
   }
 </script>
 
@@ -40,5 +38,17 @@
       "target": "<%= config[:url] %>/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPost",
+    "@id": "<%= canonical_url_meta %>",
+    "url": "<%= canonical_url_meta %>",
+    "headline": "<%= title_meta %>",
+    "description": "<%= description_meta %>",
+    "articleSection": "<%= category_meta %>"
   }
 </script>
