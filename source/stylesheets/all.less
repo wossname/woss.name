@@ -1,5 +1,14 @@
 @import "toolkit-startup";
 
+body {
+  position: relative;
+}
+
+time {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+
 .navbar-brand {
   padding-top: 0;
   padding-bottom: 0;
@@ -21,4 +30,9 @@
 #projects dl.tags dd {
   text-align: left;
   margin-left: 110px;
+}
+
+#sidebar.affix {
+  top: 20px;
+  width: 320px;
 }

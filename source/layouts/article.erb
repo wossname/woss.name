@@ -1,0 +1,130 @@
+<% wrap_layout :layout do %>
+  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="container">
+      <hgroup class="block">
+        <h1 class="block-title" itemprop="name headline">
+          <%= current_page.data.title %>
+        </h1>
+
+        <% if subtitle = current_page.data.subtitle %>
+          <p class="text-muted h4">
+            <%= subtitle %>
+          </p>
+        <% end %>
+      </hgroup>
+
+      <div class="row">
+        <div class="col-lg-8 article-body text-justify" itemprop="articleBody text">
+          <%= yield %>
+        </div>
+
+        <div class="col-lg-4">
+          <div id="sidebar" class="text-right hidden-print hidden-xs hidden-sm hidden-md" data-spy="affix" data-offset-top="350">
+            <div class="panel">
+              <hgroup class="panel-heading">
+                <h3 class="panel-title">
+                  About this article
+                </h3>
+                <hr>
+              </hgroup>
+
+              <table class="table table-striped">
+                <caption class="sr-only">Article metadata</caption>
+                <thead class="sr-only">
+                  <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <th scope="row" style="width: 40%">
+                      Author
+                    </th>
+                    <td>
+                      <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
+                        <% link_to '/team/mathie.html', itemprop: 'url' do %>
+                          <span itemprop="name">
+                            <span itemprop="givenName">
+                              Graeme
+                            </span>
+                            <span itemprop="familyName">
+                              Mathieson
+                            </span>
+                          </span>
+                        </span>
+                      <% end %>
+                      <br>
+                      <span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Organization">
+                        <% link_to '/', itemprop: 'url' do %>
+                          <span itemprop="name">
+                            Wossname Industries
+                          </span>
+                        <% end %>
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      First published
+                    </th>
+                    <td itemprop="dateCreated datePublished">
+                      <%= published_on_tag %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      Last updated
+                    </th>
+                    <td itemprop="dateModified">
+                      <%= updated_on_tag %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      Category
+                    </th>
+                    <td itemprop="articleSection">
+                      <%= link_to_category category_meta, class: 'label label-info' %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      Tags
+                    </th>
+                    <td>
+                      <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <% if (contents = current_page.data.contents) %>
+              <nav id="sidebar-contents" class="panel">
+                <hgroup class="panel-heading">
+                  <h3 class="panel-title">
+                    Table of Contents
+                  </h3>
+                  <hr>
+                </hgroup>
+
+                <ul class="nav nav-bordered nav-stacked">
+                  <% contents.each do |title| %>
+                    <li role="presentation">
+                      <%= link_to title, '', fragment: parameterize(title), class: 'p-y-0' %>
+                    </li>
+                  <% end %>
+                </nav>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </article>
+<% end %>

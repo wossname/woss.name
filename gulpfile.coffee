@@ -19,6 +19,7 @@ paths =
     ].map (component) ->
       path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'bootstrap', "#{component}.js")
     path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'custom', '*.js')
+    path.join(__dirname, 'bower_components', 'moment', 'moment.js')
     'source/javascripts/**/*.js'
   ].reduce(((a, i) -> a.concat(i)), [])
   fonts: [

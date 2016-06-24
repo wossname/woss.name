@@ -1,6 +1,5 @@
 # Defaults for the site.
 config[:domain]                = 'woss.name'
-config[:url]                   = "https://#{config[:domain]}"
 config[:default_email_address] = "hello@#{config[:domain]}"
 config[:default_utm_source]    = config[:domain]
 config[:default_utm_medium]    = 'website'
@@ -55,17 +54,24 @@ activate :external_pipeline,
   command: "npm #{build? ? 'run build' : 'start'}",
   source: 'dist/'
 
+set :markdown_engine, :redcarpet
+set :markdown, smartypants: true, with_toc_data: true
+
 ignore 'stylesheets/all'
 
 # Local development-specifc configuration.
 configure :development do
   # Reload the browser automatically whenever files change.
   activate :livereload
+
+  config[:url] = "http://localhost:5000"
 end
 
 # Build-specific configuration
 configure :build do
   activate :minify_html
+
+  config[:url] = "https://#{config[:domain]}"
 end
 
 activate :s3_sync do |s3|
