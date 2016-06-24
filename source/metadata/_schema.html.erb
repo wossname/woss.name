@@ -10,7 +10,6 @@
         "@type" : "ContactPoint",
         "telephone" : "<%= config[:telephone].gsub(/\(0\)/, '').gsub(/ +/, '-') %>",
         "email": "<%= config[:default_email_address] %>",
-        "language": "en-GB",
         "contactType" : "customer service"
       }
 
@@ -32,23 +31,12 @@
   {
     "@context": "http://schema.org",
     "@type": "WebSite",
+    "name": "<%= config[:title] %>",
     "url": "<%= config[:url] %>",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "<%= config[:url] %>/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
-  }
-</script>
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPost",
-    "@id": "<%= canonical_url_meta %>",
-    "url": "<%= canonical_url_meta %>",
-    "headline": "<%= title_meta %>",
-    "description": "<%= description_meta %>",
-    "articleSection": "<%= category_meta %>"
   }
 </script>

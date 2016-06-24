@@ -1,5 +1,7 @@
 <% wrap_layout :layout do %>
   <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+    <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
+
     <div class="container">
       <hgroup class="block p-y-md">
         <h1 class="block-title" itemprop="name headline">
@@ -54,8 +56,16 @@
                           </span>
                         </span>
                       <% end %>
-                      <br>
-                      <span itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Organization">
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">
+                      Publisher
+                    </th>
+                    <td>
+                      <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
+                        <img itemprop="logo" src="<%= image_path config[:logo] %>" class="hidden">
                         <% link_to '/', itemprop: 'url' do %>
                           <span itemprop="name">
                             Wossname Industries
