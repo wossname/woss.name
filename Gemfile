@@ -18,6 +18,9 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
 
+# Redcarpet seems to be the Markdown parser of choice.
+gem 'redcarpet'
+
 # FIXME: I shouldn't need less support in the Ruby side, since it's being built
 # with the external pipeline, but Tilt is getting upset by the mere presence of
 # a less file in the source tree.

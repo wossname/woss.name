@@ -54,6 +54,9 @@ activate :external_pipeline,
   command: "npm #{build? ? 'run build' : 'start'}",
   source: 'dist/'
 
+set :markdown_engine, :redcarpet
+set :markdown, smartypants: true, with_toc_data: true
+
 ignore 'stylesheets/all'
 
 # Local development-specifc configuration.
