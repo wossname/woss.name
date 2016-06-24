@@ -65,7 +65,9 @@
                     </th>
                     <td>
                       <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
-                        <img itemprop="logo" src="<%= image_path config[:logo] %>" class="hidden">
+                        <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                          <img itemprop="contentUrl" src="<%= image_path config[:logo] %>" alt="">
+                        </span>
                         <% link_to '/', itemprop: 'url' do %>
                           <span itemprop="name">
                             Wossname Industries
