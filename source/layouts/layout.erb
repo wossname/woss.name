@@ -24,6 +24,43 @@
 
     <%= partial 'navbar' %>
 
+    <div class="container">
+      <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <% link_to '/', itemscope: true, itemtype: 'http://schema.org/Thing', itemprop: 'item' do %>
+            <span itemprop="name">Home</span>
+          <% end %>
+          <meta itemprop="position" content="1">
+        </li>
+
+        <% if ancestors = current_page.data.ancestors %>
+          <% ancestors.each_with_index do |breadcrumb, i| %>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <% link_to breadcrumb[:path], itemscope: true, itemtype: 'http://schema.org/Thing', itemprop: 'item' do %>
+                <span itemprop="name"><%= breadcrumb[:title] %></span>
+              <% end %>
+              <meta itemprop="position" content="<%= i + 2 %>">
+            </li>
+          <% end %>
+
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+            <% link_to current_page.url, itemscope: true, itemtype: 'http://schema.org/Thing', itemprop: 'item' do %>
+              <span itemprop="name"><%= current_page.data.title %></span>
+            <% end %>
+            <meta itemprop="position" content="<%= ancestors.length + 3 %>">
+          </li>
+        <% elsif current_page.url != '/' %>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+            <% link_to current_page.url, itemscope: true, itemtype: 'http://schema.org/Thing', itemprop: 'item' do %>
+              <span itemprop="name"><%= current_page.data.title %></span>
+            <% end %>
+            <meta itemprop="position" content="2">
+          </li>
+        <% end %>
+      </ol>
+
+    </div>
+
     <%= yield %>
 
     <footer class="block p-y-md">
