@@ -1,0 +1,154 @@
+---
+layout: article
+
+title: On the Connectedness of Apps and Services
+published_on: 2016/04/29
+
+category: Quantified Self
+tags:
+  - Quantified Self
+  - Web Apps
+  - iOS Apps
+  - Activity
+  - Home
+  - Music
+  - Sleep
+  - Note Taking
+  - Journalling
+  - Social Media
+---
+<p class="lead">
+  I use an awful lot of apps and services in my everyday life. More than most,
+  I suspect, because I’m really into tracking what I do, and leaving an
+  electronic breadcrumb trail behind me as I go. I tend to try and externalise
+  the contents of my brain — mostly because if I kept it all in there, I’d
+  explode! — which invariably winds up with lots of notes being written inside
+  various apps. I’ve also taken to digitising as much of my life as possible,
+  too. Having spent the past couple of years without a place I could really
+  call home (which I’ve fixed now — yay!), it’s been much easier to live life
+  without having to cart around dead trees and bits of plastic. All my data is
+  safely (well, relatively) contained in the aluminium shell of my laptop, and
+  synchronised seamlessly into The Cloud.
+</p>
+
+All these apps and services that I use connect to each other in some way. Some
+just use each other for authentication — to tell each other that I am me — but
+lots of them share data too. There are a couple of really interesting services
+([Zapier](https://zapier.com) and [IFTTT](https://ifttt.com), for example) that
+provide mechanisms for me to create links between apps that have never even
+heard of each other, which opens up a whole new world of opportunities!
+
+The trouble is that I’m losing track. I’ve forgotten how some of the services
+talk to each other. I can’t remember which ones share what data, which
+direction the data flows in, and what I can do with the information stored on
+each service. I haven’t got a clue what the data security and privacy policies
+are on each of these services, so I’ve got no real idea what they’re doing with
+my data. (Personally, that doesn’t phase me in the slightest. I work on the
+principle of
+[Open Data By Default](https://www.gov.uk/government/publications/open-data-charter/g8-open-data-charter-and-technical-annex#principle-1-open-data-by-default),
+which I should write something more about another time. But I’m conscious that
+it would be useful to know just what I’m contributing to when I log having
+drunk another pint of water.) I’m not going to list all the apps and services I
+use (just yet, anyway) but I thought I’d give you a bit of a flavour of what
+I’m talking about:
+
+* I capture my physical activity through the Apple Watch and iPhone. That data
+  goes into HealthKit, which can then be accessed by numerous other apps on my
+  phone. I also capture activity data with
+  [Moves](https://geo.itunes.apple.com/gb/app/moves/id509204969?mt=8&uo=4&at=1010lbgm&ct=medium)
+  which enriches the location data by associating it with places on Facebook,
+  and being able to categorise journeys by mode of transport. For good measure,
+  I usually check into places with [FourSquare](https://foursquare.com/) too.
+
+* I’m logging environmental data around the house, mostly with a couple of
+  [Elgato Eve Room](http://www.amazon.co.uk/gp/product/B00Y7PC95I/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B00Y7PC95I&linkCode=as2&tag=wossname-21)
+  sensors. This data sits in … honestly, I’m not quite sure where historical
+  data sits, because I don’t think HomeKit directly supports it, but the
+  [Eve app](https://geo.itunes.apple.com/gb/app/elgato-eve/id917695792?mt=8&uo=4&at=1010lbgm&ct=medium)
+  does allow me to capture that information from the sensors.
+
+* I keep track (pun intended) of the music I listen to on Spotify or Apple
+  Music. At least I try to. (This has proved to be tricky lately.)
+
+* I monitor my sleep with
+  [Sleep Cycle](https://geo.itunes.apple.com/gb/app/sleep-cycle-alarm-clock/id320606217?mt=8&uo=4&at=1010lbgm&ct=medium)
+  &mdash; which proved really useful a few weeks back, while negotiating a
+  change of medication with my doctor.
+
+* I keep a rough track of what I eat and drink, and when I take my medication,
+  just to make sure I’m not missing things out. (Did I mention that I have a
+  bad memory? I forget...) My scales have Wifi.
+
+* Meanwhile, my computer keeps a rough track of what I’m working on, with
+  [RescueTime](https://www.rescuetime.com/), while I log the hours I spend
+  working in [Harvest](https://www.getharvest.com/) and manage my todo list
+  with [Trello](https://trello.com/).
+
+* I chuck bits of paper into [Evernote](https://evernote.com/), so I can find
+  them again later. First drafts of pretty much anything I write goes into
+  [Day One](https://geo.itunes.apple.com/us/app/day-one-2-journal-+-notes/id1044867788?mt=8&at=1010lbgm&ct=medium)
+  (which I’ve
+  [talked about before](https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f#.tcf9pujl0)).
+
+* And I do all the usual social media tweeting and facebooking and
+  instagramming. And I’ve got email, and calendars, and the list goes on…!
+
+You get the picture. There’s lots of data being captured there, and distributed
+to many different services. And I really don’t know how it all connects
+together! I’ve totally lost track. I strongly suspect some services that share
+useful data are currently doing so through a happy coincidence of having
+attached them both to yet another service (that I no longer use). So when
+things break, and data stops getting to the right places so I can use it, I’ve
+no idea how to get them fixed again.
+
+I’d like to embark on a little side project. I want to figure out -- and write
+down -- all the apps I’m using, what data they collect, from which sources,
+what they store, and what they transmit to third parties. Then I’d like to
+visualise this interconnected system in some way, just so I can get an idea of
+what it looks like.
+
+Essentially what I’m looking to model, I think, is a
+[Directed Graph](https://en.wikipedia.org/wiki/Directed_graph). Each node in
+the graph would represent an app, or a web service, and the edges would
+describe the connections between those services. I think there would be nodes
+to represent the raw data that’s being collected, and the hardware that does
+the collection, too, with edges connecting the data to the hardware sensor, and
+the hardware sensor to the application which first deals with it. I’m not sure
+if that’s complicating things, though.
+
+Now this is the bit I’m kinda stuck at. How do I best create this model, using
+tools that are going to allow me to build:
+
+* Some way of exploring the model, and reading the metadata about each node and
+  edge, perhaps searching for nodes with a particular tag or category, or edges
+  with a particular type of data flowing through them. Just being able to click
+  through each of the apps to discover how they connect would be a great start.
+
+* I’d really like a visual representation of them all, too. I’m imagining a 3d
+  model of interwoven nodes sitting in space where I can trace particular bits
+  of data from hardware sensors, all the way through to the places it gets
+  stored.
+
+It strikes me that some sort of graph database ([Neo4J](http://neo4j.com/) is
+the only one I’ve heard of!) would be the ideal solution here. I’ve toyed with
+trying to model it in a relational database with a quick hack web front end
+(after all, [Ruby on Rails](http://rubyonrails.org/) is my hammer, so
+everything is a thumb, right?) but honestly, I’d rather not write code for this
+wee project. I’m wondering if some sort of hosted Wiki would do the trick. It
+would certainly address the first point, in that I can represent the nodes with
+pages, and the edges with links. On the downside, that doesn’t really allow me
+to attach much metadata to the edges — just stick them under category headings
+(e.g. “Here’s a list of the services that Trello can send data to”) on the
+node’s page — which would make it trickier to then scrape it into some other
+form.
+
+I could probably draw something up in
+[OmniGraffle](https://www.omnigroup.com/omnigraffle) to represent the overall
+model. But my graphical design skills are sorely lacking, so I suspect I’d just
+wind up with an ugly, tangled mess. Given the level of interconnectedness I’m
+expecting to see, I don’t think representing it on a 2D plane is going to work
+at all well anyway, and I haven’t a clue where to start with 3D tools.
+
+If you had this problem, how would you solve it? What sort of tool(s) would you
+use? How would you explore the data, and how would you visualise it? (Has
+anybody else already done this, and saved me the trouble?)
