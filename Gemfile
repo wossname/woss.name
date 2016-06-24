@@ -31,3 +31,7 @@ gem 'therubyracer'
 gem 'middleman-cloudfront', github: 'andrusha/middleman-cloudfront'
 gem 'middleman-s3_sync'
 gem 'mime-types'
+
+group :development do
+  gem 'pry'
+end
