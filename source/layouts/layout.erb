@@ -8,7 +8,12 @@
     <%= stylesheet_link_tag :all %>
   </head>
 
-  <body class="<%= page_classes %>">
+  <% if current_page.data.contents %>
+    <body class="<%= page_classes %>" data-spy="scroll" data-target="#sidebar-contents">
+  <% else %>
+    <body class="<%= page_classes %>">
+  <% end %>
+
     <%= partial 'google_tag_manager' %>
 
     <% navbar_link_to 'Home', '/index.html' %>
