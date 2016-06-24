@@ -2,7 +2,7 @@
 
 <meta property="og:title" content="<%= title_meta %>">
 <meta property="og:description" content="<%= description_meta %>">
-<meta property="og:updated_time" content="<%= xml_timestamp(updated_at_meta) %>">
+<meta property="og:updated_time" content="<%= xml_timestamp(updated_on_meta) %>">
 <meta property="og:url" content="<%= url_meta %>">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="<%= config[:title] %>">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="article">
 <meta property="article:author" content="<%= config[:url] %>">
 <meta property="article:section" content="<%= category_meta %>">
-<meta property="article:published_time" content="<%= xml_timestamp(published_at_meta) %>">
-<meta property="article:modified_time" content="<%= xml_timestamp(updated_at_meta) %>">
+<meta property="article:published_time" content="<%= xml_timestamp(published_on_meta) %>">
+<meta property="article:modified_time" content="<%= xml_timestamp(updated_on_meta) %>">
 
 <% tags_meta.each do |tag| %>
   <meta property="article:tag" content="<%= tag %>">
