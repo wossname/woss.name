@@ -1,6 +1,5 @@
 # Defaults for the site.
 config[:domain]                = 'woss.name'
-config[:url]                   = "https://#{config[:domain]}"
 config[:default_email_address] = "hello@#{config[:domain]}"
 config[:default_utm_source]    = config[:domain]
 config[:default_utm_medium]    = 'website'
@@ -61,11 +60,15 @@ ignore 'stylesheets/all'
 configure :development do
   # Reload the browser automatically whenever files change.
   activate :livereload
+
+  config[:url] = "http://localhost:5000"
 end
 
 # Build-specific configuration
 configure :build do
   activate :minify_html
+
+  config[:url] = "https://#{config[:domain]}"
 end
 
 activate :s3_sync do |s3|
