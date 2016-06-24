@@ -1,0 +1,32 @@
+---
+title: Search results
+---
+<section id="search" class="block">
+  <div class="container">
+    <h1 class="block-title text-center">
+      Search Results
+    </h1>
+
+    <p class="lead text-justify">
+      The search results are provided by Google's Custom Search Engine. I don't
+      have much control over the look and feel (at least not without a whole
+      lot more work!) so they look a bit naff, but they work. It should be
+      returning results from across the whole Wossname Industries family of web
+      sites.
+    </p>
+
+    <form action="/search" method="get" id="search-form">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="input-group input-group-sm">
+          <label class="sr-only" for="search">Search Wossname Industries' Projects</label>
+          <input type="search" id="q" name="q" class="form-control" placeholder="Search for&hellip;">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary">Go!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <gcse:searchresults-only></gcse:searchresults-only>
+  </div>
+</section>
