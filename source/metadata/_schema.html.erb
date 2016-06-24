@@ -3,7 +3,7 @@
     "@context": "http://schema.org",
     "@type": "Organization",
     "url": "<%= config[:url] %>",
-    "logo": "<%= config[:url] %>/<%= image_path config[:logo] %>",
+    "logo": "<%= config[:url] %><%= asset_path :images, config[:logo], relative: false %>",
     "contactPoint" : [
       {
         "@type" : "ContactPoint",
@@ -15,6 +15,18 @@
     "sameAs" : [
       <%= config[:related].map { |_, url| "\"#{url}\"" }.join(",\n") %>
     ]
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPost",
+    "@id": "<%= canonical_url_meta %>",
+    "url": "<%= canonical_url_meta %>",
+    "headline": "<%= title_meta %>",
+    "description": "<%= description_meta %>",
+    "articleSection": "<%= category_meta %>"
   }
 </script>
 
