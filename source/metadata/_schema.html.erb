@@ -40,17 +40,3 @@
     }
   }
 </script>
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "@id": "<%= canonical_url_meta %>",
-    "url": "<%= canonical_url_meta %>",
-    "mainEntityOfPage": "<%= canonical_url_meta %>",
-    "headline": "<%= title_meta %>",
-    "description": "<%= description_meta %>",
-    "articleSection": "<%= category_meta %>",
-    "image": "<%= image_path current_page.data.image || config[:logo] %>"
-  }
-</script>
