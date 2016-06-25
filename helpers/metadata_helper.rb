@@ -19,6 +19,15 @@ module MetadataHelper
     "/categories/#{parameterize(category)}/index.html"
   end
 
+  def description_for_category(name)
+    slug, category = data.categories.find { |_, category| category[:name] == name }
+    if category
+      category[:description]
+    else
+      ''
+    end
+  end
+
   def tags_meta
     (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end

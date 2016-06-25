@@ -42,7 +42,10 @@ config[:related]        = {
   page "/*.#{extension}", layout: false
 end
 page "/articles/*.html", layout: :article
-page "/articles.html", layout: :collection
+
+page "/articles.html",   layout: :collection
+page "/categories.html", layout: :collection
+page "/tags.html",       layout: :collection
 
 # Generate pages for each category.
 data.categories.each do |slug, category|

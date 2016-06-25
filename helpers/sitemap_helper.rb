@@ -5,6 +5,14 @@ module SitemapHelper
     sitemap.resources.select { |resource| resource.path =~ /^articles\// }.sort { |a, b| b.data[order] <=> a.data[order] }
   end
 
+  def all_categories
+    sitemap.resources.map { |resource| resource.data[:category] }.compact.sort.uniq
+  end
+
+  def all_tags
+    sitemap.resources.map { |resource| resource.data[:tags] }.compact.flatten.sort { |a, b| a.downcase <=> b.downcase }.uniq
+  end
+
   def articles_for_category(category, options = {})
     order = (options.delete(:order) || :published_on).to_s
 
