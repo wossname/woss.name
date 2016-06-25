@@ -19,6 +19,15 @@ tags:
   - Markdown
   - macOS
   - iOS
+
+contents:
+  - About Day One
+  - Morning pages
+  - Using pen and paper
+  - Using Evernote
+  - Status updates
+  - Feature requests
+  - Download them today
 ---
 I’ve been using Day One ([Day One 2.0 for Mac][1] and [Day One 2.0 for iOS][2])
 for a few years now, I think. In fact, I’ve just had a wee look, and the first
@@ -78,6 +87,8 @@ going to be that I can share certain journals with other people!) It’s perhaps
 worth talking about the two distinct purposes I have for journalling in Day
 One: morning pages, and keeping track of what I’ve been doing.
 
+## Morning Pages
+
 I can’t remember who introduced me to the idea of Morning Pages, but it’s a
 habit I’ve been more-or-less sticking to for several years now. I gather that
 it’s described in [The Artist’s Way][5] but I confess that I haven’t read it!
@@ -101,21 +112,67 @@ slow-brain day!
 [6]: http://750words.com/
 [5]: http://www.amazon.co.uk/gp/product/0330343580/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=0330343580&linkCode=as2&tag=wossname-21
 
+### Using Pen and Paper
+
 In the past, I’ve used other tools for my morning pages. For a long while, I
 was using pen and paper. I do rather like the pace of hand writing words. I’m
 slowed down enough by the pen that I can think more deeply than I tend to when
 I rattle characters off on the keyboard. I’ve a thing for stationery, too. I
-love [Pilot G-Tec C4][7] pens which have a really thin — 0.4mm! — point. They
-suit my — fairly dense, small — handwriting. When I’m in a more colourful mood,
-I adore the [Staedtler fineliners][8]. And I’m a fan of Moleskine notebooks, in
-particular, the [cahier jotters][9]. But handwriting has its downsides, too,
-mostly in terms of recall. It’s not always easy to discover things I’ve written
-about before when I want to find them again. (In fact, I’ve got a stack of
-notebooks that I’d like to have typed up, if anyone fancies a wee job!)
+love Pilot G-Tec C4 pens which have a really thin — 0.4mm! — point:
 
-[9]: http://www.amazon.co.uk/gp/product/8862931018/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=8862931018&linkCode=as2&tag=wossname-21
-[8]: ttp://www.amazon.co.uk/gp/product/B000SHSN04/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHSN04&linkCode=as2&tag=wossname-21
-[7]: http://www.amazon.co.uk/gp/product/B000SHVZYK/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHVZYK&linkCode=as2&tag=wossname-21
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    New bio-polymer gel ink gives consistent inkflow. Ultrafine writing with no
+    ink spread. Suitable for fax and NCR paper. Line width: 0.2mm.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/B000SHVZYK/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHVZYK&linkCode=as2&tag=wossname-21">
+      Pilot G-Tec C4 Gel Microtip Rollerball 0.4 mm
+    </a>
+  </cite>
+</blockquote>
+
+They suit my — fairly dense, small — handwriting. When I’m in a more colourful mood,
+I adore the Staedtler fineliners:
+
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    Staedtler-Triplus Fineliner Pens: Multi. This water-based ink is in an
+    ergonomic triangular shape pen for relaxed and easy writing. These pens can
+    be left uncapped for days without drying up. This package contains ten pens
+    with 0.3mm tips in assorted colors.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/B000SHSN04/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHSN04&linkCode=as2&tag=wossname-21">
+      Staedtler Triplus Fineliner Pens
+    </a>
+  </cite>
+</blockquote>
+
+And I’m a fan of Moleskine notebooks, in particular, the cahier jotters:
+
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    Moleskine Notebooks, the journals that evolved from a legendary notebook.
+    This version of the basic, yet classic ruled journal notebook is a stylish
+    travel companion, perfect for writings, thoughts and passing notes.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/8862931018/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=8862931018&linkCode=as2&tag=wossname-21">
+      Moleskine Ruled Cahier L - Red Cover
+    </a>
+  </cite>
+</blockquote>
+
+But handwriting has its downsides, too, mostly in terms of recall. It’s not
+always easy to discover things I’ve written about before when I want to find
+them again. (In fact, I’ve got a stack of notebooks that I’d like to have typed
+up, if anyone fancies a wee job!)
+
+### Using Evernote
 
 I’ve also used [Evernote][10] for journalling. It’s not bad. It didn’t support
 Markdown, which didn’t stop me writing that way, it just meant that my notes
@@ -131,6 +188,8 @@ relationships between bits of content in each silo, but I’ll live with that
 for now.
 
 [10]: http://www.evernote.com/
+
+## Status Updates
 
 The other thing I use Day One for regularly is to keep track of what I’m up to
 right now. I’m not always good at keeping notes as I do things, and I’m
@@ -156,6 +215,8 @@ paste a complex command line, or some subtle SQL I’ve been hand crafting, just
 in case it comes in handy again in future. It beats grepping my zsh history to
 find it again!
 
+## Feature Requests
+
 So how’s the future looking for me and Day One? It’s pretty rosy. Put it this
 way, the new version was a paid upgrade (£18 for the pair of them) and it was
 an instabuy this morning, as soon as I saw the tweet that it had been released.
@@ -167,7 +228,7 @@ up an API to third party tools, so I can post journal entries from other apps,
 and have other (web) apps consume the entries I create here. (In the past, I’ve
 mucked around with [IFTTT][12], [Dropbox][13], and a command line tool to get
 entries into Day One as a result of events happening on other web apps, but it
-was a bit … flaky.)
+was a bit… flaky.)
 
 [13]: https://db.tt/Ys3ijmdX
 [12]: http://ifttt.com/
@@ -186,6 +247,8 @@ insight into how you were thinking or feeling, based on the content of what
 you’d written. I guess that’s pretty specific to my use case, so I’m not sure
 it would suit the core Day One apps. But if there’s a third party API to read
 journals, then somebody else could implement it, right? 😀
+
+# Download them today
 
 All in all, I’m very happy with Day One, and I’ll be continuing to use it to
 capture my daily ramblings for the foreseeable future. The next trick is to try
