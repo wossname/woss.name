@@ -30,7 +30,11 @@ paths =
     path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'less')
     path.join(__dirname, 'bower_components', 'bigfoot', 'dist')
   ]
+  additionalSourceMaps: [
+    path.join(__dirname, 'bower_components', 'bigfoot', 'dist', 'bigfoot-number.css.map')
+  ]
   dist:
+    sourcemaps:  path.join(__dirname, 'dist', 'maps')
     stylesheets: path.join(__dirname, 'dist', 'stylesheets')
     javascripts: path.join(__dirname, 'dist', 'javascripts')
     fonts:       path.join(__dirname, 'dist', 'fonts')
@@ -41,7 +45,7 @@ gulp.task 'install', ->
   bower()
 
 [ 'development', 'production' ].map (environment) ->
-  gulp.task "build:#{environment}", [ "build:stylesheets:#{environment}", "build:javascripts:#{environment}", "build:fonts" ]
+  gulp.task "build:#{environment}", [ "build:stylesheets:#{environment}", "build:javascripts:#{environment}", "build:fonts", "build:sourcemaps" ]
 
 gulp.task 'build:stylesheets:development', ->
   gulp.src(paths.less)
@@ -84,6 +88,10 @@ gulp.task 'build:javascripts:production', ->
     ))
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.javascripts))
+
+gulp.task 'build:sourcemaps', ->
+  gulp.src(paths.additionalSourceMaps)
+    .pipe(gulp.dest(paths.dist.sourcemaps))
 
 gulp.task 'build:fonts', ->
   gulp.src(paths.fonts)
