@@ -5,4 +5,8 @@
 <meta name="twitter:creator" content="@<%= config[:twitter_creator] %>">
 <meta name="twitter:domain" content="<%= config[:domain] %>">
 
-<meta name="twitter:image:src" content="<%= config[:gravatar] %>">
+<% if (image = (current_page.data[:image] || {})[:square]) %>
+  <meta name="twitter:image:src" content="<%= image_path(image) %>">
+<% else %>
+  <meta name="twitter:image:src" content="<%= config[:gravatar] %>">
+<% end %>

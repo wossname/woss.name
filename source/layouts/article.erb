@@ -3,15 +3,23 @@
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
     <div class="container">
-      <hgroup class="block p-y-md">
-        <h1 class="block-title" itemprop="name headline">
-          <%= current_page.data.title %>
-        </h1>
+      <hgroup class="block p-b-0 m-b-md" id="article-title">
+        <div class="block-foreground p-t-lg m-t-lg">
+          <h1 class="block-title" itemprop="name headline">
+            <%= current_page.data.title %>
+          </h1>
 
-        <% if subtitle = current_page.data.subtitle %>
-          <p class="text-muted h4">
-            <%= subtitle %>
-          </p>
+          <% if subtitle = current_page.data.subtitle %>
+            <p class="text-muted h4">
+              <%= subtitle %>
+            </p>
+          <% end %>
+        </div>
+
+        <% if current_page.data[:image] %>
+          <div class="block-background">
+            <%= image_tag current_page.data[:image][:cover], class: 'img-responsive img-rounded center-block' %>
+          </div>
         <% end %>
       </hgroup>
 
@@ -43,7 +51,7 @@
         </div>
 
         <div class="col-lg-4">
-          <div id="sidebar" class="text-right hidden-print hidden-xs hidden-sm hidden-md" data-spy="affix" data-offset-top="250">
+          <div id="sidebar" class="text-right hidden-print hidden-xs hidden-sm hidden-md" data-spy="affix" data-offset-top="470">
             <div class="panel">
               <hgroup class="panel-heading">
                 <h3 class="panel-title">

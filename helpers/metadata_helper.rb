@@ -65,6 +65,37 @@ module MetadataHelper
     end
   end
 
+  def open_graph_image_tags(image)
+    width, height = dimensions_for_image(image)
+
+    tags = [
+      meta_tag(property: 'og:image', content: image_path(image)),
+      meta_tag(property: 'og:image:type', content: 'image/png')
+    ]
+
+    tags << meta_tag(property: 'og:image:width', content: width) if width
+    tags << meta_tag(property: 'og:image:height', content: height) if height
+
+    tags.join("\n")
+  end
+
+  def meta_tag(options = {})
+    tag :meta, options
+  end
+
+  def dimensions_for_image(path)
+    path = File.join(config[:images_dir], path) unless path.start_with?('/')
+    file = app.files.find(:source, path) || app.files.find(:source, path.sub(/^\//, ''))
+    full_path = file[:full_path].to_s
+
+    ::FastImage.size(full_path, raise_on_failure: true)
+  rescue FastImage::UnknownImageType
+    []
+  rescue
+    warn "Couldn't determine dimensions for image #{path}: #{$ERROR_INFO.message}"
+    []
+  end
+
   def strip_whitespace(str)
     if str.blank?
       ''
