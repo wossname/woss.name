@@ -16,10 +16,15 @@
           <% end %>
         </div>
 
-        <% if current_page.data[:image] %>
+        <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
           <figure class="block-background" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-            <%= image_tag current_page.data[:image][:cover], class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
+            <%= image_tag cover, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
             <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
+
+            <% if (dimensions = dimensions_for_image(cover)) %>
+              <meta itemprop="width" content="<%= dimensions[0] %>">
+              <meta itemprop="height" content="<%= dimensions[1] %>">
+            <% end %>
           </figure>
         <% end %>
       </hgroup>
