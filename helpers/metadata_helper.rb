@@ -16,7 +16,7 @@ module MetadataHelper
   end
 
   def category_path(category)
-    "/categories/#{parameterize(category)}.html"
+    "/categories/#{parameterize(category)}/index.html"
   end
 
   def tags_meta
@@ -28,7 +28,7 @@ module MetadataHelper
   end
 
   def tag_path(tag)
-    "/tags/#{parameterize(tag)}.html"
+    "/tags/#{parameterize(tag)}/index.html"
   end
 
   def published_on_meta

@@ -1,0 +1,20 @@
+quantified-self:
+  name: Quantified Self
+  description: |
+    I have a real interest in collecting data, about ourselves, and our
+    environment, in order to better understand the context in which we operate.
+    I think that collecting data, and analysing it, gives us some real insights
+    into our behaviour. It allows us to experiment with making changes, and
+    objectively observing how those changes affect us. These articles explore
+    that whole topic in various ways.
+writing:
+  name: Writing
+  description: |
+    Sometimes I just like to write. These articles tend towards that sort of a
+    thing.
+business:
+  name: Business
+  description: |
+    These articles are focused around running a small, (hopefully!) sustainable
+    business, namely Wossname Industries.
+

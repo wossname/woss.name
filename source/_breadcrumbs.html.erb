@@ -12,6 +12,10 @@
     <% if current_page.path =~ /^articles\//%>
       <%= partial 'breadcrumb', locals: { title: 'Articles', url: '/articles.html', position: (position += 1) } %>
       <%= partial 'breadcrumb', locals: { title: current_page.data.category, url: category_path(current_page.data.category), position: (position += 1) } %>
+    <% elsif current_page.path =~ /^categories\//%>
+      <%= partial 'breadcrumb', locals: { title: 'Categories', url: '/categories.html', position: (position += 1) } %>
+    <% elsif current_page.path =~ /^tags\//%>
+      <%= partial 'breadcrumb', locals: { title: 'Tags', url: '/tags.html', position: (position += 1) } %>
     <% end %>
 
     <% if current_page.url != '/' %>
