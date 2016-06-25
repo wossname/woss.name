@@ -1,0 +1,260 @@
+---
+title: Journalling with Day One 2.0
+description: |
+  I’ve been using Day One for a few years now. Since version 2.0 has just been
+  released, I thought I’d explain how I use it for journalling.
+
+published_on: 2016-02-04
+canonical_source:
+  name: Medium
+  url: https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f
+
+category: Writing
+tags:
+  - Day One
+  - Writing
+  - Journalling
+  - Productivity
+  - Apple
+  - Markdown
+  - macOS
+  - iOS
+
+contents:
+  - About Day One
+  - Morning pages
+  - Using pen and paper
+  - Using Evernote
+  - Status updates
+  - Feature requests
+  - Download them today
+---
+I’ve been using Day One ([Day One 2.0 for Mac][1] and [Day One 2.0 for iOS][2])
+for a few years now, I think. In fact, I’ve just had a wee look, and the first
+entry that doesn’t look like it was imported from elsewhere is just over four
+years old. In the time that I’ve used it, I’ve amassed 2,848 entries, though
+some of them have been imported from previous journalling experiments. I
+thought, since version 2.0 was released today, I’d try writing my first entry
+in it by explaining how I use Day One, what other tools I’ve tried in the
+past, and maybe even mention a couple of features I’m hoping will come to it
+some day!
+
+[2]: https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website
+[1]: https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website
+
+I think things through by writing them down. Some people think by
+talking — thinking out loud — but I like to have a clear idea of what I’m going
+to say before I say it. I find it easiest to do so by writing them out. It
+works for thoughts that I’m not trying to communicate with other people, too. I
+find that I can understand my own thinking and, to an extent, my feelings, just
+by committing them to paper. For the most part, I could then just throw away
+the bit of paper — it has served its purpose — but I’m a hoarder, and I’m
+loathed to throw things away, particularly when they can be cheaply encoded as
+bits and live in the cloud!
+
+Enter Day One. It’s a journalling application for the Mac, and for iOS (it’s
+universal, so it works great on the iPhone and the iPad, including the new iPad
+Pro with the latest version!). Entries are timestamped, and you can navigate to
+old entries through a calendar. You can tag entries, and later search for
+entries with particular tags. (I have to confess I’m not terribly good at
+tagging things. It’s difficult to predict how you’ll want to find something
+ahead of time. I’d rather just rely on good full-text search.) It also captures
+other contextual data around the time you create the post, including your
+location, your current activity (which is more relevant if you’re walking
+around with your iPhone), and the current weather conditions. I have a real
+interest in capturing contextual information around the time that you’re
+writing, so I’m keen to see what can be done with this metadata!
+
+It has full Markdown support (including footnotes, which makes me very happy,
+though sadly Medium doesn’t let me replicate them here!) which I consider to be
+essential. I write in Markdown even in apps that don’t support it, going back
+later on and mucking around with formatting if I need to. It means I can focus
+on what I’m writing, instead of worrying about how it looks. The human brain
+isn’t really designed to consider both of these endeavours at the same time!
+We’ve been able to add a single image to an entry for a while now (though I
+rarely use the feature), but version 2.0 has brought the ability to add
+multiple images. Perhaps that’ll be a useful workflow for keeping track of what
+I’m up to when I’m out and about (instead of just sharing all the photos on
+[Instagram][3]!), or maybe I can use it as a way of selecting images to go
+along with a draft post destined for [Medium][4].
+
+[4]: https://blog.woss.name/
+[3]: https://instagram.com/mathie
+
+The major new feature with 2.0, though, is that I can now have multiple
+journals. (I’m quietly hoping that the major new feature in version 2.1 is
+going to be that I can share certain journals with other people!) It’s perhaps
+worth talking about the two distinct purposes I have for journalling in Day
+One: morning pages, and keeping track of what I’ve been doing.
+
+## Morning Pages
+
+I can’t remember who introduced me to the idea of Morning Pages, but it’s a
+habit I’ve been more-or-less sticking to for several years now. I gather that
+it’s described in [The Artist’s Way][5] but I confess that I haven’t read it!
+The idea (to me) is pretty simple. First thing in the morning, as soon as you
+get out of bed — after you’ve made a coffee, of course; there are greater
+priorities in life than writing! — you sit down and write about whatever’s in
+your head. The goal is to write about 3 sheets of A4 paper, which is long
+enough to tease out the things that are really bothering you, but short enough
+that it can be completed in the time it takes to drink your first coffee of the
+day. Before discovering Day One, I’d been using a web app for this purpose,
+called [750 Words][6]. I’m happy with his reasoning that 3 pages is about equal
+to 750 words, so that’s what I aim for each day, though I don’t give myself a
+hard time if I stray too far from the target any longer. That’s another welcome
+feature in version 2.0 of the Mac app which has been in the iOS version for a
+while: it now displays a word count in the metadata bar at the bottom.
+Previously I had to save the entry, then look at its info menu to see the
+number of words I’d written that morning. Cue several rounds of hitting
+‘Done’, checking my word count, then feeling obliged to edit & add more on a
+slow-brain day!
+
+[6]: http://750words.com/
+[5]: http://www.amazon.co.uk/gp/product/0330343580/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=0330343580&linkCode=as2&tag=wossname-21
+
+### Using Pen and Paper
+
+In the past, I’ve used other tools for my morning pages. For a long while, I
+was using pen and paper. I do rather like the pace of hand writing words. I’m
+slowed down enough by the pen that I can think more deeply than I tend to when
+I rattle characters off on the keyboard. I’ve a thing for stationery, too. I
+love Pilot G-Tec C4 pens which have a really thin — 0.4mm! — point:
+
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    New bio-polymer gel ink gives consistent inkflow. Ultrafine writing with no
+    ink spread. Suitable for fax and NCR paper. Line width: 0.2mm.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/B000SHVZYK/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHVZYK&linkCode=as2&tag=wossname-21">
+      Pilot G-Tec C4 Gel Microtip Rollerball 0.4 mm
+    </a>
+  </cite>
+</blockquote>
+
+They suit my — fairly dense, small — handwriting. When I’m in a more colourful mood,
+I adore the Staedtler fineliners:
+
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    Staedtler-Triplus Fineliner Pens: Multi. This water-based ink is in an
+    ergonomic triangular shape pen for relaxed and easy writing. These pens can
+    be left uncapped for days without drying up. This package contains ten pens
+    with 0.3mm tips in assorted colors.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/B000SHSN04/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=B000SHSN04&linkCode=as2&tag=wossname-21">
+      Staedtler Triplus Fineliner Pens
+    </a>
+  </cite>
+</blockquote>
+
+And I’m a fan of Moleskine notebooks, in particular, the cahier jotters:
+
+<blockquote class="embedly-card" data-card-key="1643b974f9ba429ca3bbfb1fbd462fc3" data-card-controls="0">
+  <p>
+    Moleskine Notebooks, the journals that evolved from a legendary notebook.
+    This version of the basic, yet classic ruled journal notebook is a stylish
+    travel companion, perfect for writings, thoughts and passing notes.
+  </p>
+
+  <cite>
+    <a href="http://www.amazon.co.uk/gp/product/8862931018/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=8862931018&linkCode=as2&tag=wossname-21">
+      Moleskine Ruled Cahier L - Red Cover
+    </a>
+  </cite>
+</blockquote>
+
+But handwriting has its downsides, too, mostly in terms of recall. It’s not
+always easy to discover things I’ve written about before when I want to find
+them again. (In fact, I’ve got a stack of notebooks that I’d like to have typed
+up, if anyone fancies a wee job!)
+
+### Using Evernote
+
+I’ve also used [Evernote][10] for journalling. It’s not bad. It didn’t support
+Markdown, which didn’t stop me writing that way, it just meant that my notes
+weren’t as well formatted as they could have been. I’ve found it to be a pain
+to get notes out of Evernote en masse, too. But the biggest thing that bothered
+me about using it for my own writing is that I like using it as a filing system
+for other people’s material. I dump all the bits of paper I get (bank
+statements, utility bills, company correspondence, letters from my doctor,
+etc) into there, and I don’t really like mixing the stuff that originated in
+my head with the stuff that comes from other people. I like keeping them in
+separate silos. I’m sure I’m missing a trick around intelligently finding
+relationships between bits of content in each silo, but I’ll live with that
+for now.
+
+[10]: http://www.evernote.com/
+
+## Status Updates
+
+The other thing I use Day One for regularly is to keep track of what I’m up to
+right now. I’m not always good at keeping notes as I do things, and I’m
+terrible at remembering specifically what I’ve accomplished during the day when
+I come to note down my achievements in [iDoneThis][11]. (You know when you ask
+a six year old, “So, what did you do in school today?” and they universally
+answer, “I can’t remember!”? Well I never grew out of that.) Day One has this
+delightful feature called reminders. On the Mac, you can have it pop up an
+alert at certain intervals during the day, where it’ll allow you to dash down a
+quick entry straight from the menu bar, then get back on with what you were
+doing. I’ve got it set up to prompt me for an entry every hour of the working
+day. When it pops up, I note down what I’ve been up to over the past hour, save
+it, then carry on. It’s a great way to have a short checkpoint, to reflect on
+what you’ve been up to, make sure you’re not getting sidetracked, and to note
+down the things that you’ll inevitably forget in a few hours.
+
+[11]: http://www.idonethis.com/
+
+All sorts of content winds up in there from these entries. Sometimes it’ll just
+be a few words on what I’ve been doing. Other times, it’ll turn into a longer
+brain dump when I’ve been researching something. Quite often, I’ll copy and
+paste a complex command line, or some subtle SQL I’ve been hand crafting, just
+in case it comes in handy again in future. It beats grepping my zsh history to
+find it again!
+
+## Feature Requests
+
+So how’s the future looking for me and Day One? It’s pretty rosy. Put it this
+way, the new version was a paid upgrade (£18 for the pair of them) and it was
+an instabuy this morning, as soon as I saw the tweet that it had been released.
+It’s an app that’s a core part of my daily life, and I’m delighted to be able
+to support further development by buying the new version. I’m quite excited by
+what the future might bring, too, particularly with multiple journals and the
+app having its own synchronisation service. I’m really hoping that they’ll open
+up an API to third party tools, so I can post journal entries from other apps,
+and have other (web) apps consume the entries I create here. (In the past, I’ve
+mucked around with [IFTTT][12], [Dropbox][13], and a command line tool to get
+entries into Day One as a result of events happening on other web apps, but it
+was a bit… flaky.)
+
+[13]: https://db.tt/Ys3ijmdX
+[12]: http://ifttt.com/
+
+I’d love for the text search to become more intelligent. Right now, it will
+search based on words, and it’ll return all entries that contain the matching
+word(s), ordered by recency. I want a proper search engine for my 2,848
+entries — something that’ll rank the results, and allow me to construct more
+complex searches. Saved searches would be handy, too. Another thing a ‘proper’
+search engine would enable is automatically surfacing related content using
+some sort of semantic analysis. This would allow me to discover old entries
+that are related to what I’m currently writing.
+
+I did really like 750 Words’ semantic analysis, where it would give you some
+insight into how you were thinking or feeling, based on the content of what
+you’d written. I guess that’s pretty specific to my use case, so I’m not sure
+it would suit the core Day One apps. But if there’s a third party API to read
+journals, then somebody else could implement it, right? 😀
+
+# Download them today
+
+All in all, I’m very happy with Day One, and I’ll be continuing to use it to
+capture my daily ramblings for the foreseeable future. The next trick is to try
+and get me to share more of those ramblings, instead of talking into the echo
+chamber! How about you give [Day One for iOS][14] and its companion [Day One
+for Mac][15] a shot today? I’d love to hear how you get along with it!
+
+[15]: https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website
+[14]: https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website

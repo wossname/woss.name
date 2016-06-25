@@ -1,0 +1,68 @@
+---
+title: The Happiness Manifesto
+description: |
+  I make a first attempt at defining a company manifesto for Wossname
+  Industries, around experimentation, measurement, and happiness.
+
+published_on: 2016-01-20
+canonical_source:
+  name: Medium
+  url: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af
+
+category: Business
+tags:
+  - Startup
+  - Manifesto
+  - Happiness
+  - Mental Health
+  - Measurement
+  - Business
+---
+I’m working my way through the
+[Happy Startup School](http://www.thehappystartupschool.com/)’s online course
+on building the sort of company that you wouldn’t want to sell. Today’s task is
+to figure out a manifesto for the business that defines the underlying
+principles through which it operates. I’ve already written a little about the
+company’s [overall mission][1]: to measurably improve the long term happiness
+of both individuals and organisations. The intent here is to take the ideas
+from that mission and flesh out a little more detail.
+
+I believe that **happiness is a journey, not a destination**. We don’t achieve
+an end goal of “being happy” but we can make a number of changes throughout our
+lives in order to improve our mental wellness over time. I also believe that
+**everyone can improve their long term happiness** — no matter their
+background, personal circumstances, environment or current level of happiness.
+There’s always something to improve on.
+
+I have a background in software development and operations. I’m a firm believer
+in the idea that **you can’t improve what you don’t measure**. From a software
+development perspective, we measure the performance of a piece of code before
+we try to improve it. In operations, we tend to measure the throughput of
+systems to see what effect changes have. In business, we have
+[key performance indicators](https://en.wikipedia.org/wiki/Performance_indicator)
+that allow us to measure the health of the business. I reckon that **we can
+measure happiness**  perhaps not in absolute terms, but at least the change in
+happiness over time — and other metrics that impact on mental wellness.
+
+I believe that the way to improve something is to **conduct experiments**.
+There is **no one-size-fits-all way** to improve your happiness. A lot of it
+depends on your personal circumstances, and your current mental state (there’s
+not a lot of point in mucking around with
+[Maslow’s self-actualisation](https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs#Self-actualization)
+if your [physiological needs](https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs#Physiological_needs)
+are not yet being met). But if we have a framework through which you can
+conduct experiments to improve your mental health, then you can try things out,
+see the results, and use that information to **make informed changes** that
+will improve your happiness.
+
+(You can see where this is going, right? I want to build [Graphite][3] and
+[Nagios][4] — but for humans — with a set of tools on top that will allow you
+to perform experiments on yourself. I’m tempted to suggest that there’s an
+opportunity around building a generic framework for performing experiments on
+anything you can measure, but I’ll save that thought for a future pivot!)
+
+[1]: https://woss.name/articles/the-happiness-mission
+[4]: https://www.nagios.org/
+[3]: http://graphite.wikidot.com/
+
+What do you reckon?
