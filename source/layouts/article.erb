@@ -22,16 +22,20 @@
           <hr>
 
           <p class="text-muted">
-            <% if (canonical_source = current_page.data.canonical_source) %>
-              This article was originally published on <%= canonical_source[:name] %>:
-              <%= link_to current_page.data.title, canonical_source[:url] %>.
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
+              <%= current_page.data.title %>
+            </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>
+            is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-              <% if (alternates = current_page.data.alternates) %>
-                It has also appeared on
-                <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
-              <% end %>
-            <% elsif (alternates = current_page.data.alternates) %>
-              This article has also appeared on
+            <% if (canonical_source = current_page.data.canonical_source) %>
+              It was originally published on <%= canonical_source[:name] %>:
+              <%= link_to current_page.data.title, canonical_source[:url] %>.
+            <% end %>
+
+            <% if (alternates = current_page.data.alternates) %>
+              It has also appeared on
               <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
             <% end %>
           </p>
@@ -156,6 +160,16 @@
                       <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
                     </td>
                   </tr>
+
+                  <tr>
+                    <th scope="row">
+                      License
+                    </th>
+                    <td>
+                      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International Licence">
+                        <%= image_tag 'creative-commons-by-sa-4.0.png', alt: 'Creative Commons Licence' %>
+                      </a>
+                    </td>
                 </tbody>
               </table>
             </div>
