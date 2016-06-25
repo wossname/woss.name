@@ -17,9 +17,10 @@
         </div>
 
         <% if current_page.data[:image] %>
-          <div class="block-background">
-            <%= image_tag current_page.data[:image][:cover], class: 'img-responsive img-rounded center-block' %>
-          </div>
+          <figure class="block-background" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+            <%= image_tag current_page.data[:image][:cover], class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
+            <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
+          </figure>
         <% end %>
       </hgroup>
 
