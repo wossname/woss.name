@@ -4,7 +4,7 @@
     "@type": "Organization",
     "url": "<%= config[:url] %>",
     "email": "<%= config[:default_email_address] %>",
-    "logo": "<%= config[:url] %><%= asset_path :images, config[:logo], relative: false %>",
+    "logo": "<%= config[:url] %><%= image_path config[:logo] %>",
     "contactPoint" : [
       {
         "@type" : "ContactPoint",
