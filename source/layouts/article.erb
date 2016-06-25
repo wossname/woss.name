@@ -26,13 +26,13 @@
               This article was originally published on <%= canonical_source[:name] %>:
               <%= link_to current_page.data.title, canonical_source[:url] %>.
 
-              <% if (related = current_page.data.related) %>
+              <% if (alternates = current_page.data.alternates) %>
                 It has also appeared on
-                <%= related.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
+                <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
               <% end %>
-            <% elsif (related = current_page.data.related) %>
+            <% elsif (alternates = current_page.data.alternates) %>
               This article has also appeared on
-              <%= related.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
+              <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
             <% end %>
           </p>
 
@@ -107,14 +107,14 @@
                     </tr>
                   <% end %>
 
-                  <% if (related = current_page.data.related) %>
+                  <% if (alternates = current_page.data.alternates) %>
                     <tr>
                       <th scope="row">
                         Also appears on
                       </th>
 
                       <td>
-                        <% related.each do |source| %>
+                        <% alternates.each do |source| %>
                           <%= link_to source[:name], source[:url], target: '_blank' %> <br>
                         <% end %>
                       </td>

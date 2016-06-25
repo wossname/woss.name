@@ -23,6 +23,10 @@
   <link rel="me" href="<%= url %>">
 <% end %>
 
+<% alternate_urls_meta.each do |url| %>
+  <link rel="alternate" type="text/html" href="<%= url %>">
+<% end %>
+
 <%= partial 'metadata/facebook' %>
 <%= partial 'metadata/twitter' %>
 <%= partial 'metadata/schema' %>

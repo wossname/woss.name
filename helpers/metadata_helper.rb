@@ -49,10 +49,19 @@ module MetadataHelper
   end
 
   def canonical_url_meta
-    if (canonical_url = current_page.data.canonical_url)
+    if (canonical_source = current_page.data.canonical_source)
+      canonical_url = canonical_source[:url]
       canonical_url.start_with?('/') ? "#{config[:url]}#{canonical_url}" : canonical_url
     else
       "#{config[:url]}#{current_page.url}"
+    end
+  end
+
+  def alternate_urls_meta
+    if (alternates = current_page.data.alternates)
+      alternates.map { |source| source[:url] }
+    else
+      []
     end
   end
 
