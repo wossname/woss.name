@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/mathie
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://woss.name
+  * I am mathie (https://keybase.io/mathie) on keybase.
+  * I have a public key with fingerprint CF61 9DD5 6116 D3CD 4380  C1AE 8F7E 58DD 002D C29B
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.3"
+        },
+        "key": {
+            "fingerprint": "cf619dd56116d3cd4380c1ae8f7e58dd002dc29b",
+            "host": "keybase.io",
+            "key_id": "8F7E58DD002DC29B",
+            "uid": "172caaa4a852b2a5f63e4362288c4800",
+            "username": "mathie"
+        },
+        "merkle_root": {
+            "ctime": 1419078737,
+            "hash": "a8bb8bf8228b9d4d245e425c84ae0a5a3a4cf883c1ceb2a0a7e89781244ba10dd13c8595a28ad5a600f8392dc4dd6d3cd86ba364b48a6c710d3d55ac971be9cd",
+            "seqno": 113722
+        },
+        "service": {
+            "hostname": "woss.name",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1419078848,
+    "expire_in": 157680000,
+    "prev": "8bc7736527c9717ebf1789adb9472ebcb8740c58b2eb59edf70437e650f9dfac",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Comment: GPGTools - https://gpgtools.org
+
+owFVkn9MVWUYxy8/NMGJWIYoLOgaAgq38/t9Dww0BZNUkEyrIdzec857uAfvPfdy
+z4VkyGW60HSllItCkBoGEkgmkqJoQuFaMIHAWjVZg9JCR0ZMgY1m5zBa+d/74/N8
+3+/3ed7yRX6mQJ+j3leGTPFfVvn0jAqml96zdxSbBadUZE4oNot2BaseY6UiBzYn
+mHfjIgFp2KI4I1WnhC15WuQcE2cuxG5Ncao6RViAhTaXxBm4USwrai52u9yKoWUW
+ZY7kJYnlSJKTaFFiaEiIJMJQBpiFkkQQlCRSvKBL2pya55FXzbOaVkXST+FGkMrC
+lBSdT9lA8ev1u4LZCxJQIkKIQZClBAqxMkdjhuYoCkKRgQRhgBp2z0VyII9NwYZb
+B3bvtmOr2+mcjSx6FAMgGZInAAQ00P0gzaaXICgIUJChrijwEiNRDIsZihUhgzCB
+WEQjRpQhpEVSxLoBAgEMeQBJimEERBKSRNIiZHkWURBJLOIIQoY0r6dmJGm2JZAT
+EM0xAgMRJwK9gpZYFok8IAXMi5IeQMP5qlM3R9KAokqMvbtQEbHh22jaXLbXnZpm
+mV3HmV1up8cpOu36sc3jcWkJRmRPkWuWw4LVUPhEl7AKiirpA/v/REkdfbQdkIFx
+ZrzHpbixVTEIFnB6awnCeAgXGuMRRABojqWA4RtgQSYB5JEk8AygsCAKEDCEyEJB
+37A8lmRAMDTAHEvIvCQj8b+QjO4T5eqSmpKrIk+BW5/WId9wf5NPoGn+PF/jy5oC
+A4L//cebyoNNZ17bZ7t7MSfNXrorZu8dcKrmaNLCsNGB0cCe69ER+cODkf7JdVFX
+gV9/zy+/p451dz3Z1J8Vm5ldcezB/mvjP7QdiPxpqdfbNdHXuiOsumZiNGfRXfBr
+YnqMaruRlDz4xsaJ4aBTlfcmE+ZNVG/moxyxQdlcVLs/dUtt3pMZdjws6WFt86bt
+Z2f8Dyy2Wb0XPkg9W2ENq916emTa94m9ZaEbOsZXnv6R/EIrf7fyj4rvLMsOFocX
++rRUcSsXDuybrFZn1vGR9vxl5X+f9/30Zlt//TeHF69agEe2t6ZP3Q7e+dZUwdHf
+7tcHeA/8WTIUNeatXZHHxTyVVHclqW3tjrqBmHh58mL2xotrotsc3uThGvnO2mP1
+7TWfJ+6OuZv/V9Xh7uWeweDn8yqfDXCdu9Adfml1Wiy1Jf/SjYFzSxZ0nChN7s3t
+6G2/up8uzY34uOqzlu+3XSH6VvilL53qy5r3Zt0I/9yLBxuaQk/eSSuILXg7Uf1I
+DXhhaPr91t6X13yVFfQgfTwoo3KmMTy6yV4KGls6Hd8+7KKOp/dl7QpZnZG4/Ijj
+6yNLrJtjfS6vc18OiY8eBq6hVz9Mu/74+Z8PNZ1g0nuGLfNvX6g+g1NudQXlRPRy
+jTmZuzLGlEb3tW0dnRua761qOHl/OsQjPZ34TFToY7izIadM2/nOwZQHnmJ/daTm
+dnFf6s2yLVun/wE=
+=DRD5
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mathie
+
+==================================================================
