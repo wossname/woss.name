@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Journalling with Day One 2.0
 published_on: 2016-02-04
 

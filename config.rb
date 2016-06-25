@@ -41,6 +41,7 @@ config[:related]        = {
 [ :xml, :json, :txt ].each do |extension|
   page "/*.#{extension}", layout: false
 end
+page "/articles/*.html", layout: :article
 
 # General configuration
 activate :directory_indexes
