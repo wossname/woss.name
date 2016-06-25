@@ -56,7 +56,9 @@ activate :external_pipeline,
   source: 'dist/'
 
 set :markdown_engine, :redcarpet
-set :markdown, smartypants: true, with_toc_data: true
+set :markdown, smartypants: true, with_toc_data: true, footnotes: true,
+  superscript: true, fenced_code_blocks: true, tables: true,
+  no_intra_emphasis: true
 
 ignore 'stylesheets/all'
 

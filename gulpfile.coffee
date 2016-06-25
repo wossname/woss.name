@@ -20,12 +20,16 @@ paths =
       path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'bootstrap', "#{component}.js")
     path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'js', 'custom', '*.js')
     path.join(__dirname, 'bower_components', 'moment', 'moment.js')
+    path.join(__dirname, 'bower_components', 'bigfoot', 'dist', 'bigfoot.js')
     'source/javascripts/**/*.js'
   ].reduce(((a, i) -> a.concat(i)), [])
   fonts: [
     path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'fonts', '*')
   ]
-  lessPaths: [ path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'less') ]
+  lessPaths: [
+    path.join(__dirname, 'node_modules', 'toolkit-dashboard', 'less')
+    path.join(__dirname, 'bower_components', 'bigfoot', 'dist')
+  ]
   dist:
     stylesheets: path.join(__dirname, 'dist', 'stylesheets')
     javascripts: path.join(__dirname, 'dist', 'javascripts')
