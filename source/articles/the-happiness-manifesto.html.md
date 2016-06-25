@@ -1,12 +1,21 @@
 ---
 title: The Happiness Manifesto
+description: |
+  I make a first attempt at defining a company manifesto for Wossname
+  Industries, around experimentation, measurement, and happiness.
+
 published_on: 2016-01-20
+canonical_source:
+  name: Medium
+  url: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af
 
 category: Business
 tags:
   - Startup
   - Manifesto
   - Happiness
+  - Mental Health
+  - Measurement
   - Business
 ---
 I’m working my way through the

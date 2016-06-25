@@ -1,12 +1,21 @@
 ---
 title: Journalling with Day One 2.0
+description: |
+  I’ve been using Day One for a few years now. Since version 2.0 has just been
+  released, I thought I’d explain how I use it for journalling.
+
 published_on: 2016-02-04
+canonical_source:
+  name: Medium
+  url: https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f
 
 category: Writing
 tags:
   - Day One
   - Writing
   - Journalling
+  - Productivity
+  - Apple
   - Markdown
   - macOS
   - iOS
@@ -186,6 +195,3 @@ for Mac][15] a shot today? I’d love to hear how you get along with it!
 
 [15]: https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website
 [14]: https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website
-
-*This article was originally published on Medium:
-[Journalling with Day One 2.0](https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f).*
