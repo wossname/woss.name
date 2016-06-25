@@ -11,4 +11,5 @@ $(function() {
   });
 
   $('abbr').tooltip();
+  $('a[title]').tooltip();
 });
