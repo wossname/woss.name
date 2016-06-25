@@ -1,0 +1,19 @@
+<div class="col-md-6">
+  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="panel">
+    <div class="panel-heading">
+      <h3 itemprop="name headline">
+        <%= link_to article.data.title, article.url, itemprop: 'url contentUrl' %>
+      </h3>
+
+      <% if subtitle = article.data.subtitle %>
+        <p class="text-muted h4">
+          <%= subtitle %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="panel-body">
+      <%= article.data.description %>
+    </div>
+  </article>
+</div>

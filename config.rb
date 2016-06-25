@@ -42,6 +42,7 @@ config[:related]        = {
   page "/*.#{extension}", layout: false
 end
 page "/articles/*.html", layout: :article
+page "/articles.html", layout: :collection
 
 # General configuration
 activate :directory_indexes
