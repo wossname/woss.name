@@ -12,7 +12,7 @@ module MetadataHelper
   end
 
   def link_to_category(category, options = {})
-    link_to category, "/categories/#{parameterize(category)}.html", options
+    link_to category, "/categories/#{parameterize(category)}.html", { rel: [ :section, :category ].join(' ') }.merge(options)
   end
 
   def tags_meta
@@ -20,7 +20,7 @@ module MetadataHelper
   end
 
   def link_to_tag(tag, options = {})
-    link_to tag, "/tags/#{parameterize(tag)}.html", options
+    link_to tag, "/tags/#{parameterize(tag)}.html", { rel: :tag }.merge(options)
   end
 
   def published_on_meta
