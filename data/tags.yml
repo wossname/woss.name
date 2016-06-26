@@ -1,0 +1,32 @@
+apple-health:
+  name: Apple Health
+healthkit:
+  name: HealthKit
+quantified-self:
+  name: Quantified Self
+data-protection:
+  name: Data Protection
+legal:
+  name: Legal
+privacy:
+  name: Privacy
+security:
+  name: Security
+business:
+  name: Business
+happiness:
+  name: Happiness
+manifesto:
+  name: Manifesto
+measurement:
+  name: Measurement
+mental-health:
+  name: Mental Health
+startup:
+  name: Startup
+building-a-business:
+  name: Building a Business
+measuring-happiness:
+  name: Measuring Happiness
+mission:
+  name: Mission

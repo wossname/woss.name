@@ -43,6 +43,19 @@ config[:related]        = {
 end
 page "/articles/*.html", layout: :article
 
+page "/articles.html",   layout: :collection
+page "/categories.html", layout: :collection
+page "/tags.html",       layout: :collection
+
+# Generate pages for each category.
+data.categories.each do |slug, category|
+  proxy "/categories/#{slug}/index.html", '/category.html', data: { title: category[:name] }, locals: { name: category[:name], description: category[:description] }, ignore: true
+end
+
+data.tags.each do |slug, tag|
+  proxy "/tags/#{slug}/index.html", '/tag.html', data: { title: tag[:name] }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
+end
+
 # General configuration
 activate :directory_indexes
 activate :asset_hash

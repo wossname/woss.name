@@ -17,54 +17,13 @@
     <%= partial 'google_tag_manager' %>
 
     <% navbar_link_to 'Home', '/index.html' %>
-    <% navbar_link_to 'Articles', 'https://blog.woss.name/', target: '_blank' %>
+    <% navbar_link_to 'Articles', '/articles.html' %>
     <% navbar_link_to 'Services', '/services.html' %>
     <% navbar_link_to 'Projects', '/projects.html' %>
     <% navbar_link_to 'Contact us', '/contact.html' %>
 
     <%= partial 'navbar' %>
-
-    <div class="container">
-      <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
-            <% link_to '/', itemprop: 'url' do %>
-              <span itemprop="name">Home</span>
-            <% end %>
-          </span>
-          <meta itemprop="position" content="1">
-        </li>
-
-        <% if ancestors = current_page.data.ancestors %>
-          <% ancestors.each_with_index do |breadcrumb, i| %>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
-                <% link_to breadcrumb[:path], itemprop: 'url' do %>
-                  <span itemprop="name"><%= breadcrumb[:title] %></span>
-                <% end %>
-              </span>
-              <meta itemprop="position" content="<%= i + 2 %>">
-            </li>
-          <% end %>
-
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
-            <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
-              <link itemprop="url" href="<%= current_page.url %>">
-              <span itemprop="name"><%= current_page.data.title %></span>
-            </span>
-            <meta itemprop="position" content="<%= ancestors.length + 3 %>">
-          </li>
-        <% elsif current_page.url != '/' %>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
-            <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
-              <link itemprop="url" href="<%= current_page.url %>">
-              <span itemprop="name"><%= current_page.data.title %></span>
-            </span>
-            <meta itemprop="position" content="2">
-          </li>
-        <% end %>
-      </ol>
-    </div>
+    <%= partial 'breadcrumbs' %>
 
     <%= yield %>
 

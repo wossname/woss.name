@@ -1,0 +1,18 @@
+<% if current_page.url == url %>
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+    <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
+      <span itemprop="name"><%= title %></span>
+      <link itemprop="url contentUrl" href="<%= url %>">
+    </span>
+    <meta itemprop="position" content="<%= position %>">
+  </li>
+<% else %>
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <span itemprop="item" itemscope itemtype="http://schema.org/Thing">
+      <% link_to url, itemprop: 'url' do %>
+        <span itemprop="name"><%= title %></span>
+      <% end %>
+    </span>
+    <meta itemprop="position" content="<%= position %>">
+  </li>
+<% end %>

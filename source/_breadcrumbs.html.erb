@@ -1,0 +1,25 @@
+<div class="container">
+  <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <% position = 0 %>
+    <%= partial 'breadcrumb', locals: { title: 'Home', url: '/', position: (position += 1) } %>
+
+    <% if ancestors = current_page.data.ancestors %>
+      <% ancestors.each_with_index do |breadcrumb, i| %>
+        <%= partial 'breadcrumb', locals: { title: breadcumb[:title], url: breadcrumb[:path], position: (position += 1) } %>
+      <% end %>
+    <% end %>
+
+    <% if current_page.path =~ /^articles\//%>
+      <%= partial 'breadcrumb', locals: { title: 'Articles', url: '/articles.html', position: (position += 1) } %>
+      <%= partial 'breadcrumb', locals: { title: current_page.data.category, url: category_path(current_page.data.category), position: (position += 1) } %>
+    <% elsif current_page.path =~ /^categories\//%>
+      <%= partial 'breadcrumb', locals: { title: 'Categories', url: '/categories.html', position: (position += 1) } %>
+    <% elsif current_page.path =~ /^tags\//%>
+      <%= partial 'breadcrumb', locals: { title: 'Tags', url: '/tags.html', position: (position += 1) } %>
+    <% end %>
+
+    <% if current_page.url != '/' %>
+      <%= partial 'breadcrumb', locals: { title: current_page.data.title, url: current_page.url, position: (position += 1) } %>
+    <% end %>
+  </ol>
+</div>

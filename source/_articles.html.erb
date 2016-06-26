@@ -1,0 +1,10 @@
+<div class="row">
+  <% articles.each_with_index do |article, i| %>
+    <%= partial 'article', locals: { article: article } %>
+
+    <% if i % 2 == 1 %>
+      </div>
+      <div class="row">
+    <% end %>
+  <% end %>
+</div>

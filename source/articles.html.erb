@@ -1,0 +1,36 @@
+---
+title: Articles
+---
+<section class="block text-justify p-b-0">
+  <h1 class="block-title">
+    Articles
+  </h1>
+
+  <p class="lead">
+    I tend to write on a wide array of different subjects that happen to
+    interest me at the time. Recently, I've taken to putting these articles up
+    on different sites, so that there's a dedicated site for each topic I want
+    to explore. But I will collect all the articles here, too, so that they're
+    easy to find.
+  </p>
+
+  <p class="lead">
+    I also cross-post articles to
+    <%= link_to 'Wossname Industries on Medium', 'https://blog.woss.name', target: '_blank' %>
+    so if you're a fan of Medium, it's easy to follow along there. The
+    advantage of Medium is that you can easily respond to articles, so we can
+    get into a conversation about them. (I might put Disqus comments back on
+    this site, but not for now.)
+  </p>
+
+  <p class="lead">
+    If you're an Apple iOS user, then you can subscribe to the
+    <%= link_to 'Wossname Industries channel on Apple News', '' %>. You'll need
+    to open that link on your iOS device, and it'll take you into Apple News,
+    allowing you subscribe to the channel. Posting there is a (laborious)
+    manual process right now, so it might be a day or two before articles
+    appear.
+  </p>
+</section>
+
+<%= partial 'articles', locals: { articles: all_articles } %>

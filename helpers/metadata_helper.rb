@@ -12,15 +12,32 @@ module MetadataHelper
   end
 
   def link_to_category(category, options = {})
-    link_to category, "/categories/#{parameterize(category)}.html", { rel: [ :section, :category ].join(' ') }.merge(options)
+    link_to category, category_path(category), { rel: [ :section, :category ].join(' ') }.merge(options)
+  end
+
+  def category_path(category)
+    "/categories/#{parameterize(category)}/index.html"
+  end
+
+  def description_for_category(name)
+    slug, category = data.categories.find { |_, category| category[:name] == name }
+    if category
+      category[:description]
+    else
+      ''
+    end
   end
 
   def tags_meta
-    (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || [])
+    (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end
 
   def link_to_tag(tag, options = {})
-    link_to tag, "/tags/#{parameterize(tag)}.html", { rel: :tag }.merge(options)
+    link_to tag, tag_path(tag), { rel: :tag }.merge(options)
+  end
+
+  def tag_path(tag)
+    "/tags/#{parameterize(tag)}/index.html"
   end
 
   def published_on_meta
