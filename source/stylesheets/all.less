@@ -57,6 +57,13 @@ nav.navbar, .btn {
   .block-paralax();
   .text-center();
 
+  // Boostrap defaults the full height to '110vh' -- which I guess is 110% of
+  // the full height. This is slightly suboptimal in that it means the
+  // vertically centered content isn't quite centred. I've a feeling they do
+  // it for a reason, though... And who am I to know? I hadn't heard of 'vh'
+  // units before!
+  height: 100vh;
+
   h1 {
     .h1.block-title();
   }
