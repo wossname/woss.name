@@ -1,0 +1,15 @@
+<section id="introduction">
+  <div class="block-md-middle">
+    <div class="container">
+      <% if defined?(title) && title.present? %>
+        <h1>
+          <%= title %>
+        </h1>
+      <% end %>
+    
+      <div class="introduction-body">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</section>

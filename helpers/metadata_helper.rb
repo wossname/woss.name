@@ -1,4 +1,23 @@
 module MetadataHelper
+  def page_classes
+    classes = super.split(' ')
+
+    classess = classes.map do |klass|
+      case klass
+      when 'index'
+        'landing-page'
+      when /\A.*_(.*)_index\Z/
+        $1
+      when /\A^.*_(.*)\Z/
+        $1
+      else
+        klass.gsub(/_/, '-')
+      end
+    end
+
+    classess.join(' ')
+  end
+
   def title_meta
     strip_whitespace(current_page.data.title || config[:title])
   end

@@ -17,44 +17,74 @@ body {
   font-family: @font-family-serif;
 }
 
-nav.navbar {
-  font-family: @headings-font-family;
-}
-
-#main {
-  h1 {
-    .text-center();
-  }
-
-  h2, h3, h4, h5, h6 {
-    .text-left();
-  }
-
-  p, li, address {
-    .text-justify();
-  }
-  
-  .btn {
-    font-family: @headings-font-family;
-  }
-}
-
-#introduction {
-  .block();
-  .block-inverse();
-  .block-fill-height();
+h1 {
   .text-center();
+}
 
-  background-image: url(/images/introduction-background.png);
-  height: 100vh;
-  
-  h1 {
-  }
+h2, h3, h4, h5, h6 {
+  .text-left();
+}
+
+p, li, address {
+  .text-justify();
+}
+
+code {
+  color: inherit;
+  background-color: inherit;
 }
 
 time {
   cursor: help;
   border-bottom: 1px dotted @abbr-border-color;
+}
+
+nav.navbar, .btn {
+  font-family: @headings-font-family;
+}
+
+#main {
+}
+
+.block-foreground p:first-child {
+    .lead();
+  }
+
+
+#introduction {
+  .block();
+  .block-fill-height();
+  .block-paralax();
+  .text-center();
+
+  h1 {
+    .h1.block-title();
+  }
+  
+  h2 {
+    .h3();
+    .text-center();
+    .m-t-0();
+  }
+
+  .landing-page & {
+    .block-inverse();
+    background-image: url(/images/introduction-background.png);
+    
+    p { .lead(); }
+  }
+  
+  .services & {
+    background-image: url(/images/services-background.png);
+  }
+  
+  .projects & {
+    .block-inverse();
+    background-image: url(/images/projects-background.png);
+  }
+}
+
+.articles #introduction {
 }
 
 .navbar-brand {

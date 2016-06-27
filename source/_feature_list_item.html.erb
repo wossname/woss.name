@@ -1,0 +1,21 @@
+<li class="m-b-lg" id="<%= id %>">
+  <% if icon.present? %>
+    <div class="featured-list-icon">
+      <span class="icon icon-<%= icon %>"></span>
+    </div>
+  <% end %>
+
+  <% if title.present? %>
+    <h2>
+      <%= title %>
+  
+      <% if subtitle.present? %>
+        <small class="text-muted"><%= subtitle %></small>
+      <% end %>
+    </h2>
+  
+    <hr>
+  <% end %>
+
+  <%= yield %>
+</li>

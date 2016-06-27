@@ -1,15 +1,10 @@
 ---
 layout: collection
 ---
-<section class="block text-justify p-b-0">
-  <h1 class="block-title">
-    <%= name %>
-  </h1>
+<% introduction do %>
+  <%= markdown description %>
+<% end %>
 
-  <div class="lead">
-    <%= markdown description %>
-  </div>
-
-</section>
-
-<%= partial 'articles', locals: { articles: articles_for_category(name) } %>
+<% listing do %>
+  <%= partial 'articles', locals: { articles: articles_for_category(name) } %>
+<% end %>
