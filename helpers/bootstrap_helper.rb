@@ -7,4 +7,12 @@ module BootstrapHelper
   def markdown(text)
     Tilt['markdown'].new { text }.render
   end
+  
+  def entypo(icon, options = {})
+    icon = parameterize(icon)
+    classes = options.delete(:class) || []
+    classes += [ 'icon', "icon-#{icon}" ]
+
+    tag :span, { class: classes.join(' ') }.merge(options)
+  end
 end
