@@ -35,7 +35,6 @@ sitemap_changefreq: 'weekly'
 
 <section id="projects" class="container text-justify">
   <div class="row">
-    <div class="col-md-6">
       <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
@@ -83,12 +82,8 @@ sitemap_changefreq: 'weekly'
             <% end %>
           </p>
         </li>
-      </ul>
-    </div>
 
-    <div class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
+          <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-code"></span>
           </div>
@@ -136,14 +131,8 @@ sitemap_changefreq: 'weekly'
             <% end %>
           </p>
         </li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
+          <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-image"></span>
           </div>
@@ -195,12 +184,8 @@ sitemap_changefreq: 'weekly'
             <% end %>
           </p>
         </li>
-      </ul>
-    </div>
 
-    <div class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
+          <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-publish"></span>
           </div>
@@ -245,18 +230,12 @@ sitemap_changefreq: 'weekly'
           </p>
 
           <p class="text-center">
-            <% utm_link_to 'https://the-internet.io/', class: 'btn btn-primary', target: '_blank' do %>
+            <% utm_link_to 'https://the-internet.io/', class: 'btn btn-primary btn-lg', target: '_blank' do %>
               Go to A Sneak Peek at The Internet
               <span class="icon icon-export"></span>
             <% end %>
           </p>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
+        </li>
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-home"></span>
@@ -302,32 +281,41 @@ sitemap_changefreq: 'weekly'
             <% end %>
           </p>
         </li>
-      </ul>
-    </div>
 
-    <div class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
         <li class="m-b-lg">
           <div class="featured-list-icon">
             <span class="icon icon-link"></span>
           </div>
 
-          <h2>Amazon Link</h2>
+          <h2 id="amazon-link">
+            <%= utm_link_to 'Amazon Link', 'https://amznl.ink/', target: '_blank' %>
 
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info">Affiliate Marketing</span>
-            </dd>
-            <dt>Technology</dt>
-            <dd>
-              <span class="label label-warning">Ruby on Rails 5</span>
-              <span class="label label-warning">Amazon Web Services</span>
-            </dd>
-          </dl>
+            <% utm_link_to 'https://amznl.ink/', class: 'pull-right btn btn-lg btn-primary', target: '_blank' do %>
+              Go to Amazon Link
+              <span class="icon icon-export"></span>
+            <% end %>
+          </h2>
 
-          <hr>
-
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <tbody>
+                <tr>
+                  <th scope="row">Subjects</th>
+                  <td>
+                    <span class="label label-info">Affiliate Marketing</span>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <th scope="row">Technology</th>
+                  <td>
+                    <span class="label label-warning">Ruby on Rails 5</span>
+                    <span class="label label-warning">Amazon Web Services</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <p>
             This is a daft wee side project, just to play around with Rails 5.
@@ -344,12 +332,6 @@ sitemap_changefreq: 'weekly'
             useful to me. But you never know, it may be handy for you, too!
           </p>
 
-          <p class="text-center">
-            <% utm_link_to 'https://amznl.ink/', class: 'btn btn-primary', target: '_blank' do %>
-              Go to Amazon Link
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
         </li>
       </ul>
     </div>
