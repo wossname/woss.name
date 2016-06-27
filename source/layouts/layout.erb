@@ -24,10 +24,11 @@
     <% navbar_link_to 'Contact',  '/contact.html' %>
 
     <%= partial 'navbar' %>
-    <%= partial 'breadcrumbs' %>
 
-    <%= yield %>
-
+    <main id="main">
+      <%= yield %>
+    </main>
+    
     <footer class="block p-y-md">
       <div class="container">
         <div class="row">
