@@ -1,9 +1,55 @@
 @import "toolkit-startup";
 @import (inline) "bigfoot-number.css";
 
+@import 'https://fonts.googleapis.com/css?family=Amatica+SC:700|Josefin+Slab|Special+Elite';
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Josefin Slab", Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   "Special Elite", Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+@headings-font-family: "Amatica SC", @font-family-sans-serif;
+
+@font-size-base: 21px;
+@brand-primary: #D87467;
+
 body {
   position: relative;
-  padding-top: 70px;
+  padding-top: 50px;
+  font-family: @font-family-serif;
+}
+
+nav.navbar {
+  font-family: @headings-font-family;
+}
+
+#main {
+  h1 {
+    .text-center();
+  }
+
+  h2, h3, h4, h5, h6 {
+    .text-left();
+  }
+
+  p, li, address {
+    .text-justify();
+  }
+  
+  .btn {
+    font-family: @headings-font-family;
+  }
+}
+
+#introduction {
+  .block();
+  .block-inverse();
+  .block-fill-height();
+  .text-center();
+
+  background-image: url(/images/introduction-background.png);
+  height: 100vh;
+  
+  h1 {
+  }
 }
 
 time {
