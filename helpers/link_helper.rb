@@ -62,14 +62,16 @@ module LinkHelper
 
   # This is blatantly stolen from ActiveSupport::Inflector#parameterize+. The
   # only thing I wanted to change is that I'm happy with '.' being in the
-  # resulting string, since I'm using domain names for utm parameters...
+  # resulting string, since I'm using domain names for utm parameters... On the
+  # flip side, I don't want underscores.
   def parameterize(string, sep = '-')
     return string if string.blank?
+    string = string.to_s
 
     # replace accented chars with their ascii equivalents
     parameterized_string = ActiveSupport::Inflector.transliterate(string)
     # Turn unwanted chars into the separator
-    parameterized_string.gsub!(/[^a-z0-9\-_.]+/i, sep)
+    parameterized_string.gsub!(/[^a-z0-9\-.]+/i, sep)
     unless sep.nil? || sep.empty?
       re_sep = Regexp.escape(sep)
       # No more than one of the separator in a row.

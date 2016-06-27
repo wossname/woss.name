@@ -12,9 +12,9 @@ module BlockHelper
     partial 'blocks/listing', &block
   end
 
-  def featured_list_item(title: nil, subtitle: nil, icon: nil, &block)
-    id = parameterize(title)
-    icon = icon.to_s.gsub(/_/, '-')
+  def featured_list_item(title: nil, subtitle: nil, icon: nil, id: nil, &block)
+    id ||= parameterize(title)
+    icon = parameterize(icon)
 
     partial 'feature_list_item', locals: { id: id, title: title, subtitle: subtitle, icon: icon }, &block
   end
