@@ -1,7 +1,7 @@
 module BlockHelper
-  def block(title: nil, id: nil, vertical_alignment: false, &block)
+  def block(title: nil, id: nil, vertical_alignment: false, inverse: false, &block)
     id ||= parameterize(title)
-    partial 'blocks/block', locals: { id: id, title: title, vertical_alignment: vertical_alignment }, &block
+    partial 'blocks/block', locals: { id: id, title: title, vertical_alignment: vertical_alignment, inverse: inverse }, &block
   end
 
   def introduction(title: current_page.data.title, &b)
