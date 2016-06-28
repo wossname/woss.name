@@ -2,7 +2,12 @@
   <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
-    <hgroup class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path current_page.data[:image][:cover] %>)">
+    <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+      <hgroup class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path cover %>)">
+    <% else %>
+      <hgroup class="block block-fill-height" id="article-title">
+    <% end %>
+
       <div class="block-md-middle">
         <div class="container">
           <div class="block-foreground">
