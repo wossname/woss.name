@@ -17,10 +17,6 @@ $(function() {
   // built-in ones.
   $('abbr').tooltip();
 
-  // Any anchor tags with a title should use tooltips, too. FIXME: Not so sure
-  // I want this one everywhere, maybe I should be more selective.
-  $('a[title]').tooltip();
-
   // Smooth scrolling for anything linking to an anchor tag within the page.
   $('a[href^="#"]').on('click', function(event) {
     event.preventDefault();
