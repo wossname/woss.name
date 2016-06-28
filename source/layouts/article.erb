@@ -30,9 +30,11 @@
               <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
             </p>
 
-            <div class="lead" itemprop="description">
-              <%= markdown current_page.data.introduction %>
-            </div>
+            <% if (introduction = (current_page.data.introduction || current_page.data.description)) %>
+              <div class="lead" itemprop="description">
+                <%= markdown introduction %>
+              </div>
+            <% end %>
 
             <p class="text-center">
               <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
