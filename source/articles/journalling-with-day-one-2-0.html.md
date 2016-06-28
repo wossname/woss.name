@@ -28,6 +28,9 @@ canonical_source:
   name: Medium
   url: https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f
 
+sitemap_priority: 1.0
+sitemap_changefreq: 'weekly'
+
 category: Writing
 tags:
   - Day One

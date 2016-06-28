@@ -25,6 +25,9 @@ canonical_source:
   name: Medium
   url: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af
 
+sitemap_priority: 1.0
+sitemap_changefreq: 'weekly'
+
 category: Business
 tags:
   - Startup
