@@ -16,6 +16,7 @@ $(function() {
   // Turn abbreviations into Bootstrap tooltips intead of the slow browser
   // built-in ones.
   $('abbr').tooltip();
+  $('[data-toggle="tooltip"]').tooltip();
 
   // Smooth scrolling for anything linking to an anchor tag within the page.
   $('a[href^="#"]').on('click', function(event) {
