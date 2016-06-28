@@ -3,9 +3,9 @@
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
     <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
-      <hgroup class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path cover %>)">
+      <header class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path cover %>)">
     <% else %>
-      <hgroup class="block block-fill-height" id="article-title">
+      <header class="block block-fill-height" id="article-title">
     <% end %>
 
       <div class="block-md-middle">
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-    </hgroup>
+    </header>
 
       <div class="block" itemprop="articleBody text" id="article-body">
         <div class="container">
@@ -100,11 +100,11 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="panel">
-              <hgroup class="panel-heading sr-only">
+              <div class="panel-heading sr-only">
                 <h3 class="panel-title">
                   About this article
                 </h3>
-              </hgroup>
+              </div>
     
               <div class="panel-body">
                 <table class="table table-striped">
