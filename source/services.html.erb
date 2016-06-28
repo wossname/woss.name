@@ -23,152 +23,51 @@ sitemap_changefreq: 'weekly'
     can help out with that side of things, too. (Oh, and if you're in the
     market for somebody who can climb rocks, I'm definitely up for that!)
   </p>
-  
-  <div class="row m-b-md">
-    <div class="col-sm-4 col-sm-offset-2">
-      <% link_to '', fragment: 'web-app-development', class: 'btn btn-lg btn-block btn-primary-outline' do %>
-        <%= entypo :browser %>
-        Web App Development
-      <% end %>
-    </div>
-    <div class="col-sm-4">
-      <% link_to '', fragment: 'ios-development', class: 'btn btn-lg btn-block btn-primary-outline' do %>
-        <%= entypo :tablet_mobile_combo %>
-        iOS Development
-      <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-2">
-      <% link_to '', fragment: 'devops', class: 'btn btn-lg btn-block btn-primary-outline' do %>
-        <%= entypo :cloud %>
-        DevOps
-      <% end %>
-    </div>
-    <div class="col-sm-4">
-      <% link_to '', fragment: 'managing-humans', class: 'btn btn-lg btn-block btn-primary-outline' do %>
-        <%= entypo :user %>
-        Managing Humans
-      <% end %>
-    </div>
-  </div>
-  
+
+  <% data.services.each_with_index do |(id, service), i| %>
+    <% case i % 2 %>
+    <% when 0 %>
+      <div class="row m-t-md">
+        <div class="col-sm-5 col-sm-offset-1">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo service[:icon] %>
+            <%= service[:title] %>
+          <% end %>
+        </div>
+    <% when 1 %>
+        <div class="col-sm-5">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo service[:icon] %>
+            <%= service[:title] %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% listing do %>
   <ul class="featured-list featured-list-bordered">
-    <% featured_list_item title: 'Web app development', subtitle: 'with Ruby on Rails', icon: :browser do %>
-      <p>
-        I first discovered Ruby on Rails back in 2005, before it reached
-        1.0. I fell in love with its simplicity and expressiveness, and
-        I've been using it ever since. They require different tactics, but
-        it suits projects large and small. I've used it to build apps that
-        are used by a dozen people, and I've helped build systems that
-        scale to hundreds of thousands of users.
-      </p>
-    
-      <p>
-        Naturally, I do a fair chunk of JavaScript, too, when needs dictate
-        it. I can't say I'm much of a designer, but if I'm handed a CSS
-        framework, I can put it to good use. I've got some ace designers
-        around who can help me with the finer points of user experience.
-      </p>
-    
-      <p>
-        I've put together a wee web site dedicated to my Ruby on
-        Rails-related services:
-      </p>
-    
-      <p class="text-center">
-        <% utm_link_to 'https://www.rubyonrails.co.uk/', class: 'btn btn-primary', target: '_blank' do %>
-          UK Ruby on Rails Consulting
-          <span class="icon icon-export"></span>
+    <% data.services.each do |id, service| %>
+      <% featured_list_item id: id, title: service[:title], subtitle: service[:subtitle], icon: service[:icon] do %>
+        <%= markdown service[:description] %>
+
+        <% if (call_to_action = service[:call_to_action]) %>
+          <%= markdown call_to_action[:description] %>
+
+          <p class="text-center">
+            <% utm_link_to call_to_action[:url], class: 'btn btn-lg btn-primary-outline', target: '_blank' do %>
+              <%= call_to_action[:title] %>
+              <span class="icon icon-export"></span>
+            <% end %>
+          </p>
         <% end %>
-      </p>
-    <% end %>
-
-    <% featured_list_item(title: 'iOS Development', subtitle: 'for iPhone, iPad, and Apple Watch', icon: :tablet_mobile_combo) do %>
-      <p>
-        I've built a fair few projects on iOS. Most of them have been
-        focused on the iPhone as the primary use case, but thanks to
-        Apple's clever adaptive user interfaces, they all looked good on
-        the iPad, too. I haven't yet had an excuse to build something for
-        the Apple Watch, but I'd love to give it a try!
-      </p>
-  
-      <p>
-        I cut my teeth on Objective-C back in 2003, writing an XMPP chat
-        app for Mac OS X, but recently I've switched entirely to Swift for
-        iOS projects. It's a delightful language, and I reckon it's the way
-        forward when it comes to developing for Apple's platforms.
-      </p>
-  
-      <p>
-        Right now, I'm really interested in what we can do when we combine
-        mobile apps with additional sensors to better understand our
-        environment &ndash; on a personal level with Apple Health, or
-        throughout our dwellings with HomeKit. There's a lot we can learn
-        by collecting data from our context, correlating it, and producing
-        insights&hellip;
-      </p>
-    <% end %>
-
-    <% featured_list_item(title: 'DevOps', subtitle: 'Scalably managing infrastructure', icon: :cloud) do %>
-      <p>
-        I could talk all day about configuration management, if you give me
-        the chance. I've built, deployed, and scaled physical servers, even
-        racking a few of them myself. These days, much like everyone else,
-        I rather like the flexibility of cloud-based services, whether
-        that's plain ol' virtual machines, or using entirely managed
-        services from the likes of Amazon or Google. It all depends on the
-        size of the project, and the budget. I can help you figure out the
-        right platform to build upon, and when you should be looking at
-        transitioning to alternative solutions.
-      </p>
-
-      <p>
-        When it comes to running services, I've tended to manage machines
-        with Chef or Puppet, but these days I'd probably opt for a fleet of
-        disposable Docker containers, and the infrastructure to build them.
-        I've run web servers, mail servers, message queues, databases, DNS
-        services &ndash; in fact, I'm old enough to have run Usenet News
-        servers!
-      </p>
-
-      <p>
-        In fact, my interest in all things Ops-related is such that I'm
-        writing a wee book in my spare time called
-        <%= utm_link_to 'A Sneak Peek at The Internet', 'https://the-internet.io/', target: '_blank' %>.
-        Its goal is to give software developers some insight into how the
-        Internet they rely on really works.
-      </p>
-    <% end %>
-
-    <% featured_list_item(title: 'Managing Humans', subtitle: 'hiring, running, and scaling teams', icon: :user) do %>
-      <p>
-        I've run a few teams on various projects. I can define software
-        development processes &ndash; Agile ones, to one degree or another
-        &ndash; and help teams work with them. I've interviewed dozens of
-        developers, and I'm pretty good at spotting the ones who'll best
-        fit a particular project. On the whole, I'd rather write code, but
-        it's reassuring to know I can handle this end of the spectrum too.
-      </p>
-
-      <p>
-        Talking of software development processes, I'm definitely in the
-        Agile camp. To me, agility is all about being able to respond to
-        change. If the code we write is able to change in response to the
-        ever-flighty needs of the market, then I feel I've done a good job.
-        If we're able to change our process to suit the business as it
-        scales, then we're doing the right thing. I do my best work when we
-        can deliver small things, frequently, and I've always found that to
-        be a workflow which suits the companies I work with.
-      </p>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
 
-<% block title: 'So, how can I help you?' do %>
+<% block title: 'So, how can I help you?', inverse: true do %>
   <p>
     Does it sound like I could be of some value to you? I hope so! Drop me an
     email, to <%= mail_to_link %>, and let's see what we can build together.
