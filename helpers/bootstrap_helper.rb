@@ -5,7 +5,7 @@ module BootstrapHelper
   end
 
   def markdown(text)
-    Tilt['markdown'].new { text }.render
+    Tilt['markdown'].new { text }.render(self)
   end
   
   def entypo(icon, options = {})
