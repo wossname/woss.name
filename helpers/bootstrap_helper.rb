@@ -13,6 +13,6 @@ module BootstrapHelper
     classes = options.delete(:class) || []
     classes += [ 'icon', "icon-#{icon}" ]
 
-    tag :span, { class: classes.join(' ') }.merge(options)
+    content_tag :span, '', { class: classes.join(' ') }.merge(options)
   end
 end
