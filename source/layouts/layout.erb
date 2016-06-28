@@ -1,10 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-
-    <%= partial 'metadata' %>
-    <%= partial 'favicons' %>
-
+    <%= partial 'partials/metadata' %>
     <%= stylesheet_link_tag :all %>
   </head>
 
@@ -14,7 +11,7 @@
     <body class="<%= page_classes %>">
   <% end %>
 
-    <%= partial 'google_tag_manager' %>
+    <%= partial 'partials/google_tag_manager' %>
 
     <% navbar_link_to 'Home',     '/index.html' %>
     <% navbar_link_to 'Articles', '/articles.html' %>
@@ -23,7 +20,7 @@
     <% navbar_link_to 'Team',     '/team.html' %>
     <% navbar_link_to 'Contact',  '/contact.html' %>
 
-    <%= partial 'navbar' %>
+    <%= partial 'partials/navbar' %>
 
     <main id="main">
       <%= yield %>

@@ -6,5 +6,5 @@ layout: collection
 <% end %>
 
 <% listing do %>
-  <%= partial 'articles', locals: { articles: articles_for_category(name) } %>
+  <%= partial 'articles/articles', locals: { articles: articles_for_category(name) } %>
 <% end %>

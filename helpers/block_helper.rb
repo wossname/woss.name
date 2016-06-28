@@ -16,6 +16,6 @@ module BlockHelper
     id ||= parameterize(title)
     icon = parameterize(icon)
 
-    partial 'feature_list_item', locals: { id: id, title: title, subtitle: subtitle, icon: icon, url: url }, &block
+    partial 'partials/feature_list_item', locals: { id: id, title: title, subtitle: subtitle, icon: icon, url: url }, &block
   end
 end
