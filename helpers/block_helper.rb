@@ -12,10 +12,10 @@ module BlockHelper
     partial 'blocks/listing', &block
   end
 
-  def featured_list_item(title: nil, subtitle: nil, icon: nil, id: nil, &block)
+  def featured_list_item(title: nil, subtitle: nil, icon: nil, id: nil, url: nil, &block)
     id ||= parameterize(title)
     icon = parameterize(icon)
 
-    partial 'feature_list_item', locals: { id: id, title: title, subtitle: subtitle, icon: icon }, &block
+    partial 'feature_list_item', locals: { id: id, title: title, subtitle: subtitle, icon: icon, url: url }, &block
   end
 end

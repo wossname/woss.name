@@ -8,7 +8,7 @@
 @font-family-base:        @font-family-sans-serif;
 @headings-font-family: "Amatica SC", @font-family-sans-serif;
 
-@font-size-base: 21px;
+@font-size-base: 22px;
 @brand-primary: #D87467;
 
 body {
@@ -67,7 +67,7 @@ nav.navbar, .btn {
   h1 {
     .h1.block-title();
   }
-  
+
   h2 {
     .h3();
     .text-center();
@@ -77,14 +77,14 @@ nav.navbar, .btn {
   .landing-page & {
     .block-inverse();
     background-image: url(/images/introduction-background.png);
-    
+
     p { .lead(); }
   }
-  
+
   .services & {
     background-image: url(/images/services-background.png);
   }
-  
+
   .projects & {
     .block-inverse();
     background-image: url(/images/projects-background.png);
@@ -107,22 +107,18 @@ nav.navbar, .btn {
   background-image: url(/images/navbar-brand.png);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  a.header-link {
+    color: inherit;
+  }
+}
+
 #article-title .block-background {
   overflow-y: hidden;
 }
 
 #article-title {
   height: 300px;
-}
-
-#projects dl.tags dt {
-  text-align: left;
-  width: 100px;
-}
-
-#projects dl.tags dd {
-  text-align: left;
-  margin-left: 110px;
 }
 
 #sidebar.affix {

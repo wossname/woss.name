@@ -25,311 +25,85 @@ sitemap_changefreq: 'weekly'
   </p>
 
   <p>
-    Meanwhile, do check out the projects!
+    Meanwhile, do check out the projects:
   </p>
+
+  <% data.projects.each_with_index do |(id, project), i| %>
+    <% case i % 2 %>
+    <% when 0 %>
+      <div class="row m-b-md">
+        <div class="col-sm-5 col-sm-offset-1">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo project[:icon] %>
+            <%= project[:name] %>
+          <% end %>
+        </div>
+    <% when 1 %>
+        <div class="col-sm-5">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo project[:icon] %>
+            <%= project[:name] %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
 
-<section id="projects" class="container text-justify">
-  <div class="row">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-emoji-happy"></span>
-          </div>
+<% listing do %>
+  <ul class="featured-list featured-list-bordered">
+    <% data.projects.each do |id, project| %>
+      <% featured_list_item id: id, title: project[:name], subtitle: project[:subtitle], icon: project[:icon], url: project[:url] do %>
+        <div class="table-responsive">
+          <table class="table table-condensed">
+            <caption class="sr-only">Metadata on how <%= project[:name] %> is being built.</caption>
 
-          <h2>The Happiness Project</h2>
+            <thead class="sr-only">
+              <tr>
+                <th>Key</th>
+                <th>Tags</th>
+              </tr>
+            </thead>
 
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info">Mental Health</span>
-              <span class="label label-info">Happiness</span>
-              <span class="label label-info">Quantified Self</span>
-            </dd>
-            <dt>Technologies</dt>
-            <dd>
-              <span class="label label-warning">Ruby on Rails 5</span>
-              <span class="label label-warning">iOS (iPhone &amp; iPad)</span>
-              <span class="label label-warning">Amazon Web Services</span>
-            </dd>
-          </dl>
-
-          <hr>
-
-          <p>
-            The Happiness Project's goal is to give you a tool that you can
-            use to improve your happiness. In particular, this tool allows
-            you to perform experiments intended to improve your mental
-            wellbeing, measure their results, and discover their impact.
-          </p>
-
-          <p>
-            This project has been my main focus in 2016. Right now, we're
-            trying to figure out how to effectively measure happiness. How to
-            you objectively measure how content you are? It's a tricky one!
-            We're performing some experiments of our own to see if we can
-            figure out how.
-          </p>
-
-          <p class="text-center">
-            <% utm_link_to 'https://thp.re/', class: 'btn btn-primary', target: '_blank' do %>
-              Go to The Happiness Project
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
-        </li>
-
-          <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-code"></span>
-          </div>
-
-          <h2>How I Code</h2>
-
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info">Productivity</span>
-              <span class="label label-info">Development</span>
-              <span class="label label-info">Mental Wellbeing</span>
-              <span class="label label-info">Environment</span>
-            </dd>
-            <dt>Media</dt>
-            <dd>
-              <span class="label label-success">Podcast</span>
-              <span class="label label-success">Articles</span>
-              <span class="label label-success">Email</span>
-            </dd>
-          </dl>
-
-          <hr>
-
-          <p>
-            I want to go on a holistic exploration of how developers write code
-            in a sustainable, enjoyable way. I want to hear about their
-            physical environment; the tools they use for development; the SaaS
-            apps they use to make their lives easier; the productivity
-            methodologies they subscribe to; how they balance work and life;
-            and what they do when they're not at the computer.
-          </p>
-
-          <p>
-            The plan is to interview software developers, and learn how they
-            work. Chances are these conversations will turn into a podcast, but
-            I might fall back on articles if I can't stand the sound of my own
-            voice!
-          </p>
-
-          <p class="text-center">
-            <% utm_link_to 'https://howicode.com/', class: 'btn btn-primary', target: '_blank' do %>
-              Go to How I Code
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
-        </li>
-
-          <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-image"></span>
-          </div>
-
-          <h2>Rock (Climbing) Club</h2>
-
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info">Fitness</span>
-              <span class="label label-info">Rock Climbing</span>
-              <span class="label label-info">Performance</span>
-              <span class="label label-info">Quantified Self</span>
-            </dd>
-            <dt>Technologies</dt>
-            <dd>
-              <span class="label label-warning">Ruby on Rails 5</span>
-              <span class="label label-warning">iPhone</span>
-              <span class="label label-warning">Apple Health</span>
-              <span class="label label-warning">Sensors</span>
-            </dd>
-          </dl>
-
-          <hr>
-
-          <p>
-            Have you ever wondered how well you're climbing, how much better
-            you're getting after all these sessions you're putting in at the
-            local climbing wall? Is all that effort you've put in at the gym
-            actually paying off in terms of achieving the 7a route you've been
-            wanting to crack? Are you training towards a competition? Or would
-            you just like some objective feedback that your climbing is
-            improving?
-          </p>
-
-          <p>
-            That's the main goal of this application. While you're at the
-            climbing wall, you can take note of the climbs that you achieve
-            each session. We'll use a patented super-secret formula to give
-            your session an overall score, based on the number of climbs, the
-            height of each climb and the grading of the route. And you can
-            watch that score improve over time, as your climbing gets better!
-          </p>
-
-          <p class="text-center">
-            <% utm_link_to 'https://rock-climbing.club/', class: 'btn btn-primary', target: '_blank' do %>
-              Go to Rock Club
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
-        </li>
-
-          <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-publish"></span>
-          </div>
-
-          <h2>A Sneak Peek at The Internet</h2>
-
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info"><abbr class="initialism" title="Transmission Control Protocol/Internet Protocol">TCP/IP</abbr></span>
-              <span class="label label-info"><abbr class="initialism" title="HyperText Transfer Protocol">HTTP</abbr></span>
-              <span class="label label-info"><abbr class="initialism" title="Domain Name System">DNS</abbr></span>
-              <span class="label label-info">Routing</span>
-              <span class="label label-info">Ethernet</span>
-              <span class="label label-info">Wi-Fi</span>
-            </dd>
-            <dt>Media</dt>
-            <dd>
-              <span class="label label-success">Book</span>
-              <span class="label label-success">Articles</span>
-            </dd>
-          </dl>
-
-          <hr>
-
-          <p>
-            How does The Internet work? When you type
-            <code>www.google.com</code> into your browser bar and hit enter,
-            what happens next? How does your instruction turn into a
-            beautifully rendered page? What are all the moving parts that come
-            into play to allow you &ndash; and, simultaneously, a billion other
-            people &ndash; to surf the 'net?
-          </p>
-
-          <p>
-            This is a quest to find out the answer. I already know lots of
-            little bits of the puzzle, but there are some that I'm rusty about,
-            or which have changed significantly in the past 20 years, so I've
-            got plenty of research to do! Ultimately, I'm going to condense the
-            results into a book but, in the meantime, I'm producing articles on
-            various associated topics.
-          </p>
-
-          <p class="text-center">
-            <% utm_link_to 'https://the-internet.io/', class: 'btn btn-primary btn-lg', target: '_blank' do %>
-              Go to A Sneak Peek at The Internet
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
-        </li>
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-home"></span>
-          </div>
-
-          <h2>The HomeKit Family</h2>
-
-          <dl class="text-muted small dl-horizontal tags">
-            <dt>Subjects</dt>
-            <dd>
-              <span class="label label-info">Apple HomeKit</span>
-              <span class="label label-info">Home Automation</span>
-              <span class="label label-info">Energy Saving</span>
-              <span class="label label-info">Home Security</span>
-            </dd>
-            <dt>Media</dt>
-            <dd>
-              <span class="label label-success">Articles</span>
-            </dd>
-          </dl>
-
-          <hr>
-
-          <p>
-            I’ve always dreamed of having a “smart” house, where I can control
-            the home environment through technology. This dream is slowly
-            becoming a reality with Apple HomeKit. I'm finding that I'm on the
-            bleeding edge of the early adopter curve when it comes to the
-            technology. Documentation, and user experience stories, are a
-            little sparse. So I'm writing articles here, and I'm collecting
-            information on currently available products.
-          </p>
-
-          <p>
-            If you're interested in finding out more about HomeKit, I'd love
-            for you to stop by, and even join in the community.
-          </p>
-
-          <p class="text-center">
-            <% utm_link_to 'https://homekit.family/', class: 'btn btn-primary', target: '_blank' do %>
-              Go to The HomeKit Family
-              <span class="icon icon-export"></span>
-            <% end %>
-          </p>
-        </li>
-
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-link"></span>
-          </div>
-
-          <h2 id="amazon-link">
-            <%= utm_link_to 'Amazon Link', 'https://amznl.ink/', target: '_blank' %>
-
-            <% utm_link_to 'https://amznl.ink/', class: 'pull-right btn btn-lg btn-primary', target: '_blank' do %>
-              Go to Amazon Link
-              <span class="icon icon-export"></span>
-            <% end %>
-          </h2>
-
-          <div class="table-responsive">
-            <table class="table table-condensed">
-              <tbody>
+            <tbody>
+              <% if project[:subjects].present? %>
                 <tr>
                   <th scope="row">Subjects</th>
                   <td>
-                    <span class="label label-info">Affiliate Marketing</span>
+                    <% project[:subjects].each do |subject| %>
+                      <span class="label label-info"><%= subject %></span>
+                    <% end %>
                   </td>
                 </tr>
-  
+              <% end %>
+
+              <% if project[:technologies].present? %>
                 <tr>
-                  <th scope="row">Technology</th>
+                  <th scope="row">Technologies</th>
                   <td>
-                    <span class="label label-warning">Ruby on Rails 5</span>
-                    <span class="label label-warning">Amazon Web Services</span>
+                    <% project[:technologies].each do |technology| %>
+                      <span class="label label-warning"><%= technology %></span>
+                    <% end %>
                   </td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
+              <% end %>
 
-          <p>
-            This is a daft wee side project, just to play around with Rails 5.
-            If you use affiliate links in your articles, you're probably aware
-            that Apple have geographically aware links. They'll give you a
-            single URL you can put in your articles, and it will redirect
-            visitors to the correct App Store for their geographical region.
-          </p>
+              <% if project[:media].present? %>
+                <tr>
+                  <th scope="row">Media</th>
+                  <td>
+                    <% project[:media].each do |medium| %>
+                      <span class="label label-success"><%= medium %></span>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
 
-          <p>
-            Amazon, on the other hand, don't seem to have this feature. But it
-            can't be that difficult to implement. So that's what I'm tinkering
-            with building in my spare hours right now. Worst case, it'll be
-            useful to me. But you never know, it may be handy for you, too!
-          </p>
-
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+        <%= markdown project[:description] %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
