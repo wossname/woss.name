@@ -17,7 +17,6 @@
     <% navbar_link_to 'Projects', '/projects.html' %>
     <% navbar_link_to 'Services', '/services.html' %>
     <% navbar_link_to 'Articles', '/articles.html' %>
-    <% navbar_link_to 'Team',     '/team.html' %>
     <% navbar_link_to 'Contact',  '/contact.html' %>
 
     <%= partial 'partials/navbar' %>
@@ -26,16 +25,15 @@
       <%= yield %>
     </main>
     
-    <footer class="navbar navbar-inverse navbar-fixed-bottom p-t-md">
+    <footer class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="navbar-header">
         <div class="navbar-text">
           Copyright &copy; 2015&ndash;<%= Date.today.year %>
           <%= link_to 'Wossname Industries', 'https://woss.name/' %>.
-          All rights reserved.
         </div>
       </div>
 
-      <div class="navbar-text p-l-lg m-l-lg">
+      <div class="navbar-text">
         <div class="g-plusone"></div>
       </div>
 
