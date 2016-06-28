@@ -6,8 +6,13 @@ title: Categories
     I've arranged the site into several broad categories of article. You can
     find all the articles for a particular category here.
   </p>
+
+  <p class="text-center">
+    <% link_to '', fragment: 'all-categories', class: 'btn btn-lg btn-default' do %>
+      <%= entypo :folder %>
+      Browse categories
+    <% end %>
+  </p>
 <% end %>
 
-<% listing do %>
-  <%= partial 'articles/categories/categories', locals: { categories: all_categories } %>
-<% end %>
+<%= partial 'articles/categories/categories', locals: { categories: all_categories } %>

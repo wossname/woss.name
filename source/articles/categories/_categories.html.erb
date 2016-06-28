@@ -1,10 +1,5 @@
-<div class="row">
-  <% categories.each_with_index do |category, i| %>
+<section id="all-categories">
+  <% categories.each do |category| %>
     <%= partial 'articles/categories/category', locals: { category: category } %>
-
-    <% if i % 2 == 1 %>
-      </div>
-      <div class="row">
-    <% end %>
   <% end %>
-</div>
+</section>

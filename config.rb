@@ -53,7 +53,7 @@ data.categories.each do |slug, category|
 end
 
 data.tags.each do |slug, tag|
-  proxy "/tags/#{slug}/index.html", '/articles/tags/tag.html', data: { title: tag[:name] }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
+  proxy "/tags/#{slug}/index.html", '/articles/tags/tag.html', data: { title: "Articles tagged '#{tag[:name]}'" }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
 end
 
 # General configuration
