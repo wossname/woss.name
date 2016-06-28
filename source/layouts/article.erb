@@ -2,209 +2,237 @@
   <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
-    <div class="container">
-      <hgroup class="block p-b-0 m-b-md" id="article-title">
-        <div class="block-foreground p-t-lg m-t-lg">
-          <h1 class="block-title" itemprop="name headline">
-            <%= current_page.data.title %>
-          </h1>
+    <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+      <hgroup class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path cover %>)">
+    <% else %>
+      <hgroup class="block block-fill-height" id="article-title">
+    <% end %>
 
-          <% if subtitle = current_page.data.subtitle %>
-            <p class="text-muted h4">
-              <%= subtitle %>
-            </p>
-          <% end %>
-        </div>
-
-        <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
-          <figure class="block-background" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-            <%= image_tag cover, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
-            <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
-
-            <% if (dimensions = dimensions_for_image(cover)) %>
-              <meta itemprop="width" content="<%= dimensions[0] %>">
-              <meta itemprop="height" content="<%= dimensions[1] %>">
-            <% end %>
-          </figure>
-        <% end %>
-      </hgroup>
-
-      <div class="row">
-        <div class="col-lg-8 article-body text-justify" itemprop="articleBody text">
-          <%= yield %>
-
-          <hr>
-
-          <p class="text-muted">
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
+      <div class="block-md-middle">
+        <div class="container">
+          <div class="block-foreground">
+            <h1 class="block-title" itemprop="name headline">
               <%= current_page.data.title %>
-            </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>
-            is licensed under a
-            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </h1>
 
-            <% if (canonical_source = current_page.data.canonical_source) %>
-              It was originally published on <%= canonical_source[:name] %>:
-              <%= link_to current_page.data.title, canonical_source[:url] %>.
+            <% if subtitle = current_page.data.subtitle %>
+              <p class="text-muted h2">
+                <%= subtitle %>
+              </p>
             <% end %>
 
-            <% if (alternates = current_page.data.alternates) %>
-              It has also appeared on
-              <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
-            <% end %>
-          </p>
+            <p class="text-muted text-center">
+              Written by Graeme Mathieson. Published <%= time_tag current_page.data.published_on %>
+              <% if (updated_on = current_page.data.updated_on) %>
+                (updated <%= time_tag updated_on %>)
+              <% end %>
+              in <%= link_to_category current_page.data.category, class: 'label label-info' %>. <br>
+              <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
+            </p>
 
+            <% if (introduction = (current_page.data.introduction || current_page.data.description)) %>
+              <div class="lead" itemprop="description">
+                <%= markdown introduction %>
+              </div>
+            <% end %>
+
+            <p class="text-center">
+              <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
+                <%= entypo :news %>
+                Continue reading&hellip;
+              <% end %>
+              
+              <% link_to 'http://www.instapaper.com/hello2', query: { url: "#{config[:url]}#{current_page.url}", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
+                <%= entypo :save %>
+                Save to Instapaper
+              <% end %>
+            </p>
+          </div>
+
+          <div class="block-background sr-only">
+            <% if current_page.data[:image] && (square = current_page.data[:image][:square]) %>
+              <figure class="sr-only" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                <%= image_tag square, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
+                <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
+                <% if (dimensions = dimensions_for_image(square)) %>
+                  <meta itemprop="width" content="<%= dimensions[0] %>">
+                  <meta itemprop="height" content="<%= dimensions[1] %>">
+                <% end %>
+              </figure>
+            <% end %>
+          </div>
         </div>
+      </div>
+    </hgroup>
 
-        <div class="col-lg-4">
-          <div id="sidebar" class="text-right hidden-print hidden-xs hidden-sm hidden-md" data-spy="affix" data-offset-top="470">
+      <div class="block" itemprop="articleBody text" id="article-body">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <div class="block block-bordered">
+      <div class="container">
+        <p class="text-muted">
+          <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
+            <%= current_page.data.title %>
+          </span> by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>, of
+          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>,
+          is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+  
+          <% if (canonical_source = current_page.data.canonical_source) %>
+            It was originally published on <%= canonical_source[:name] %>:
+            <%= link_to current_page.data.title, canonical_source[:url] %>.
+          <% end %>
+  
+          <% if (alternates = current_page.data.alternates) %>
+            It has also appeared on
+            <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
+          <% end %>
+        </p>
+      </div>
+    </div>
+    
+    <div class="block block-bordered">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
             <div class="panel">
-              <hgroup class="panel-heading">
+              <hgroup class="panel-heading sr-only">
                 <h3 class="panel-title">
                   About this article
                 </h3>
               </hgroup>
-
-              <table class="table table-striped">
-                <caption class="sr-only">Article metadata</caption>
-                <thead class="sr-only">
-                  <tr>
-                    <th>Attribute</th>
-                    <th>Value</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <th scope="row" style="width: 40%">
-                      Author
-                    </th>
-                    <td>
-                      <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
-                        <% link_to '/team/mathie.html', itemprop: 'url' do %>
-                          <span itemprop="name">
-                            <span itemprop="givenName">
-                              Graeme
-                            </span>
-                            <span itemprop="familyName">
-                              Mathieson
-                            </span>
-                          </span>
-                        </span>
-                      <% end %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      Publisher
-                    </th>
-                    <td>
-                      <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
-                        <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-                          <img itemprop="contentUrl url" src="<%= image_path config[:logo] %>" alt="">
-                        </span>
-                        <% link_to '/', itemprop: 'url' do %>
-                          <span itemprop="name">
-                            Wossname Industries
-                          </span>
-                        <% end %>
-                      </span>
-                    </td>
-                  </tr>
-
-                  <% if (canonical_source = current_page.data.canonical_source) %>
+    
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <caption class="sr-only">Article metadata</caption>
+    
+                  <thead class="sr-only">
                     <tr>
-                      <th scope="row">
-                        Originally published on
-                      </th>
-
-                      <td>
-                        <%= link_to canonical_source[:name], canonical_source[:url], target: '_blank' %>
-                      </td>
+                      <th>Attribute</th>
+                      <th>Value</th>
                     </tr>
-                  <% end %>
-
-                  <% if (alternates = current_page.data.alternates) %>
+                  </thead>
+      
+                  <tbody>
                     <tr>
-                      <th scope="row">
-                        Also appears on
+                      <th scope="row" style="width: 40%">
+                        Author
                       </th>
-
                       <td>
-                        <% alternates.each do |source| %>
-                          <%= link_to source[:name], source[:url], target: '_blank' %> <br>
+                        <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
+                          <% link_to '/team/mathie.html', itemprop: 'url' do %>
+                            <span itemprop="name">
+                              <span itemprop="givenName">
+                                Graeme
+                              </span>
+                              <span itemprop="familyName">
+                                Mathieson
+                              </span>
+                            </span>
+                          </span>
                         <% end %>
                       </td>
                     </tr>
-                  <% end %>
-
-                  <tr>
-                    <th scope="row">
-                      First published
-                    </th>
-                    <td itemprop="dateCreated datePublished">
-                      <%= published_on_tag %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      Last updated
-                    </th>
-                    <td itemprop="dateModified">
-                      <%= updated_on_tag %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      Category
-                    </th>
-                    <td itemprop="articleSection">
-                      <%= link_to_category category_meta, class: 'label label-info' %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      Tags
-                    </th>
-                    <td>
-                      <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      License
-                    </th>
-                    <td>
-                      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International Licence">
-                        <%= image_tag 'creative-commons-by-sa-4.0.png', alt: 'Creative Commons Licence' %>
-                      </a>
-                    </td>
-                </tbody>
-              </table>
+      
+                    <tr>
+                      <th scope="row">
+                        Publisher
+                      </th>
+                      <td>
+                        <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
+                          <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                            <img itemprop="contentUrl url" src="<%= image_path config[:logo] %>" alt="">
+                          </span>
+                          <% link_to '/', itemprop: 'url' do %>
+                            <span itemprop="name">
+                              Wossname Industries
+                            </span>
+                          <% end %>
+                        </span>
+                      </td>
+                    </tr>
+      
+                    <% if (canonical_source = current_page.data.canonical_source) %>
+                      <tr>
+                        <th scope="row">
+                          Originally published on
+                        </th>
+      
+                        <td>
+                          <%= link_to canonical_source[:name], canonical_source[:url], target: '_blank' %>
+                        </td>
+                      </tr>
+                    <% end %>
+      
+                    <% if (alternates = current_page.data.alternates) %>
+                      <tr>
+                        <th scope="row">
+                          Also appears on
+                        </th>
+      
+                        <td>
+                          <% alternates.each do |source| %>
+                            <%= link_to source[:name], source[:url], target: '_blank' %> <br>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+      
+                    <tr>
+                      <th scope="row">
+                        First published
+                      </th>
+                      <td itemprop="dateCreated datePublished">
+                        <%= published_on_tag %>
+                      </td>
+                    </tr>
+      
+                    <tr>
+                      <th scope="row">
+                        Last updated
+                      </th>
+                      <td itemprop="dateModified">
+                        <%= updated_on_tag %>
+                      </td>
+                    </tr>
+      
+                    <tr>
+                      <th scope="row">
+                        Category
+                      </th>
+                      <td itemprop="articleSection">
+                        <%= link_to_category category_meta, class: 'label label-info' %>
+                      </td>
+                    </tr>
+      
+                    <tr>
+                      <th scope="row">
+                        Tags
+                      </th>
+                      <td>
+                        <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
+                      </td>
+                    </tr>
+      
+                    <tr>
+                      <th scope="row">
+                        License
+                      </th>
+                      <td>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International Licence">
+                          <%= image_tag 'creative-commons-by-sa-4.0.png', alt: 'Creative Commons Licence' %>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-
-            <% if (contents = current_page.data.contents) %>
-              <nav id="sidebar-contents" class="panel">
-                <hgroup class="panel-heading">
-                  <h3 class="panel-title">
-                    Table of Contents
-                  </h3>
-                </hgroup>
-
-                <ul class="nav nav-bordered nav-stacked">
-                  <% contents.each do |title| %>
-                    <li role="presentation">
-                      <%= link_to title, '', fragment: parameterize(title), class: 'p-y-0' %>
-                    </li>
-                  <% end %>
-                </nav>
-              <% end %>
-            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -3,213 +3,73 @@ title: Services
 sitemap_priority: 0.9
 sitemap_changefreq: 'weekly'
 ---
-<section id="introduction" class="block text-justify">
-  <div class="container">
-    <h1 class="block-title text-center">Services</h1>
+<% introduction do %>
+  <p>
+    I'm one of those types of folks who can turn their hand to a bit of
+    everything. I do web app development, using the Ruby on Rails framework.
+    I do iOS development &ndash; apps for the iPhone, iPad, and Apple Watch
+    &ndash; with Swift. I cover the full gamut of services that come under
+    the DevOps banner. And I'll even project manage myself into the bargain.
+    If you're looking for a good all-rounder who can be your entire
+    development team then, as Leonard Cohen sang: I'm your man!
+  </p>
 
-    <p class="lead">
-      I'm one of those types of folks who can turn their hand to a bit of
-      everything. I do web app development, using the Ruby on Rails framework.
-      I do iOS development &ndash; apps for the iPhone, iPad, and Apple Watch
-      &ndash; with Swift. I cover the full gamut of services that come under
-      the DevOps banner. And I'll even project manage myself into the bargain.
-      If you're looking for a good all-rounder who can be your entire
-      development team then, as Leonard Cohen sang: I'm your man!
-    </p>
+  <p>
+    If your project is too big for one person, or if you're in a hurry to get
+    it launched, I can still help out. I've got a crack team of contractors I
+    regularly work with, who can lend a hand with chunks of a project. We
+    work together regularly, and we get on well, so we make for a great team.
+    If your needs mean that you need to hire a full-time development team, I
+    can help out with that side of things, too. (Oh, and if you're in the
+    market for somebody who can climb rocks, I'm definitely up for that!)
+  </p>
 
-    <p>
-      If your project is too big for one person, or if you're in a hurry to get
-      it launched, I can still help out. I've got a crack team of contractors I
-      regularly work with, who can lend a hand with chunks of a project. We
-      work together regularly, and we get on well, so we make for a great team.
-      If your needs mean that you need to hire a full-time development team, I
-      can help out with that side of things, too. (Oh, and if you're in the
-      market for somebody who can climb rocks, I'm definitely up for that!)
-  </div>
-</section>
+  <% data.services.each_with_index do |(id, service), i| %>
+    <% case i % 2 %>
+    <% when 0 %>
+      <div class="row m-t-md">
+        <div class="col-sm-5 col-sm-offset-1">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo service[:icon] %>
+            <%= service[:title] %>
+          <% end %>
+        </div>
+    <% when 1 %>
+        <div class="col-sm-5">
+          <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
+            <%= entypo service[:icon] %>
+            <%= service[:title] %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
 
-<section id="services" class="container text-justify">
-  <div class="row">
-    <div id="web-app-development" class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-browser"></span>
-          </div>
+<% listing do %>
+  <ul class="featured-list featured-list-bordered">
+    <% data.services.each do |id, service| %>
+      <% featured_list_item id: id, title: service[:title], subtitle: service[:subtitle], icon: service[:icon] do %>
+        <%= markdown service[:description] %>
 
-          <h3>
-            Web app development<br>
-            <small class="text-muted">with Ruby on Rails</small>
-          </h3>
-
-          <hr>
-
-          <p>
-            I first discovered Ruby on Rails back in 2005, before it reached
-            1.0. I fell in love with its simplicity and expressiveness, and
-            I've been using it ever since. They require different tactics, but
-            it suits projects large and small. I've used it to build apps that
-            are used by a dozen people, and I've helped build systems that
-            scale to hundreds of thousands of users.
-          </p>
-
-          <p>
-            Naturally, I do a fair chunk of JavaScript, too, when needs dictate
-            it. I can't say I'm much of a designer, but if I'm handed a CSS
-            framework, I can put it to good use. I've got some ace designers
-            around who can help me with the finer points of user experience.
-          </p>
-
-          <p>
-            I've put together a wee web site dedicated to my Ruby on
-            Rails-related services:
-          </p>
+        <% if (call_to_action = service[:call_to_action]) %>
+          <%= markdown call_to_action[:description] %>
 
           <p class="text-center">
-            <% utm_link_to 'https://www.rubyonrails.co.uk/', class: 'btn btn-primary', target: '_blank' do %>
-              UK Ruby on Rails Consulting
+            <% utm_link_to call_to_action[:url], class: 'btn btn-lg btn-primary-outline', target: '_blank' do %>
+              <%= call_to_action[:title] %>
               <span class="icon icon-export"></span>
             <% end %>
           </p>
-        </li>
-      </ul>
-    </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
 
-    <div id="ios-development" class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-tablet-mobile-combo"></span>
-          </div>
-
-          <h3>
-            iOS Development<br>
-            <small class="text-muted">for iPhone, iPad, and Apple Watch</small>
-          </h3>
-
-          <hr>
-
-          <p>
-            I've built a fair few projects on iOS. Most of them have been
-            focused on the iPhone as the primary use case, but thanks to
-            Apple's clever adaptive user interfaces, they all looked good on
-            the iPad, too. I haven't yet had an excuse to build something for
-            the Apple Watch, but I'd love to give it a try!
-          </p>
-
-          <p>
-            I cut my teeth on Objective-C back in 2003, writing an XMPP chat
-            app for Mac OS X, but recently I've switched entirely to Swift for
-            iOS projects. It's a delightful language, and I reckon it's the way
-            forward when it comes to developing for Apple's platforms.
-          </p>
-
-          <p>
-            Right now, I'm really interested in what we can do when we combine
-            mobile apps with additional sensors to better understand our
-            environment &ndash; on a personal level with Apple Health, or
-            throughout our dwellings with HomeKit. There's a lot we can learn
-            by collecting data from our context, correlating it, and producing
-            insights&hellip;
-          </p>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div id="devops" class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-icloud"></span>
-          </div>
-
-          <h3>
-            DevOps<br>
-            <small class="text-muted">scalably managing infrastructure</small>
-          </h3>
-
-          <hr>
-
-          <p>
-            I could talk all day about configuration management, if you give me
-            the chance. I've built, deployed, and scaled physical servers, even
-            racking a few of them myself. These days, much like everyone else,
-            I rather like the flexibility of cloud-based services, whether
-            that's plain ol' virtual machines, or using entirely managed
-            services from the likes of Amazon or Google. It all depends on the
-            size of the project, and the budget. I can help you figure out the
-            right platform to build upon, and when you should be looking at
-            transitioning to alternative solutions.
-          </p>
-
-          <p>
-            When it comes to running services, I've tended to manage machines
-            with Chef or Puppet, but these days I'd probably opt for a fleet of
-            disposable Docker containers, and the infrastructure to build them.
-            I've run web servers, mail servers, message queues, databases, DNS
-            services &ndash; in fact, I'm old enough to have run Usenet News
-            servers!
-          </p>
-
-          <p>
-            In fact, my interest in all things Ops-related is such that I'm
-            writing a wee book in my spare time called
-            <%= utm_link_to 'A Sneak Peek at The Internet', 'https://the-internet.io/', target: '_blank' %>.
-            Its goal is to give software developers some insight into how the
-            Internet they rely on really works.
-          </p>
-        </li>
-      </ul>
-    </div>
-
-    <div id="managing-humans" class="col-md-6">
-      <ul class="featured-list featured-list-bordered">
-        <li class="m-b-lg">
-          <div class="featured-list-icon">
-            <span class="icon icon-user"></span>
-          </div>
-
-          <h3>
-            Managing Humans<br>
-            <small class="text-muted">hiring, running and scaling teams</small>
-          </h3>
-
-          <hr>
-
-          <p>
-            I've run a few teams on various projects. I can define software
-            development processes &ndash; Agile ones, to one degree or another
-            &ndash; and help teams work with them. I've interviewed dozens of
-            developers, and I'm pretty good at spotting the ones who'll best
-            fit a particular project. On the whole, I'd rather write code, but
-            it's reassuring to know I can handle this end of the spectrum too.
-          </p>
-
-          <p>
-            Talking of software development processes, I'm definitely in the
-            Agile camp. To me, agility is all about being able to respond to
-            change. If the code we write is able to change in response to the
-            ever-flighty needs of the market, then I feel I've done a good job.
-            If we're able to change our process to suit the business as it
-            scales, then we're doing the right thing. I do my best work when we
-            can deliver small things, frequently, and I've always found that to
-            be a workflow which suits the companies I work with.
-          </p>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="introduction" class="block text-justify">
-  <div class="container">
-    <h1 class="block-title text-center">So, how can I help you?</h1>
-
-    <p class="lead">
-      Does it sound like I could be of some value to you? I hope so! Drop me an
-      email, to <%= mail_to_link %>, and let's see what we can build together.
-    </p>
-  </div>
-</section>
+<% block title: 'So, how can I help you?', inverse: true do %>
+  <p>
+    Does it sound like I could be of some value to you? I hope so! Drop me an
+    email, to <%= mail_to_link %>, and let's see what we can build together.
+  </p>
+<% end %>

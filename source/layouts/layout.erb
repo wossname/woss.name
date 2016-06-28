@@ -1,10 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
   <head>
-
-    <%= partial 'metadata' %>
-    <%= partial 'favicons' %>
-
+    <%= partial 'partials/metadata' %>
     <%= stylesheet_link_tag :all %>
   </head>
 
@@ -14,7 +11,7 @@
     <body class="<%= page_classes %>">
   <% end %>
 
-    <%= partial 'google_tag_manager' %>
+    <%= partial 'partials/google_tag_manager' %>
 
     <% navbar_link_to 'Home',     '/index.html' %>
     <% navbar_link_to 'Articles', '/articles.html' %>
@@ -23,29 +20,33 @@
     <% navbar_link_to 'Team',     '/team.html' %>
     <% navbar_link_to 'Contact',  '/contact.html' %>
 
-    <%= partial 'navbar' %>
-    <%= partial 'breadcrumbs' %>
+    <%= partial 'partials/navbar' %>
 
-    <%= yield %>
-
-    <footer class="block p-y-md">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="fb-like" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-            <div class="g-plusone" data-annotation="inline"></div>
-          </div>
-          <div class="col-md-7">
-            <p class="text-md-right">
-              Copyright &copy; 2015&ndash;<%= Date.today.year %>
-              <%= link_to 'Wossname Industries', 'https://woss.name/' %>.
-              All rights reserved.<br>
-              <%= link_to 'Privacy Policy', '/privacy-policy.html' %> |
-              <%= link_to 'Terms of Service', '/terms-of-service.html' %>
-            </p>
-          </div>
+    <main id="main">
+      <%= yield %>
+    </main>
+    
+    <footer class="navbar navbar-inverse navbar-fixed-bottom p-t-md" role="navigation">
+      <div class="navbar-header">
+        <div class="navbar-text">
+          Copyright &copy; 2015&ndash;<%= Date.today.year %>
+          <%= link_to 'Wossname Industries', 'https://woss.name/' %>.
+          All rights reserved.
         </div>
       </div>
+
+      <div class="navbar-text p-l-lg m-l-lg">
+        <div class="g-plusone"></div>
+      </div>
+
+      <div class="navbar-text m-t-0">
+        <div class="fb-like" data-width="200" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right m-r-lg">
+        <li><%= link_to 'Privacy Policy', '/privacy-policy.html' %></li>
+        <li><%= link_to 'Terms of Service', '/terms-of-service.html' %></li>
+      </ul>
     </footer>
 
     <%= javascript_include_tag :all %>

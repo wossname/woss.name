@@ -4,6 +4,25 @@ description: |
   I’ve been using Day One for a few years now. Since version 2.0 has just been
   released, I thought I’d explain how I use it for journalling.
 
+introduction: |
+  I’ve been using Day One
+  ([Day One 2.0 for Mac](https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website)
+  and
+  [Day One 2.0 for iOS](https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website))
+  for a few years now, I think. In fact, I’ve just had a wee look, and the first
+  entry that doesn’t look like it was imported from elsewhere is just over four
+  years old. In the time that I’ve used it, I’ve amassed 2,848 entries, though
+  some of them have been imported from previous journalling experiments. I
+  thought, since version 2.0 was released today, I’d try writing my first entry
+  in it by explaining how I use Day One, what other tools I’ve tried in the
+  past, and maybe even mention a couple of features I’m hoping will come to it
+  some day!
+
+image:
+  cover: journalling-with-day-one-2-0/cover.png
+  square: journalling-with-day-one-2-0/square.png
+  thumbnail: journalling-with-day-one-2-0/thumbnail.png
+
 published_on: 2016-02-04
 canonical_source:
   name: Medium
@@ -29,19 +48,6 @@ contents:
   - Feature requests
   - Download them today
 ---
-I’ve been using Day One ([Day One 2.0 for Mac][1] and [Day One 2.0 for iOS][2])
-for a few years now, I think. In fact, I’ve just had a wee look, and the first
-entry that doesn’t look like it was imported from elsewhere is just over four
-years old. In the time that I’ve used it, I’ve amassed 2,848 entries, though
-some of them have been imported from previous journalling experiments. I
-thought, since version 2.0 was released today, I’d try writing my first entry
-in it by explaining how I use Day One, what other tools I’ve tried in the
-past, and maybe even mention a couple of features I’m hoping will come to it
-some day!
-
-[2]: https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website
-[1]: https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website
-
 I think things through by writing them down. Some people think by
 talking — thinking out loud — but I like to have a clear idea of what I’m going
 to say before I say it. I find it easiest to do so by writing them out. It

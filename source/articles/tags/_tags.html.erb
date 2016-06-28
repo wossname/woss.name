@@ -1,6 +1,6 @@
 <div class="row">
   <% tags.each_with_index do |tag, i| %>
-    <%= partial 'tag', locals: { tag: tag } %>
+    <%= partial 'articles/tags/tag', locals: { tag: tag } %>
 
     <% if i % 4 == 3 %>
       </div>

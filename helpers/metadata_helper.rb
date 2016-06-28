@@ -1,4 +1,23 @@
 module MetadataHelper
+  def page_classes
+    classes = super.split(' ')
+
+    classess = classes.map do |klass|
+      case klass
+      when 'index'
+        'landing-page'
+      when /\A.*_(.*)_index\Z/
+        $1
+      when /\A^.*_(.*)\Z/
+        $1
+      else
+        klass.gsub(/_/, '-')
+      end
+    end
+
+    classess.join(' ')
+  end
+
   def title_meta
     strip_whitespace(current_page.data.title || config[:title])
   end
@@ -11,8 +30,25 @@ module MetadataHelper
     current_page.data.category || config[:default_category]
   end
 
-  def link_to_category(category, options = {})
-    link_to category, category_path(category), { rel: [ :section, :category ].join(' ') }.merge(options)
+  def link_to_category(title_or_category, category_or_options = nil, options = nil)
+    title = title_or_category
+
+    if options.nil?
+      if category_or_options.nil?
+        category = title_or_category
+        options = {}
+      elsif category_or_options.is_a?(Hash)
+        category = title_or_category
+        options = category_or_options
+      else
+        category = category_or_options
+        options = {}
+      end
+    else
+      category = category_or_options
+    end
+
+    link_to title, category_path(category), { rel: [ :section, :category ].join(' ') }.merge(options)
   end
 
   def category_path(category)

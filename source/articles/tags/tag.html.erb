@@ -1,0 +1,17 @@
+---
+layout: collection
+---
+<% introduction do %>
+  <% if description %>
+    <%= markdown description %>
+  <% end %>
+
+  <p class="text-center">
+    <% link_to '', fragment: 'latest-articles', class: 'btn btn-lg btn-default' do %>
+      <%= entypo :news %>
+      Latest articles
+    <% end %>
+  </p>
+<% end %>
+
+<%= partial 'articles/articles', locals: { articles: articles_for_tag(name) } %>

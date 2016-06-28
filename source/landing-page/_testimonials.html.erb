@@ -1,0 +1,57 @@
+<section id="testimonials" class="block block-bordered">
+  <div class="container">
+    <h2 class="block-title">
+      Testimonials
+    </h2>
+
+    <p class="lead">
+      Some of the people I've worked with in the past have said really nice
+      things about me. I thought I'd share a few of them with you, mostly
+      because it makes me feel good about myself!
+    </p>
+
+    <div class="row">
+      <% data.testimonials.to_a[0..-2].each_with_index do |(id, testimonial), i| %>
+        <div class="col-md-6" id="<%= id %>">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= markdown testimonial.text %>
+            </div>
+
+            <div class="panel-footer">
+              <cite>
+                <img class="img-circle" src="<%= image_path("avatars/#{testimonial.image_url || 'ghost.png'}") %>" alt="<%= testimonial.name %>">
+                <%= link_to testimonial.name, testimonial.linked_in_url %>,
+                <%= link_to testimonial.company, testimonial.company_url %>
+              </cite>
+            </div>
+          </div>
+        </div>
+
+        <% if i % 2 == 1 %>
+          </div>
+          <div class="row">
+        <% end %>
+      <% end %>
+    </div>
+
+    <% testimonial = data.testimonials.values.last %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= markdown testimonial.text %>
+      </div>
+
+      <div class="panel-footer">
+        <cite>
+          <img class="img-circle" src="<%= image_path("avatars/#{testimonial.image_url || 'ghost.png'}") %>" alt="<%= testimonial.name %>">
+          <%= link_to testimonial.name, testimonial.linked_in_url %>,
+          <%= link_to testimonial.company, testimonial.company_url %>
+        </cite>
+      </div>
+    </div>
+
+    <p class="lead">
+      Aren't they kind? <code>:-)</code>
+    </p>
+  </div>
+</section>

@@ -1,14 +1,102 @@
 @import "toolkit-startup";
 @import (inline) "bigfoot-number.css";
 
+@import 'https://fonts.googleapis.com/css?family=Amatica+SC:700|Josefin+Slab|Special+Elite';
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Josefin Slab", Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   "Special Elite", Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+@headings-font-family: "Amatica SC", @font-family-sans-serif;
+
+@font-size-base: 22px;
+@brand-primary: #D87467;
+
 body {
   position: relative;
-  padding-top: 70px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: @font-family-serif;
+}
+
+h1 {
+  .text-center();
+}
+
+h2, h3, h4, h5, h6 {
+  .text-left();
+}
+
+p, li, address {
+  .text-justify();
+}
+
+code {
+  color: inherit;
+  background-color: inherit;
 }
 
 time {
   cursor: help;
   border-bottom: 1px dotted @abbr-border-color;
+}
+
+nav.navbar, .btn {
+  font-family: @headings-font-family;
+}
+
+.block-foreground p:first-child {
+  .lead();
+}
+
+.block-fill-height {
+  // Boostrap defaults the full height to '110vh' -- which I guess is 110% of
+  // the full height. This is slightly suboptimal in that it means the
+  // vertically centered content isn't quite centred. I've a feeling they do
+  // it for a reason, though... And who am I to know? I hadn't heard of 'vh'
+  // units before!
+  height: 100vh;
+}
+
+#introduction {
+  .block();
+  .block-fill-height();
+  .block-paralax();
+  .text-center();
+
+  h1 {
+    .h1.block-title();
+  }
+
+  h2 {
+    .h3();
+    .text-center();
+    .m-t-0();
+  }
+
+  .landing-page & {
+    .block-inverse();
+    background-image: url(/images/introduction-background.png);
+
+    p { .lead(); }
+  }
+
+  .services & {
+    background-image: url(/images/services-background.png);
+  }
+
+  .projects & {
+    .block-inverse();
+    background-image: url(/images/projects-background.png);
+  }
+
+  .articles & {
+    .block-inverse();
+    background-image: url(/images/articles-background.png);
+  }
+}
+
+article.summary {
+  .block();
 }
 
 .navbar-brand {
@@ -24,25 +112,13 @@ time {
   background-image: url(/images/navbar-brand.png);
 }
 
-#article-title .block-background {
-  overflow-y: hidden;
-}
-
-#article-title {
-  height: 300px;
-}
-
-#projects dl.tags dt {
-  text-align: left;
-  width: 100px;
-}
-
-#projects dl.tags dd {
-  text-align: left;
-  margin-left: 110px;
+h1, h2, h3, h4, h5, h6 {
+  a.header-link {
+    color: inherit;
+  }
 }
 
 #sidebar.affix {
-  top: 20px;
+  top: 90px;
   width: 320px;
 }

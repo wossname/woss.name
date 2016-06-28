@@ -1,0 +1,5 @@
+<section id="latest-articles">
+  <% articles.each do |article| %>
+    <%= partial 'articles/article', locals: { article: article } %>
+  <% end %>
+</section>

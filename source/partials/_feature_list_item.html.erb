@@ -1,0 +1,28 @@
+<li class="m-t-lg" id="<%= id %>">
+  <% if icon.present? %>
+    <div class="featured-list-icon">
+      <span class="icon icon-<%= icon %>"></span>
+    </div>
+  <% end %>
+
+  <% if title.present? %>
+    <h2>
+      <% if url.present? %>
+        <% utm_link_to url, class: 'pull-right btn btn-lg btn-primary-outline', target: '_blank' do %>
+          Check it out!
+          <span class="icon icon-export"></span>
+        <% end %>
+
+        <%= utm_link_to title, url, target: '_blank', class: 'header-link' %>
+      <% else %>
+        <%= title %>
+      <% end %>
+
+      <% if subtitle.present? %>
+        <small class="text-muted"><%= subtitle %></small>
+      <% end %>
+    </h2>
+  <% end %>
+
+  <%= yield %>
+</li>

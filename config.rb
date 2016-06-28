@@ -49,11 +49,11 @@ page "/tags.html",       layout: :collection
 
 # Generate pages for each category.
 data.categories.each do |slug, category|
-  proxy "/categories/#{slug}/index.html", '/category.html', data: { title: category[:name] }, locals: { name: category[:name], description: category[:description] }, ignore: true
+  proxy "/categories/#{slug}/index.html", '/articles/categories/category.html', data: { title: category[:name] }, locals: { name: category[:name], description: category[:description] }, ignore: true
 end
 
 data.tags.each do |slug, tag|
-  proxy "/tags/#{slug}/index.html", '/tag.html', data: { title: tag[:name] }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
+  proxy "/tags/#{slug}/index.html", '/articles/tags/tag.html', data: { title: "Articles tagged '#{tag[:name]}'" }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
 end
 
 # General configuration

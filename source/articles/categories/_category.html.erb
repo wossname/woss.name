@@ -1,0 +1,11 @@
+<div class="block block-bordered">
+  <div class="container">
+    <h2 itemprop="name headline">
+      <%= link_to_category category, itemprop: 'url contentUrl' %>
+    </h2>
+
+    <% description = description_for_category(category) %>
+    <% link = link_to_category 'Browse articles&hellip;', category %>
+    <%= markdown [ description, link ].join(' ') %>
+  </div>
+</div>

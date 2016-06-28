@@ -1,12 +1,8 @@
 ---
 title: Articles
 ---
-<section class="block text-justify p-b-0">
-  <h1 class="block-title">
-    Articles
-  </h1>
-
-  <p class="lead">
+<% introduction do %>
+  <p>
     I tend to write on a wide array of different subjects that happen to
     interest me at the time. Recently, I've taken to putting these articles up
     on different sites, so that there's a dedicated site for each topic I want
@@ -14,7 +10,7 @@ title: Articles
     easy to find.
   </p>
 
-  <p class="lead">
+  <p>
     I also cross-post articles to
     <%= link_to 'Wossname Industries on Medium', 'https://blog.woss.name', target: '_blank' %>
     so if you're a fan of Medium, it's easy to follow along there. The
@@ -23,7 +19,7 @@ title: Articles
     this site, but not for now.)
   </p>
 
-  <p class="lead">
+  <p>
     If you're an Apple iOS user, then you can subscribe to the
     <%= link_to 'Wossname Industries channel on Apple News', '' %>. You'll need
     to open that link on your iOS device, and it'll take you into Apple News,
@@ -31,6 +27,13 @@ title: Articles
     manual process right now, so it might be a day or two before articles
     appear.
   </p>
-</section>
 
-<%= partial 'articles', locals: { articles: all_articles } %>
+  <p class="text-center">
+    <% link_to '', fragment: 'latest-articles', class: 'btn btn-lg btn-default' do %>
+      <%= entypo :news %>
+      Latest articles
+    <% end %>
+  </p>
+<% end %>
+
+<%= partial 'articles/articles', locals: { articles: all_articles } %>
