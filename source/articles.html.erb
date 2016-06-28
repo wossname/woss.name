@@ -27,8 +27,13 @@ title: Articles
     manual process right now, so it might be a day or two before articles
     appear.
   </p>
+
+  <p class="text-center">
+    <% link_to '', fragment: 'latest-articles', class: 'btn btn-lg btn-default' do %>
+      <%= entypo :news %>
+      Latest articles
+    <% end %>
+  </p>
 <% end %>
 
-<% listing do %>
-  <%= partial 'articles/articles', locals: { articles: all_articles } %>
-<% end %>
+<%= partial 'articles/articles', locals: { articles: all_articles } %>

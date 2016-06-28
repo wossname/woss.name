@@ -1,10 +1,5 @@
-<div class="row">
-  <% articles.each_with_index do |article, i| %>
+<section id="latest-articles">
+  <% articles.each do |article| %>
     <%= partial 'articles/article', locals: { article: article } %>
-
-    <% if i % 2 == 1 %>
-      </div>
-      <div class="row">
-    <% end %>
   <% end %>
-</div>
+</section>

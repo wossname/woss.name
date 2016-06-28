@@ -43,26 +43,24 @@ nav.navbar, .btn {
   font-family: @headings-font-family;
 }
 
-#main {
+.block-foreground p:first-child {
+  .lead();
 }
 
-.block-foreground p:first-child {
-    .lead();
-  }
-
-
-#introduction {
-  .block();
-  .block-fill-height();
-  .block-paralax();
-  .text-center();
-
+.block-fill-height {
   // Boostrap defaults the full height to '110vh' -- which I guess is 110% of
   // the full height. This is slightly suboptimal in that it means the
   // vertically centered content isn't quite centred. I've a feeling they do
   // it for a reason, though... And who am I to know? I hadn't heard of 'vh'
   // units before!
   height: 100vh;
+}
+
+#introduction {
+  .block();
+  .block-fill-height();
+  .block-paralax();
+  .text-center();
 
   h1 {
     .h1.block-title();
@@ -89,9 +87,15 @@ nav.navbar, .btn {
     .block-inverse();
     background-image: url(/images/projects-background.png);
   }
+
+  .articles & {
+    .block-inverse();
+    background-image: url(/images/articles-background.png);
+  }
 }
 
-.articles #introduction {
+article.summary {
+  .block();
 }
 
 .navbar-brand {
@@ -111,14 +115,6 @@ h1, h2, h3, h4, h5, h6 {
   a.header-link {
     color: inherit;
   }
-}
-
-#article-title .block-background {
-  overflow-y: hidden;
-}
-
-#article-title {
-  height: 300px;
 }
 
 #sidebar.affix {
