@@ -25,21 +25,21 @@
               <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
             </p>
 
-            <div class="lead">
+            <div class="lead" itemprop="description">
               <%= markdown current_page.data.introduction %>
-
-              <p class="text-center">
-                <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
-                  <%= entypo :news %>
-                  Continue reading&hellip;
-                <% end %>
-                
-                <% link_to 'http://www.instapaper.com/hello2', query: { url: "#{config[:url]}#{current_page.url}", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
-                  <%= entypo :save %>
-                  Save to Instapaper
-                <% end %>
-              </p>
             </div>
+
+            <p class="text-center">
+              <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
+                <%= entypo :news %>
+                Continue reading&hellip;
+              <% end %>
+              
+              <% link_to 'http://www.instapaper.com/hello2', query: { url: "#{config[:url]}#{current_page.url}", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
+                <%= entypo :save %>
+                Save to Instapaper
+              <% end %>
+            </p>
           </div>
 
           <div class="block-background sr-only">
