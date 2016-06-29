@@ -35,6 +35,9 @@
         <link><%= "#{config[:url]}#{article.url}" %></link>
         <author><%= "#{config[:default_email_address]} (#{config[:company]})" %></author>
         <category><%= category_meta %></category>
+        <% tags_meta.each do |tag| %>
+          <category><%= tag %></category>
+        <% end %>
         <guid isPermaLink="true"><%= "#{config[:url]}#{article.url}" %></guid>
       </item>
     <% end %>
