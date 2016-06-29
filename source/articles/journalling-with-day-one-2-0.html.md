@@ -51,6 +51,19 @@ contents:
   - Feature requests
   - Download them today
 ---
+I’ve been using Day One
+([Day One 2.0 for Mac](https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website)
+and
+[Day One 2.0 for iOS](https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website))
+for a few years now, I think. In fact, I’ve just had a wee look, and the first
+entry that doesn’t look like it was imported from elsewhere is just over four
+years old. In the time that I’ve used it, I’ve amassed 2,848 entries, though
+some of them have been imported from previous journalling experiments. I
+thought, since version 2.0 was released today, I’d try writing my first entry
+in it by explaining how I use Day One, what other tools I’ve tried in the
+past, and maybe even mention a couple of features I’m hoping will come to it
+some day!
+
 I think things through by writing them down. Some people think by
 talking — thinking out loud — but I like to have a clear idea of what I’m going
 to say before I say it. I find it easiest to do so by writing them out. It
@@ -65,9 +78,7 @@ Enter Day One. It’s a journalling application for the Mac, and for iOS (it’s
 universal, so it works great on the iPhone and the iPad, including the new iPad
 Pro with the latest version!). Entries are timestamped, and you can navigate to
 old entries through a calendar. You can tag entries, and later search for
-entries with particular tags. (I have to confess I’m not terribly good at
-tagging things. It’s difficult to predict how you’ll want to find something
-ahead of time. I’d rather just rely on good full-text search.) It also captures
+entries with particular tags[^1]. It also captures
 other contextual data around the time you create the post, including your
 location, your current activity (which is more relevant if you’re walking
 around with your iPhone), and the current weather conditions. I have a real
@@ -267,3 +278,7 @@ for Mac][15] a shot today? I’d love to hear how you get along with it!
 
 [15]: https://geo.itunes.apple.com/gb/app/day-one/id1055511498?mt=12&uo=4&at=1010lbgm&ct=website
 [14]: https://geo.itunes.apple.com/gb/app/day-one-2-diary-+-journal/id1044867788?mt=8&uo=4&at=1010lbgm&ct=website
+
+[^1]: I have to confess I’m not terribly good at tagging things. It’s difficult
+  to predict how you’ll want to find something ahead of time. I’d rather just
+  rely on good full-text search.

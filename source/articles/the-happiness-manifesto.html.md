@@ -37,6 +37,15 @@ tags:
   - Measurement
   - Business
 ---
+I’m working my way through the
+[Happy Startup School](http://www.thehappystartupschool.com/)’s online course
+on building the sort of company that you wouldn’t want to sell. Today’s task
+is to figure out a manifesto for the business that defines the underlying
+principles through which it operates. I’ve already written a little about the
+company’s [overall mission](https://woss.name/articles/the-happiness-mission):
+to measurably improve the long term happiness of both individuals and
+organisations. The intent here is to take the ideas from that mission and
+flesh out a little more detail.
 
 I believe that **happiness is a journey, not a destination**. We don’t achieve
 an end goal of “being happy” but we can make a number of changes throughout our
