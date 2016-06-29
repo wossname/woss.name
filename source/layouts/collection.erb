@@ -1,5 +1,7 @@
 <% wrap_layout :layout do %>
-  <div itemprop="blog" itemscope itemtype="http://schema.org/Blog">
+  <div itemscope itemtype="http://schema.org/Blog">
+    <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
+
     <%= yield %>
   </div>
 <% end %>
