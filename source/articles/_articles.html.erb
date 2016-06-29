@@ -1,4 +1,4 @@
-<section id="latest-articles">
+<section id="latest-articles" itemscope itemtype="http://schema.org/Blog">
   <% articles.each do |article| %>
     <%= partial 'articles/article', locals: { article: article } %>
   <% end %>
