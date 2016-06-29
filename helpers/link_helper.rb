@@ -58,8 +58,6 @@ module LinkHelper
     block_is_template?(block) ? concat_content(output) : output
   end
 
-  private
-
   # This is blatantly stolen from ActiveSupport::Inflector#parameterize+. The
   # only thing I wanted to change is that I'm happy with '.' being in the
   # resulting string, since I'm using domain names for utm parameters... On the
