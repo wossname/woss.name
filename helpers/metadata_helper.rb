@@ -48,11 +48,14 @@ module MetadataHelper
       category = category_or_options
     end
 
-    link_to title, category_path(category), { rel: [ :section, :category ].join(' ') }.merge(options)
+    url_options = options.slice(:absolute)
+    link_to_options = options.except(:absolute)
+
+    link_to title, category_path(category, url_options), { rel: [ :section, :category ].join(' ') }.merge(link_to_options)
   end
 
-  def category_path(category)
-    "/categories/#{parameterize(category)}/index.html"
+  def category_path(category, options = {})
+    url_for "/categories/#{parameterize(category)}/index.html", options
   end
 
   def description_for_category(name)
@@ -69,11 +72,14 @@ module MetadataHelper
   end
 
   def link_to_tag(tag, options = {})
-    link_to tag, tag_path(tag), { rel: :tag }.merge(options)
+    url_options = options.slice(:absolute)
+    link_to_options = options.except(:absolute)
+
+    link_to tag, tag_path(tag, url_options), { rel: :tag }.merge(link_to_options)
   end
 
-  def tag_path(tag)
-    "/tags/#{parameterize(tag)}/index.html"
+  def tag_path(tag, options = {})
+    url_for "/tags/#{parameterize(tag)}/index.html", options
   end
 
   def published_on_meta(page = current_page)
@@ -102,17 +108,18 @@ module MetadataHelper
   end
 
   def canonical_url_meta
-    if (canonical_source = current_page.data.canonical_source)
-      canonical_url = canonical_source[:url]
-      canonical_url.start_with?('/') ? "#{config[:url]}#{canonical_url}" : canonical_url
+    url = if (canonical_source = current_page.data.canonical_source)
+      canonical_source[:url]
     else
-      "#{config[:url]}#{current_page.url}"
+      current_page.url
     end
+    
+    url_for(url, absolute: true)
   end
 
-  def alternate_urls_meta
+  def alternate_urls_meta(options = {})
     if (alternates = current_page.data.alternates)
-      alternates.map { |source| source[:url] }
+      alternates.map { |source| url_for source[:url], options }
     else
       []
     end
@@ -122,7 +129,7 @@ module MetadataHelper
     width, height, type = properties_for_image(image)
 
     tags = [
-      meta_tag(property: 'og:image', content: "#{config[:url]}#{image_path(image)}")
+      meta_tag(property: 'og:image', content: image_path(image, absolute: true))
     ]
 
     case type

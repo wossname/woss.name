@@ -1,11 +1,12 @@
 ---
+absolute_urls: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
     <title><%= title_meta %></title>
     <description><%= description_meta %></description>
-    <link><%= config[:url] %>/</link>
+    <link><%= url_for('/index.html') %></link>
 
     <language>en-gb</language>
     <copyright>Copyright 2015-<%= Date.today.year %> Wossname Industries.</copyright>
@@ -22,9 +23,9 @@
     <lastBuildDate><%= rfc822_timestamp Time.now %></lastBuildDate>
 
     <image>
-      <url><%= "#{config[:url]}/images/#{config[:logo]}" %></url>
+      <url><%= image_path config[:logo] %></url>
       <title><%= title_meta %></title>
-      <link><%= config[:url] %>/</link>
+      <link><%= url_for('/index.html') %></link>
     </image>
 
     <% all_articles.each do |article| %>
@@ -32,13 +33,13 @@
         <title><%= xml_escape(article.data.title) %></title>
         <description><%= xml_escape(article.data.introduction || article.data.description) %></description>
         <pubDate><%= rfc822_timestamp(updated_on_meta(article)) %></pubDate>
-        <link><%= "#{config[:url]}#{article.url}" %></link>
+        <link><%= url_for article.url %></link>
         <author><%= "#{config[:default_email_address]} (#{config[:company]})" %></author>
         <category><%= category_meta %></category>
         <% tags_meta.each do |tag| %>
           <category><%= tag %></category>
         <% end %>
-        <guid isPermaLink="true"><%= "#{config[:url]}#{article.url}" %></guid>
+        <guid isPermaLink="true"><%= url_for article.url %></guid>
         <content:encoded>
           <![CDATA[<%= article.render(layout: 'rss-item') %>]]>
         </content:encoded>

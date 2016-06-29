@@ -1,17 +1,20 @@
+---
+absolute_urls: true
+---
 <html lang="en" prefix="op: http://media.facebook.com/op#">
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="<%= config[:url] %><%= current_page.url %>">
+    <link rel="canonical" href="<%= url_for current_page.url, absolute: true %>">
     <meta property="op:markup_version" content="v1.0">
   </head>
   <body>
     <article itemscope itemtype="http://schema.org/BlogPosting">
-      <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
+      <link itemprop="mainEntityOfPage" href="<%= url_for(current_page, absolute: true) %>">
     
       <header id="article-title">
         <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
           <figure data-mode="aspect-fit">
-            <img src="<%= config[:url] %><%= image_path(cover) %>" alt="<%= current_page.data.title %>">
+            <img src="<%= image_path(cover, absolute: true) %>" alt="<%= current_page.data.title %>">
           </figure>
         <% end %>
 
@@ -28,7 +31,7 @@
         <address>
           Written by
           <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
-            <% link_to '/team/mathie.html', itemprop: 'url' do %>
+            <% link_to '/team/mathie.html', itemprop: 'url', absolute: true do %>
               <span itemprop="name">
                 <span itemprop="givenName">
                   Graeme
@@ -41,7 +44,7 @@
           </span>
     
           <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
-            <% link_to '/', itemprop: 'url' do %>
+            <% link_to '/', itemprop: 'url', absolute: true do %>
               <span itemprop="name">
                 Wossname Industries
               </span>
@@ -59,8 +62,8 @@
             Published on
             <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified', class: 'op-published' %>
           <% end %>
-          in <%= link_to_category current_page.data.category, itemprop: 'articleSection' %>. <br>
-          Tagged with: <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag }.join(', ') %>
+          in <%= link_to_category current_page.data.category, itemprop: 'articleSection', absolute: true %>. <br>
+          Tagged with: <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, absolute: true }.join(', ') %>
         </p>
       </header>
     
@@ -81,7 +84,7 @@
               <% related.each do |article| %>
                 <li>
                   <%= entypo :news %>
-                  <h4 class="m-a-0"><%= link_to article[:title], article[:url] %></h4>
+                  <h4 class="m-a-0"><%= link_to article[:title], article[:url], absolute: true %></h4>
 
                   <% if article[:description] %>
                     <%= markdown article[:description] %>
@@ -96,20 +99,20 @@
           <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
             <%= current_page.data.title %>
           </span>
-          by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>
+          by <%= link_to 'Graeme Mathieson', '/team/mathie.html', absolute: true %>
           is copyright &copy; 2015-<%= Date.today.year %>
-          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>.
+          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= url_for('/index.html', absolute: true) %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>.
           It is licensed under a
           <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
       
           <% if (canonical_source = current_page.data.canonical_source) %>
             It was originally published on
-            <%= link_to canonical_source[:name], canonical_source[:url] %> and
+            <%= link_to canonical_source[:name], canonical_source[:url], absolute: true %> and
             subsequently posted on the Wossname Industries website:
           <% else %>
             It was originally posted on the Wossname Industries website:
           <% end %>
-          <%= link_to current_page.data.title, "#{config[:url]}#{current_page.url}" %>.
+          <%= link_to current_page.data.title, current_page.url, absolute: true %>.
         </p>
     
         <% if (alternates = current_page.data.alternates) %>
@@ -119,7 +122,7 @@
           
           <ul>
             <% alternates.each do |source| %>
-              <li><%= link_to source[:name], source[:url] %></li>
+              <li><%= link_to source[:name], source[:url], absolute: true %></li>
             <% end %>
           </ul>
         <% end %>

@@ -1,6 +1,36 @@
 require 'active_support/inflector'
 
 module LinkHelper
+  def url_for(path_or_resource, options = {})
+    absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
+    relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
+    
+    raise "Can't have relative and absolute URLs together!" if absolute && relative
+
+    url = super
+    
+    if absolute && url.start_with?('/')
+      "#{config[:url]}#{url}"
+    else
+      url
+    end
+  end
+
+  def image_path(path_or_resource, options = {})
+    absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
+    relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
+    
+    raise "Can't have relative and absolute URLs together!" if absolute && relative
+
+    url = super(path_or_resource)
+    
+    if absolute && url.start_with?('/')
+      "#{config[:url]}#{url}"
+    else
+      url
+    end
+  end
+
   def mail_to_link(title_or_options = {}, maybe_options = nil, &block)
     if maybe_options.nil?
       if title_or_options.is_a?(Hash)

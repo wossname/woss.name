@@ -13,7 +13,7 @@
     </p>
 
     <form action="https://forms.woss.name/subscriptions" method="POST" class="form-horizontal">
-      <input type="hidden" name="redirect_to" value="<%= config[:url] %>/thank-you/">
+      <input type="hidden" name="redirect_to" value="<%= url_for('/thank-you.html', absolute: true)">
       <input type="hidden" name="subscription[product]" value="wossname_industries">
       <input type="hidden" name="subscription[general_updates]" value="1">
 

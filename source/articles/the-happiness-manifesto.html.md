@@ -89,7 +89,7 @@ to perform experiments on yourself. I’m tempted to suggest that there’s an
 opportunity around building a generic framework for performing experiments on
 anything you can measure, but I’ll save that thought for a future pivot!)
 
-[1]: https://woss.name/articles/the-happiness-mission
+[1]: <%= url_for '/articles/the-happiness-mission.html', absolute: true %>
 [4]: https://www.nagios.org/
 [3]: http://graphite.wikidot.com/
 

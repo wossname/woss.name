@@ -2,9 +2,9 @@
   {
     "@context": "http://schema.org",
     "@type": "Organization",
-    "url": "<%= config[:url] %>",
+    "url": "<%= url_for('/index.html', absolute: true) %>",
     "email": "<%= config[:default_email_address] %>",
-    "logo": "<%= config[:url] %><%= image_path config[:logo] %>",
+    "logo": "<%= image_path config[:logo], absolute: true %>",
     "contactPoint" : [
       {
         "@type" : "ContactPoint",
@@ -22,7 +22,7 @@
       "addressCountry": "GB"
     },
     "sameAs" : [
-      <%= config[:related].map { |_, url| "\"#{url}\"" }.join(",\n") %>
+      <%= config[:related].map { |_, url| "\"#{url_for url, absolute: true}\"" }.join(",\n") %>
     ]
   }
 </script>
@@ -32,10 +32,10 @@
     "@context": "http://schema.org",
     "@type": "WebSite",
     "name": "<%= config[:title] %>",
-    "url": "<%= config[:url] %>",
+    "url": "<%= url_for('/index.html', absolute: true) %>",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "<%= config[:url] %>/search/?q={search_term_string}",
+      "target": "<%= url_for '/search.html', absolute: true, query: { q: '{search_term_string}' } %>,
       "query-input": "required name=search_term_string"
     }
   }

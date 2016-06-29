@@ -51,7 +51,7 @@
                 Continue reading&hellip;
               <% end %>
               
-              <% link_to 'http://www.instapaper.com/hello2', query: { url: "#{config[:url]}#{current_page.url}", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
+              <% link_to 'http://www.instapaper.com/hello2', query: { url: url_for current_page.url, absolute: true", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
                 <%= entypo :save %>
                 Save to Instapaper
               <% end %>
@@ -114,7 +114,7 @@
           <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
             <%= current_page.data.title %>
           </span> by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>, of
-          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>,
+          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= url_for('/index.html') %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>,
           is licensed under a
           <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
   
