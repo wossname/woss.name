@@ -1,5 +1,5 @@
 <% wrap_layout :layout do %>
-  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+  <article itemscope itemtype="http://schema.org/BlogPosting">
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
     <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
@@ -49,26 +49,26 @@
             </p>
           </div>
 
-          <div class="block-background sr-only">
-            <% if current_page.data[:image] && (square = current_page.data[:image][:square]) %>
-              <figure class="sr-only" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+          <% if current_page.data[:image] && (square = current_page.data[:image][:square]) %>
+            <div class="block-background sr-only" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+              <figure>
                 <%= image_tag square, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
                 <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
-                <% if (dimensions = dimensions_for_image(square)) %>
-                  <meta itemprop="width" content="<%= dimensions[0] %>">
-                  <meta itemprop="height" content="<%= dimensions[1] %>">
-                <% end %>
               </figure>
-            <% end %>
-          </div>
+
+              <% if (dimensions = dimensions_for_image(square)) %>
+                <meta itemprop="width" content="<%= dimensions[0] %>">
+                <meta itemprop="height" content="<%= dimensions[1] %>">
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </header>
 
-      <div class="block" itemprop="articleBody text" id="article-body">
-        <div class="container">
-          <%= yield %>
-        </div>
+    <div class="block" itemprop="articleBody text" id="article-body">
+      <div class="container">
+        <%= yield %>
       </div>
     </div>
 
@@ -133,8 +133,8 @@
                                 Mathieson
                               </span>
                             </span>
-                          </span>
-                        <% end %>
+                          <% end %>
+                        </span>
                       </td>
                     </tr>
       
