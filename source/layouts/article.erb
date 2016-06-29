@@ -87,6 +87,29 @@
 
     <div class="block block-bordered">
       <div class="container">
+        <% if (related = current_page.data[:related]) %>
+          <div id="related-articles">
+            <p>
+              If you've enjoyed this article, you might also like to read the
+              following related articles (hand-picked by me, not some deep
+              learning algorithm!):
+            </p>
+            
+            <ul class="iconlist">
+              <% related.each do |article| %>
+                <li>
+                  <%= entypo :news %>
+                  <h4 class="m-a-0"><%= link_to article[:title], article[:url] %></h4>
+
+                  <% if article[:description] %>
+                    <%= markdown article[:description] %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <p class="text-muted">
           <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
             <%= current_page.data.title %>

@@ -25,6 +25,14 @@ canonical_source:
   name: Medium
   url: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af
 
+related:
+  - title: The Happiness Mission
+    url: /articles/the-happiness-mission/
+    description: |
+      This is how the manifesto started out, when I tweeted the company's
+      mission: "to measurably improve the long term happiness of both
+      individuals and organisations." Does the manifesto stand up to that?
+
 sitemap_priority: 1.0
 sitemap_changefreq: 'weekly'
 
