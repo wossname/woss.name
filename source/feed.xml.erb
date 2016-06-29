@@ -18,8 +18,8 @@
       <%= "#{config[:default_email_address]} (#{config[:company]})" %>
     </webMaster>
 
-    <pubDate><%= xml_timestamp latest_article.data.published_on %></pubDate>
-    <lastBuildDate><%= Time.now %></lastBuildDate>
+    <pubDate><%= rfc822_timestamp latest_article.data.published_on %></pubDate>
+    <lastBuildDate><%= rfc822_timestamp Time.now %></lastBuildDate>
 
     <image>
       <url><%= "#{config[:url]}/images/#{config[:logo]}" %></url>
@@ -31,9 +31,9 @@
       <item>
         <title><%= xml_escape(article.data.title) %></title>
         <description><%= xml_escape(article.data.introduction || article.data.description) %></description>
-        <pubDate><%= xml_timestamp(updated_on_meta) %></pubDate>
+        <pubDate><%= rfc822_timestamp(updated_on_meta) %></pubDate>
         <link><%= "#{config[:url]}#{article.url}" %></link>
-        <author><%= config[:default_email_address] %></author>
+        <author><%= "#{config[:default_email_address]} (#{config[:company]})" %></author>
         <category><%= category_meta %></category>
         <guid isPermaLink="true"><%= "#{config[:url]}#{article.url}" %></guid>
       </item>

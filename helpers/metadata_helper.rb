@@ -164,7 +164,7 @@ module MetadataHelper
     if str.blank?
       ''
     else
-      strip_whitespace(strip_tags(str))
+      strip_whitespace(strip_tags(markdown str))
     end
   end
 

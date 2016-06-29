@@ -43,4 +43,9 @@ module SitemapHelper
     timestamp = dateish.respond_to?(:strftime) ? dateish : Date.parse(dateish)
     timestamp.strftime('%FT%H:%M:%S%:z')
   end
+  
+  def rfc822_timestamp(dateish = Time.now)
+    timestamp = dateish.respond_to?(:rfc822) ? dateish : Date.parse(dateish)
+    timestamp.rfc822
+  end
 end
