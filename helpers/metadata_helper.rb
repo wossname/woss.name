@@ -160,6 +160,14 @@ module MetadataHelper
     []
   end
 
+  def xml_escape(str)
+    if str.blank?
+      ''
+    else
+      strip_whitespace(strip_tags(str))
+    end
+  end
+
   def strip_whitespace(str)
     if str.blank?
       ''

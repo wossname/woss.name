@@ -1,0 +1,42 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><%= title_meta %></title>
+    <description><%= description_meta %></description>
+    <link><%= config[:url] %>/</link>
+
+    <language>en-gb</language>
+    <copyright>Copyright 2015-<%= Date.today.year %> Wossname Industries.</copyright>
+
+    <managingEditor>
+      <%= "#{config[:default_email_address]} (#{config[:company]})" %>
+    </managingEditor>
+
+    <webMaster>
+      <%= "#{config[:default_email_address]} (#{config[:company]})" %>
+    </webMaster>
+
+    <pubDate><%= xml_timestamp latest_article.data.published_on %></pubDate>
+    <lastBuildDate><%= Time.now %></lastBuildDate>
+
+    <image>
+      <url><%= "#{config[:url]}/images/#{config[:logo]}" %></url>
+      <title><%= title_meta %></title>
+      <link><%= config[:url] %>/</link>
+    </image>
+
+    <% all_articles.each do |article| %>
+      <item>
+        <title><%= xml_escape(article.data.title) %></title>
+        <description><%= xml_escape(article.data.introduction || article.data.description) %></description>
+        <pubDate><%= xml_timestamp(updated_on_meta) %></pubDate>
+        <link><%= "#{config[:url]}#{article.url}" %></link>
+        <author><%= config[:default_email_address] %></author>
+        <category><%= category_meta %></category>
+        <guid isPermaLink="true"><%= "#{config[:url]}#{article.url}" %></guid>
+      </item>
+    <% end %>
+  </channel>
+</rss>
