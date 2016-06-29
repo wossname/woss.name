@@ -25,6 +25,10 @@ $(function() {
     var fragment = this.hash;
     var target = $(fragment);
     
+    if(!target) {
+      return;
+    }
+
     $('html, body').stop().animate({
       // Scroll to the top of #main, which is just below the navbar. The
       // default scroll offset means the target winds up underneath the navbar
