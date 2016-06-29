@@ -31,7 +31,7 @@
       <item>
         <title><%= xml_escape(article.data.title) %></title>
         <description><%= xml_escape(article.data.introduction || article.data.description) %></description>
-        <pubDate><%= rfc822_timestamp(updated_on_meta) %></pubDate>
+        <pubDate><%= rfc822_timestamp(updated_on_meta(article)) %></pubDate>
         <link><%= "#{config[:url]}#{article.url}" %></link>
         <author><%= "#{config[:default_email_address]} (#{config[:company]})" %></author>
         <category><%= category_meta %></category>

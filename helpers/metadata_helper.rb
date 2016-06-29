@@ -76,8 +76,8 @@ module MetadataHelper
     "/tags/#{parameterize(tag)}/index.html"
   end
 
-  def published_on_meta
-    if (published_on = current_page.data.published_on)
+  def published_on_meta(page = current_page)
+    if (published_on = page.data[:published_on])
       published_on.acts_like?(:date) ? published_on : Date.parse(published_on)
     else
       # FIXME: This should pull the last modified time from Git/the filesystem.
@@ -85,20 +85,20 @@ module MetadataHelper
     end
   end
 
-  def published_on_tag
-    time_tag published_on_meta
+  def published_on_tag(page = current_page)
+    time_tag published_on_meta(page)
   end
 
-  def updated_on_meta
-    if (updated_on = current_page.data.updated_on)
+  def updated_on_meta(page = current_page)
+    if (updated_on = page.data[:updated_on])
       Date.parse(updated_on)
     else
-      published_on_meta
+      published_on_meta(page)
     end
   end
 
-  def updated_on_tag
-    time_tag updated_on_meta
+  def updated_on_tag(page = current_page)
+    time_tag updated_on_meta(page)
   end
 
   def canonical_url_meta
