@@ -39,7 +39,7 @@
           <meta itemprop="copyrightYear" content="<%= updated_on.year %>">
         <% else %>
           Published <%= time_tag article.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
-          <meta itemprop="copyrightYear" content="<%= published_on.year %>">
+          <meta itemprop="copyrightYear" content="<%= article.data.published_on.year %>">
         <% end %>
         in <%= link_to_category article.data.category, class: 'label label-info', itemprop: 'articleSection' %>. <br>
         <span itemprop="keywords">

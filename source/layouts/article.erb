@@ -22,9 +22,15 @@
             <% end %>
 
             <p class="text-muted text-center">
-              Written by Graeme Mathieson. Published <%= time_tag current_page.data.published_on %>
               <% if (updated_on = current_page.data.updated_on) %>
-                (updated <%= time_tag updated_on %>)
+                Written by Graeme Mathieson. Published
+                <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished' %>
+                (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
+                <meta itemprop="copyrightYear" content="<%= updated_on.year %>">
+              <% else %>
+                Written by Graeme Mathieson. Published
+                <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
+                <meta itemprop="copyrightYear" content="<%= current_page.data.published_on.year %>">
               <% end %>
               in <%= link_to_category current_page.data.category, class: 'label label-info' %>. <br>
               <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
@@ -64,7 +70,7 @@
           <% end %>
 
           <% if current_page.data[:image] && (thumbnail = current_page.data[:image][:thumbnail]) %>
-            <%= image_tag thumbail, itemprop: 'thumbnailUrl', class: 'hidden' %>
+            <%= image_tag thumbnail, itemprop: 'thumbnailUrl', class: 'hidden' %>
           <% end %>
         </div>
       </div>
