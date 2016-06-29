@@ -13,7 +13,6 @@ config[:copyright]        = "Copyright &copy; 2015-#{Date.today.year} #{config[:
 config[:default_category] = 'Software Development'
 config[:default_tags]     = [ 'Ruby', 'Rails', 'Ruby on Rails', 'iOS', 'iPhone',
                               'iPad', 'Swift', 'DevOps', 'Consulting' ]
-config[:gravatar]         = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(config[:default_email_address])}"
 config[:telephone]        = "+44 (0)7949 077744"
 config[:logo]             = 'wossname-industries.png'
 config[:twitter_owner]    = 'wossname'

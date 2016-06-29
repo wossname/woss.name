@@ -6,9 +6,9 @@
 <meta name="twitter:domain" content="<%= config[:domain] %>">
 
 <% if (image = (current_page.data[:image] || {})[:square]) %>
-  <meta name="twitter:image" content="<%= image_path(image) %>">
+  <meta name="twitter:image" content="<%= "#{config[:url]}#{image_path(image)}" %>">
   <meta name="twitter:image:alt" content="<%= title_meta %>">
 <% else %>
-  <meta name="twitter:image" content="<%= config[:gravatar] %>">
+  <meta name="twitter:image" content="<%= "#{config[:url]}/images/#{config[:logo]}" %>">
   <meta name="twitter:image:alt" content="<%= config[:company] %>">
 <% end %>
