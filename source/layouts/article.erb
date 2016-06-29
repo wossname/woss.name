@@ -51,7 +51,7 @@
                 Continue reading&hellip;
               <% end %>
               
-              <% link_to 'http://www.instapaper.com/hello2', query: { url: url_for current_page.url, absolute: true", title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
+              <% link_to 'http://www.instapaper.com/hello2', query: { url: url_for(current_page.url, absolute: true), title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
                 <%= entypo :save %>
                 Save to Instapaper
               <% end %>
