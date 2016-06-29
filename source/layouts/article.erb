@@ -62,6 +62,10 @@
               <% end %>
             </div>
           <% end %>
+
+          <% if current_page.data[:image] && (thumbnail = current_page.data[:image][:thumbnail]) %>
+            <%= image_tag thumbail, itemprop: 'thumbnailUrl', class: 'hidden' %>
+          <% end %>
         </div>
       </div>
     </header>
@@ -123,7 +127,7 @@
                         Author
                       </th>
                       <td>
-                        <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
+                        <span itemprop="author creator editor accountablePerson" itemscope itemtype="http://schema.org/Person">
                           <% link_to '/team/mathie.html', itemprop: 'url' do %>
                             <span itemprop="name">
                               <span itemprop="givenName">
@@ -143,7 +147,7 @@
                         Publisher
                       </th>
                       <td>
-                        <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
+                        <span itemprop="copyrightHolder publisher provider sourceOrganization" itemscope itemtype="http://schema.org/Organization">
                           <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
                             <img itemprop="contentUrl url" src="<%= image_path config[:logo] %>" alt="Wossname Industries logo">
                           </span>
