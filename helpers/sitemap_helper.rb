@@ -5,6 +5,12 @@ module SitemapHelper
     sitemap.resources.select { |resource| resource.path =~ /^articles\// }.sort { |a, b| b.data[order] <=> a.data[order] }
   end
 
+  def latest_article(options = {})
+    options[:order] ||= :published_on
+    
+    all_articles(options).first
+  end
+
   def all_categories
     sitemap.resources.map { |resource| resource.data[:category] }.compact.sort.uniq
   end

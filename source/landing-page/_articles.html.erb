@@ -1,0 +1,15 @@
+<section id="articles">
+  <%= partial 'articles/article', locals: { article: latest_article } %>
+
+  <div class="container">
+    <p class="text-center">
+      <% link_to '/articles.html', class: 'btn btn-lg btn-primary-outline' do %>
+        More articles
+      <% end %>
+
+      <% link_to '', fragment: 'clients', class: 'btn btn-lg btn-default-outline' do %>
+        On to clients
+      <% end %>
+    </p>
+  </div>
+</section>

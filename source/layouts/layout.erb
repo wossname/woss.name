@@ -16,10 +16,11 @@
     <%= partial 'partials/google_tag_manager' %>
 
     <% navbar_link_to 'Home',     '/index.html' %>
-    <% navbar_link_to 'Projects', '/projects.html' %>
     <% navbar_link_to 'Services', '/services.html' %>
+    <% navbar_link_to 'Projects', '/projects.html' %>
     <% navbar_link_to 'Articles', '/articles.html' %>
-    <% navbar_link_to 'Contact',  '/contact.html' %>
+    <% navbar_link_to 'About me', '/team/mathie.html' %>
+    <% navbar_link_to 'Get in touch',  '/contact.html' %>
 
     <%= partial 'partials/navbar' %>
 
@@ -27,7 +28,7 @@
       <%= yield %>
     </main>
     
-    <footer class="navbar navbar-inverse navbar-fixed-bottom">
+    <footer class="navbar navbar-inverse navbar-fixed-bottom hidden-xs hidden-sm">
       <div class="navbar-header">
         <div class="navbar-text">
           Copyright &copy; 2015&ndash;<%= Date.today.year %>

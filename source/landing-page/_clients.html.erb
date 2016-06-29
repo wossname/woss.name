@@ -1,0 +1,30 @@
+<section id="clients" class="block">
+  <div class="container">
+    <h2 class="block-title">
+      Happy clients
+    </h2>
+
+    <p class="lead">
+      I've worked with some awesome companies over the past few years, building
+      all kinds of apps. Here are a few happy customers:
+    </p>
+
+    <div data-grid="images" data-target-height="100">
+      <% data.clients.each do |key, client| %>
+        <% if client[:url] %>
+          <% link_to client[:url], title: client[:name] do %>
+            <%= image_tag "clients/#{key}.png", class: 'img-rounded', alt: client[:name], title: client[:name], 'data-toggle': :tooltip, 'data-placement': :bottom %>
+          <% end %>
+        <% else %>
+          <%= image_tag "clients/#{key}.png", class: 'img-rounded', alt: client[:name], title: client[:name], 'data-toggle': :tooltip, 'data-placement': :bottom %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <p class="text-center m-t-md">
+      <% link_to '', fragment: 'testimonials', class: 'btn btn-lg btn-default-outline' do %>
+        On to testimonials
+      <% end %>
+    </p>
+  </div>
+</section>

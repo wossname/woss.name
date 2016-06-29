@@ -74,23 +74,23 @@ nav.navbar, .btn {
 
   .landing-page & {
     .block-inverse();
-    background-image: url(/images/introduction-background.png);
+    background-image: url(/images/introduction-background.jpg);
 
     p { .lead(); }
   }
 
   .services & {
-    background-image: url(/images/services-background.png);
+    background-image: url(/images/services-background.jpg);
   }
 
   .projects & {
     .block-inverse();
-    background-image: url(/images/projects-background.png);
+    background-image: url(/images/projects-background.jpg);
   }
 
   .articles & {
     .block-inverse();
-    background-image: url(/images/articles-background.png);
+    background-image: url(/images/articles-background.jpg);
   }
 }
 
@@ -103,12 +103,22 @@ article.summary {
   padding-bottom: 0;
 }
 
-.navbar-brand h1 {
-  margin-top: 0;
-  margin-bottom: 0;
-  width: 360px;
-  height: 50px;
-  background-image: url(/images/navbar-brand.png);
+.navbar-brand {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 50px;
+  }
+  
+  #wossname-industries-logo {
+    background-image: url(/images/navbar-brand.png);
+    width: 360px;
+  }
+  
+  #wossname-industries-logo-sm {
+    background: url(/images/little-w.png) no-repeat;
+    width: 126px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
