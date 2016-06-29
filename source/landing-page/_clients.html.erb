@@ -1,0 +1,24 @@
+<section id="clients" class="block">
+  <div class="container">
+    <h2 class="block-title">
+      Happy clients
+    </h2>
+
+    <p class="lead">
+      I've worked with some awesome companies over the past few years, building
+      all kinds of apps. Here are a few happy customers:
+    </p>
+
+    <div data-grid="images">
+      <% 12.times do %>
+        <img src="http://placehold.it/175x75" alt="FreeAgent">
+      <% end %>
+    </div>
+
+    <p class="text-center m-t-md">
+      <% link_to '', fragment: 'testimonials', class: 'btn btn-lg btn-default-outline' do %>
+        On to testimonials
+      <% end %>
+    </p>
+  </div>
+</section>
