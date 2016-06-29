@@ -1,0 +1,125 @@
+---
+title: Discovering DMARC
+description: |
+  I only just discovered Domain-based Message Authentication, Reporting &
+  Conformance (DMARC) today, as I was writing up some notes for an article on
+  setting up email for a new domain. Let's see if we can find out what it's
+  all about.
+
+introduction: |
+  I only just discovered Domain-based Message Authentication, Reporting &
+  Conformance (DMARC) today, as I was writing up some notes for an article on
+  setting up email for a new domain. While I was writing the section on DKIM,
+  I got to thinking, "That's all well and good, but how do I advertise the fact
+  that all my email sources are DKIM-signing messages, and that anything which
+  isn't signed is probably spam?" It turns out that DMARC is the answer to
+  that question &mdash; and more &mdash; and it's widely deployed. In addition to allowing
+  you to state that you sign everything, you can also opt in to getting reports
+  from mail service providers with details on what email is getting dropped.
+
+image:
+  cover: discovering-dmarc/cover.png
+  square: discovering-dmarc/square.png
+  thumbnail: discovering-dmarc/thumbnail.png
+
+alternates:
+  - name: Medium
+    url: https://blog.woss.name/discovering-dmarc-ed6a66df5c18
+
+sitemap_priority: 1.0
+sitemap_changefreq: 'weekly'
+
+published_on: 2016-05-31
+category: Internet
+tags:
+  - Email
+  - Security
+  - Domains
+  - Gmail
+  - Internet
+---
+
+I only just discovered
+[Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/)
+today, as I was writing up some notes for an article on setting up email for a
+new domain. While I was writing the section on DKIM, I got to thinking,
+<q>That's all well and good, but how do I advertise the fact that all my email
+sources are DKIM-signing messages, and that anything which isn't signed is
+probably spam?</q> It turns out that DMARC is the answer to that question
+&mdash; and more &mdash; and it's widely deployed. In addition to allowing you
+to state that you sign everything, you can also opt in to getting reports from
+mail service providers with details on what email is getting dropped.
+
+DMARC builds upon both [DomainKeys Identified Mail (DKIM)](http://www.dkim.org/)
+and the [Sender Policy Framework (SPF)](http://www.openspf.org/) &mdash; which
+I'll talk about in detail another day if you like. It uses them to define the
+policy of what it considers as "non-aligned" (potentially spam) email. You
+can then stipulate what you want the recipient's mail service to do with that
+email, and request automated reports on how the recipient's service treats your
+messages. Getting these reports allows you to gain feedback on what messages
+other mail systems are dropping, alerting you to any misconfiguration or rogue
+activity on services you run, which is a valuable feedback loop.
+
+As an experiment, I've just deployed it on a couple of domains, purely in a
+reporting capacity. I want to see what form these reports take and whether
+I've got my mail servers configured correctly. It's worth noting that the
+systems I use for email aren't ones I control &mdash; I use
+[Google Apps](https://goo.gl/zdwZfd) for email, [Intercom](https://intercom.io/)
+for customer[^1] conversations, and [MailChimp](http://eepurl.com/bOLGs1)
+for newsletters. All of these apps support both SPF and DKIM, so I'm well
+covered.
+
+If you would like to do the same, head across to your DNS provider's web UI,
+and go to the list of DNS records for your domain. Create a new record set.
+The name for the record is `_dmarc` (so any mail system can look up the
+well-known name `_dmarc.yourdomain.com` to get your policy), and the type is
+`TXT`. The value we'll start out with will be something along the lines of:
+
+```
+"v=DMARC1; p=none; sp=none; rua=mailto:postmaster@woss.name; ruf=mailto:postmaster@woss.name"
+```
+
+Remember to change the email addresses in there &mdash; I don't want your
+reports! Right now, this is purely an attempt to get some information on what
+would happen if I were to enable it properly. We can break it down as follows:
+
+* It starts out with a familiar-looking version parameter (it's the same style
+  as SPF & DKIM), saying we're formatting the record according to the DMARC v1
+  specification.
+
+* `p=none` is our policy for dealing with non-aligned email on this domain.
+  We're saying, <q>don't take any further action</q> for now, but if the
+  deployment is successful, we'll upgrade that to quarantine or even reject.
+
+* The next parameter, `sp=none` specifies what to do with messages that come
+  from a subdomain (e.g. `hello@happy.woss.name`). For now, I'm mirroring the
+  policy for the root domain, but I expect I'll quickly upgrade that to reject,
+  since I don't (intend to) send any email from subdomains.
+
+* The next two parameters are the interesting ones at this stage in the
+  deployment. It's worth noting that I've already got the email address
+  `postmaster@woss.name` pointed at a real mailbox, as tradition &mdash; and
+  an RFC or two &mdash; dictates.
+
+* With `rua=mailto:postmaster@woss.name`, I'm requesting that other email
+  providers send aggregate (daily, I think) reports to that particular email
+  address. It's handy that this is a URI &mdash; I imagine there's software
+  out there that accepts the reports as a webhook and does further automated
+  processing before bothering a human being.
+
+* The `ruf=mailto:postmaster@woss.name` parameter is similar but is for
+  forensic reports. I'm imagining this being details of individual failures,
+  that it'll be useful for debugging, and that I'm rapidly going to switch it
+  off because the volume of traffic from it is annoying! The
+  [Google Apps documentation](https://support.google.com/a/answer/2466563) I
+  read earlier says that it doesn't support the `ruf` parameter, so I don't
+  know if I'll see much from it.
+
+There are a few other options you can use &mdash; specifying whether an SPF
+failure or a DKIM failure should be considered non-aligned, and suggesting a
+percentage of email to which the policy should apply, so you can do gradual
+rollouts &mdash; but this is good enough for just now. I'll pop back in a
+couple of days, when I've had some reports, and discover just how much spam
+purports to be from my domains!
+
+[^1]: Not that I have any actual customers right now, but I can dream, right? `;-)`
