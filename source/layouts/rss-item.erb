@@ -9,6 +9,12 @@
       <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
     
       <header id="article-title">
+        <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+          <figure data-mode="aspect-fit">
+            <img src="<%= config[:url] %><%= image_path(cover) %>" alt="<%= current_page.data.title %>">
+          </figure>
+        <% end %>
+
         <h1 itemprop="name headline">
           <%= current_page.data.title %>
         </h1>
@@ -19,7 +25,7 @@
           </h2>
         <% end %>
     
-        <p>
+        <address>
           Written by
           <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
             <% link_to '/team/mathie.html', itemprop: 'url' do %>
@@ -41,12 +47,14 @@
               </span>
             <% end %>
           </span>.
-    
+        </address>
+
+        <p>
           <% if (updated_on = current_page.data.updated_on) %>
-            Published <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished' %>
-            (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
+            Published <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished', class: 'op-published' %>
+            (updated <%= time_tag updated_on, itemprop: 'dateModified', class: 'op-modified' %>)
           <% else %>
-            Published <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
+            Published <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified', class: 'op-published' %>
           <% end %>
           in <%= link_to_category current_page.data.category, itemprop: 'articleSection' %>. <br>
           <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag }.join(' ') %>
@@ -61,15 +69,20 @@
         <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
           <%= current_page.data.title %>
         </span>
-        by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>, of
-        <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>,
-        is licensed under a
+        by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>
+        is copyright &copy; 2015-<%= Date.today.year %>
+        <a xmlns:cc="http://creativecommons.org/ns#" href="<%= config[:url] %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>.
+        It is licensed under a
         <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
     
         <% if (canonical_source = current_page.data.canonical_source) %>
           It was originally published on <%= canonical_source[:name] %>:
-          <%= link_to current_page.data.title, canonical_source[:url] %>.
+          <%= link_to current_page.data.title, canonical_source[:url] %> and
+          subsequently posted on the Wossname Industries website:
+        <% else %>
+          It was originally posted on the Wossname Industries website:
         <% end %>
+        <%= link_to current_page.data.title, "#{config[:url]}#{current_page.url}" %>.
     
         <% if (alternates = current_page.data.alternates) %>
           It has also appeared on
