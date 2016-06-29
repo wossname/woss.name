@@ -40,7 +40,7 @@
         <% end %>
         <guid isPermaLink="true"><%= "#{config[:url]}#{article.url}" %></guid>
         <content:encoded>
-          <![CDATA[<%= markdown article.render(layout: 'rss-item') %>]]>
+          <![CDATA[<%= article.render(layout: 'rss-item') %>]]>
         </content:encoded>
       </item>
     <% end %>
