@@ -119,12 +119,20 @@ module MetadataHelper
   end
 
   def open_graph_image_tags(image)
-    width, height = dimensions_for_image(image)
+    width, height, type = properties_for_image(image)
 
     tags = [
-      meta_tag(property: 'og:image', content: image_path(image)),
-      meta_tag(property: 'og:image:type', content: 'image/png')
+      meta_tag(property: 'og:image', content: "#{config[:url]}#{image_path(image)}")
     ]
+
+    case type
+    when :jpeg
+      tags << meta_tag(property: 'og:image:type', content: 'image/jpeg')
+    when :png
+      tags << meta_tag(property: 'og:image:type', content: 'image/png')
+    else
+      warn "Couldn't figure out a MIME type for image: #{image}."
+    end
 
     tags << meta_tag(property: 'og:image:width', content: width) if width
     tags << meta_tag(property: 'og:image:height', content: height) if height
@@ -136,12 +144,15 @@ module MetadataHelper
     tag :meta, options
   end
 
-  def dimensions_for_image(path)
+  def properties_for_image(path)
     path = File.join(config[:images_dir], path) unless path.start_with?('/')
     file = app.files.find(:source, path) || app.files.find(:source, path.sub(/^\//, ''))
     full_path = file[:full_path].to_s
 
-    ::FastImage.size(full_path, raise_on_failure: true)
+    width, height = ::FastImage.size(full_path, raise_on_failure: true)
+    type = ::FastImage.type(full_path)
+    
+    [ width, heigh, type ]
   rescue FastImage::UnknownImageType
     []
   rescue
