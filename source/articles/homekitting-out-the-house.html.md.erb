@@ -1,0 +1,116 @@
+---
+title: HomeKit-ting out the House
+description: |
+  I'm really quite excited about Apple HomeKit. It's fulfilling a dream I've
+  had since I was a kid - that of being able to remotely control the home
+  via my computer!
+introduction: |
+  I've always dreamed of having a "smart" house, where I can control the home
+  environment through technology. I've had this dream for longer than I've
+  owned a mobile phone, so it started out with wanting to control my bedroom
+  lights from my PC. I dimly recall building a breakout box for the
+  [parallel port](https://en.wikipedia.org/wiki/Parallel_port),
+  wiring it up to some relays, and writing some x86 assembly to control them.
+  For some reason, my parents weren't too keen on me switching mains electricity
+  though, so the project never made it to completion.
+
+image:
+  cover: homekitting-out-the-house/cover.jpg
+  square: homekitting-out-the-house/square.jpg
+  thumbnail: homekitting-out-the-house/thumbnail.jpg
+
+canonical_source:
+  name: Medium
+  url: https://blog.woss.name/homekitting-out-the-house-2ed350fa276d
+
+sitemap_priority: 1.0
+sitemap_changefreq: 'weekly'
+
+published_on: 2016-02-01
+category: Home Automation
+tags:
+  - HomeKit
+  - Internet of Things
+  - Apple
+  - iPhone
+  - iOS
+---
+## I have a dream
+I've always dreamed of having a "smart" house, where I can control the home
+environment through technology. I've had this dream for longer than I've owned
+a mobile phone, so it started out with wanting to control my bedroom lights
+from my PC. I dimly recall building a breakout box for the
+[parallel port](https://en.wikipedia.org/wiki/Parallel_port),
+wiring it up to some relays, and writing some x86 assembly to control them.
+For some reason, my parents weren't too keen on me switching mains electricity
+though, so the project never made it to completion.
+
+But it's about more than just controlling the lights. I have this crazy idea
+that collecting data about the home environment will allow us to make more
+intelligent decisions about controlling it. So, for example, it would be nice
+to switch lights on in the home if there's somebody in the room, and it's
+getting a bit dark. It takes a bit of time for the central heating to bring
+the house up to a comfortable temperature, so an intelligent home needs to
+know when to kick in the heating such that the rooms are up to temperature
+when we get out of bed. It would be awesome to be able to switch everything
+off when **everybody** leaves the house, and to switch things back on when
+**somebody** comes home.[^1]
+
+## Sometimes, dreams do come true
+
+With Apple's [HomeKit](http://www.apple.com/uk/ios/homekit/) this dream is
+finally becoming a reality, mostly. Right now, I can yell, "Hey, Siri, turn on
+the living room lights!" and I get my wish (complete with a snarky reply
+&mdash; Siri is delightfully &hellip; human!). It's still pretty early days
+&mdash; I suspect I'm catching the tail end of the innovators in the
+[innovation adoption lifecycle](https://en.wikipedia.org/wiki/Technology_adoption_life_cycle)
+&mdash; but right now it's possible to buy off the shelf devices that will
+allow you to control lighting and heating, and we can learn something about
+the home by measuring its environment on a detailed level. I haven't yet
+played around with triggers, but it looks like the house can react at
+particular times, when certain conditions (e.g. temperature) are met, or in
+response to somebody's location.
+
+I can't yet say what sort of inferences we'll be able to make from the data
+we're capturing, but I've a funny feeling that there will be interesting things
+we can do with it. I'll give you an example. Our home has a balcony, where I go
+out to smoke. I'm working towards giving up the cigarettes, so right now I'm
+trying to keep track of when I smoke, to see how I can cut down. I've been
+mucking around with [IFTTT](http://ifttt.com/)'s Do Button and a Google
+spreadsheet, but I often forget to hit the button. And this morning it
+occurred to me: when I'm at home, the number of cigarettes I've smoked is half
+the number of times the balcony door is opened. Passive monitoring FTW.
+
+<figure class="panel panel-danger">
+  <div class="panel-body center-block">
+    <img src="<%= image_path "homekitting-out-the-house/balcony-door-times-opened.png" %>" alt="A screenshot from Eve, showing how many times the balcony door has been opened" class="img-responsive img-rounded center-block" data-action="zoom">
+  </div>
+  <figcaption class="panel-footer text-center">
+      I've had seven cigarettes today &mdash; since I installed the sensor this
+      morning. Not too bad&hellip;
+  </figcaption>
+</figure>
+
+Over the next couple of posts, I'm going to talk about the various HomeKit
+devices currently available, and the ones I've chosen to acquire so far. I'll
+talk a little bit more about what I'm aiming towards, and what I've managed to
+achieve so far. And I might even start scratching out some code to fill in the
+missing bits, if I can! [Follow me on Twitter](https://twitter.com/mathie) to
+hear how I'm getting along.
+
+## Careful what you wish for
+
+I had an Ultimate Geek Moment on Sunday morning, when I started playing around
+with scenes. After a bit of playing around, and learning how scene names
+translate into things you can ask Siri, I had an epiphany. After a little bit
+of configuration, I yelled:
+
+> "Hey, Siri, set phasers to stun!"
+
+and it turned all the lights in the house to green. I LOL-ed. My partner rolled
+her eyes and groaned. :)
+
+[^1]: With the emphasis on **everyone** leaving, and **someone** arriving.
+  Right now, the technology seems geared around single occupancy homes, because
+  it's all about when I leave and arrive. My cohabitees don't appreciate it
+  when I leave the house and all the lights turn off!
