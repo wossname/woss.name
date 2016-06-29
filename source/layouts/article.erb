@@ -21,14 +21,17 @@
               </p>
             <% end %>
 
-            <p class="text-muted text-center">
+            <p class="text-center">
+              Written by
+              <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>.
+
               <% if (updated_on = current_page.data.updated_on) %>
-                Written by Graeme Mathieson. Published
+                Published
                 <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished' %>
                 (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
                 <meta itemprop="copyrightYear" content="<%= updated_on.year %>">
               <% else %>
-                Written by Graeme Mathieson. Published
+                Published
                 <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
                 <meta itemprop="copyrightYear" content="<%= current_page.data.published_on.year %>">
               <% end %>
