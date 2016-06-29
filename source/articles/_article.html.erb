@@ -6,18 +6,50 @@
       </h2>
 
       <p class="text-muted">
-        Written by Graeme Mathieson. Published <%= time_tag article.data.published_on %>
+        Written by
+        <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
+          <% link_to '/team/mathie.html', itemprop: 'url' do %>
+            <span itemprop="name">
+              <span itemprop="givenName">
+                Graeme
+              </span>
+              <span itemprop="familyName">
+                Mathieson
+              </span>
+            </span>
+          <% end %>
+        </span>,
+
+        <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
+          <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+            <img itemprop="contentUrl url" src="<%= image_path config[:logo] %>" alt="Wossname Industries logo">
+          </span>
+          <% link_to '/', itemprop: 'url' do %>
+            <span itemprop="name">
+              Wossname Industries
+            </span>
+          <% end %>
+        </span>.
+
+        Published <%= time_tag article.data.published_on, itemprop: 'dateCreated datePublished' %>
         <% if (updated_on = article.data.updated_on) %>
-          (updated <%= time_tag updated_on %>)
+          (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
         <% end %>
-        in <%= link_to_category article.data.category, class: 'label label-info' %>. <br>
+        in <%= link_to_category article.data.category, class: 'label label-info', itemprop: 'acticleSection' %>. <br>
         <%= article.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
       </p>
 
       <% if article.data.image && (thumbnail = article.data.image[:thumbnail]) %>
-        <div class="pull-left m-a-md">
-          <% link_to article.url, title: article.data.title do %>
-            <%= image_tag thumbnail, class: 'img-responsive img-rounded', alt: article.data.title %>
+        <div class="pull-left m-a-md" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+          <figure>
+            <% link_to article.url, title: article.data.title do %>
+              <%= image_tag thumbnail, class: 'img-responsive img-rounded', alt: article.data.title, itemprop: 'url contentUrl' %>
+            <% end %>
+            <figcaption class="sr-only" itemprop="caption"><%= article.data.title %></figcaption>
+          </figure>
+          <% if (dimensions = properties_for_image(thumbnail)) %>
+            <meta itemprop="width" content="<%= dimensions[0] %>">
+            <meta itemprop="height" content="<%= dimensions[1] %>">
           <% end %>
         </div>
       <% end %>

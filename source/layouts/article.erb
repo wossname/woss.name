@@ -56,7 +56,7 @@
                 <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
               </figure>
 
-              <% if (dimensions = dimensions_for_image(square)) %>
+              <% if (dimensions = properties_for_image(square)) %>
                 <meta itemprop="width" content="<%= dimensions[0] %>">
                 <meta itemprop="height" content="<%= dimensions[1] %>">
               <% end %>
