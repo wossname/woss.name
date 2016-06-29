@@ -31,11 +31,13 @@
           <% end %>
         </span>.
 
-        Published <%= time_tag article.data.published_on, itemprop: 'dateCreated datePublished' %>
         <% if (updated_on = article.data.updated_on) %>
+          Published <%= time_tag article.data.published_on, itemprop: 'dateCreated datePublished' %>
           (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
+        <% else %>
+          Published <%= time_tag article.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
         <% end %>
-        in <%= link_to_category article.data.category, class: 'label label-info', itemprop: 'acticleSection' %>. <br>
+        in <%= link_to_category article.data.category, class: 'label label-info', itemprop: 'articleSection' %>. <br>
         <%= article.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
       </p>
 

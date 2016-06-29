@@ -152,7 +152,7 @@ module MetadataHelper
     width, height = ::FastImage.size(full_path, raise_on_failure: true)
     type = ::FastImage.type(full_path)
     
-    [ width, heigh, type ]
+    [ width, height, type ]
   rescue FastImage::UnknownImageType
     []
   rescue

@@ -1,4 +1,6 @@
 <section id="latest-articles" itemscope itemtype="http://schema.org/Blog">
+  <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
+
   <% articles.each do |article| %>
     <%= partial 'articles/article', locals: { article: article } %>
   <% end %>
