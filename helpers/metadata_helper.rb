@@ -113,7 +113,7 @@ module MetadataHelper
     else
       current_page.url
     end
-    
+
     url_for(url, absolute: true)
   end
 
@@ -158,13 +158,24 @@ module MetadataHelper
 
     width, height = ::FastImage.size(full_path, raise_on_failure: true)
     type = ::FastImage.type(full_path)
-    
+
     [ width, height, type ]
   rescue FastImage::UnknownImageType
     []
   rescue
     warn "Couldn't determine dimensions for image #{path}: #{$ERROR_INFO.message}"
     []
+  end
+
+  def excerpt_for(article)
+    article.data.excerpt || article.data.description
+  end
+
+  def excerpt_with_link(article)
+    excerpt = excerpt_for(article)
+    link = link_to 'Read more&hellip;', article.url
+
+    [ excerpt, link ].join(' ')
   end
 
   def xml_escape(str)

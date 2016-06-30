@@ -64,9 +64,7 @@
 
 
       <div class="lead" itemprop="description">
-        <% introduction = article.data.introduction || article.data.description %>
-        <% link = link_to 'Read more&hellip;', article.url %>
-        <%= markdown [ introduction, link ].join(' ') %>
+        <%= markdown excerpt_with_link(article) %>
       </div>
     </div>
   </div>

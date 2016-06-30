@@ -39,9 +39,9 @@
               <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
             </p>
 
-            <% if (introduction = (current_page.data.introduction || current_page.data.description)) %>
+            <% if (excerpt = excerpt_for(current_page)) %>
               <div class="lead" itemprop="description">
-                <%= markdown introduction %>
+                <%= markdown excerpt %>
               </div>
             <% end %>
 
