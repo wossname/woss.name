@@ -25,4 +25,8 @@ module HtmlTagHelper
       content_tag :time, title, { datetime: datetime }.merge(options)
     end
   end
+
+  def meta_tag(options = {})
+    tag :meta, options
+  end
 end
