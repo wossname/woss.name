@@ -1,0 +1,9 @@
+<p class="text-muted">
+  Written by
+  <%= partial 'microdata/author' %>
+  <%= partial 'microdata/organisation' %>
+  <%= partial 'microdata/dates', locals: { article: article } %>
+  in
+  <%= partial 'microdata/category', locals: { category: article.data.category } %>.<br>
+  <%= partial 'microdata/tags', locals: {tags: article_tags(article) } %>
+</p>

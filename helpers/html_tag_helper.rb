@@ -29,4 +29,8 @@ module HtmlTagHelper
   def meta_tag(options = {})
     tag :meta, options
   end
+
+  def label(type, &block)
+    content_tag :span, class: "label label-#{type}", &block
+  end
 end

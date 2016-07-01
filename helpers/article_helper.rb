@@ -14,6 +14,10 @@ module ArticleHelper
     [ excerpt, link ].join(' ')
   end
 
+  def article_tags(article)
+    (article.data.tags || []).map(&:downcase).sort.uniq
+  end
+
   private
 
   def excerpt(article)

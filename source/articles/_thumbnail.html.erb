@@ -1,0 +1,14 @@
+<% if article.data.image && (thumbnail = article.data.image[:thumbnail]) %>
+  <div class="pull-left m-a-md" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+    <figure>
+      <% link_to article.url, title: article.data.title do %>
+        <%= image_tag thumbnail, class: 'img-responsive img-rounded', alt: article.data.title, itemprop: 'url thumbnailUrl contentUrl' %>
+      <% end %>
+      <figcaption class="sr-only" itemprop="caption"><%= article.data.title %></figcaption>
+    </figure>
+    <% if (dimensions = properties_for_image(thumbnail)) %>
+      <meta itemprop="width" content="<%= dimensions[0] %>">
+      <meta itemprop="height" content="<%= dimensions[1] %>">
+    <% end %>
+  </div>
+<% end %>
