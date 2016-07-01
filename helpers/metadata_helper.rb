@@ -34,17 +34,6 @@ module MetadataHelper
     (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end
 
-  def link_to_tag(tag, options = {})
-    url_options = options.slice(:absolute)
-    link_to_options = options.except(:absolute)
-
-    link_to tag, tag_path(tag, url_options), { rel: :tag }.merge(link_to_options)
-  end
-
-  def tag_path(tag, options = {})
-    url_for "/tags/#{parameterize(tag)}/index.html", options
-  end
-
   def published_on_meta(page = current_page)
     if (published_on = page.data[:published_on])
       published_on.acts_like?(:date) ? published_on : Date.parse(published_on)
