@@ -83,6 +83,7 @@ activate :directory_indexes
 activate :asset_hash
 activate :gzip
 activate :automatic_image_sizes
+activate :syntax
 
 activate :external_pipeline,
   name: :gulp,
@@ -94,7 +95,6 @@ set :markdown, smartypants: true, with_toc_data: true, footnotes: true,
   superscript: true, fenced_code_blocks: true, tables: true,
   no_intra_emphasis: true
 
-ignore 'stylesheets/all'
 
 # Local development-specifc configuration.
 configure :development do

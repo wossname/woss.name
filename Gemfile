@@ -17,6 +17,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
+gem 'middleman-syntax'
 
 # Redcarpet seems to be the Markdown parser of choice.
 gem 'redcarpet'

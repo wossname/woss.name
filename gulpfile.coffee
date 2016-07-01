@@ -10,7 +10,7 @@ uglify       = require 'gulp-uglify'
 rollbar      = require 'gulp-rollbar'
 
 paths =
-  less: 'source/stylesheets/**/*.less'
+  less: 'source/stylesheets/all.less'
   javascripts: [
     path.join(__dirname, 'bower_components', 'jquery', 'dist', 'jquery.js'),
     [
