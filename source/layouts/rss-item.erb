@@ -28,14 +28,14 @@ absolute_urls: true
           </h2>
         <% end %>
 
-        <%= partial 'articles/byline', locals: { article: current_page } %>
+        <%= partial 'partials/articles/byline', locals: { article: current_page } %>
       </header>
 
       <div itemprop="articleBody text" id="article-body">
         <%= yield %>
       </div>
 
-      <%= partial 'articles/footer', locals: { article: current_page } %>
+      <%= partial 'partials/articles/footer', locals: { article: current_page } %>
     </article>
   </body>
 </html>

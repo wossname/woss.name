@@ -8,7 +8,7 @@
 
     <ul class="iconlist">
       <% related.each do |related_article| %>
-        <%= partial 'articles/related_article', locals: { related_article: related_article } %>
+        <%= partial 'partials/articles/related_article', locals: { related_article: related_article } %>
       <% end %>
     </ul>
   </div>

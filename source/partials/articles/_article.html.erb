@@ -7,9 +7,9 @@
         <%= link_to article.data.title, article.url, itemprop: 'url' %>
       </h2>
 
-      <%= partial 'articles/byline', locals: { article: article, classes: [ 'text-muted' ] } %>
-      <%= partial 'articles/thumbnail', locals: { article: article } %>
-      <%= partial 'articles/excerpt', locals: { article: article, read_more: true } %>
+      <%= partial 'partials/articles/byline', locals: { article: article, classes: [ 'text-muted' ] } %>
+      <%= partial 'partials/articles/thumbnail', locals: { article: article } %>
+      <%= partial 'partials/articles/excerpt', locals: { article: article, read_more: true } %>
     </div>
   </div>
 </article>

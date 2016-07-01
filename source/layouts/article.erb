@@ -21,8 +21,8 @@
               </p>
             <% end %>
 
-            <%= partial 'articles/byline', locals: { article: current_page, classes: [ 'text-center' ] } %>
-            <%= partial 'articles/excerpt', locals: { article: current_page, read_more: false } %>
+            <%= partial 'partials/articles/byline', locals: { article: current_page, classes: [ 'text-center' ] } %>
+            <%= partial 'partials/articles/excerpt', locals: { article: current_page, read_more: false } %>
 
             <p class="text-center">
               <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <%= partial 'articles/footer', locals: { article: current_page } %>
-    <%= partial 'articles/metadata_table', locals: { article: current_page } %>
+    <%= partial 'partials/articles/footer', locals: { article: current_page } %>
+    <%= partial 'partials/articles/metadata_table', locals: { article: current_page } %>
   </article>
 <% end %>
