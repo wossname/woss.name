@@ -22,6 +22,8 @@ module CategoryHelper
   private
 
   def find_category_by_name(name)
+    name = name.downcase
+
     data.categories.find { |_, category| category[:name].downcase == name }.second
   end
 
