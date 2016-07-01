@@ -25,7 +25,7 @@
 
 <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS feed for Wossname Industries articles">
 
-<% alternate_urls_meta.each do |url| %>
+<% alternate_urls_meta(current_page, absolute: true).each do |url| %>
   <link rel="alternate" type="text/html" href="<%= url %>">
 <% end %>
 

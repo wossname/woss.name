@@ -5,7 +5,7 @@
     </h2>
 
     <% description = description_for_category(category) %>
-    <% link = link_to_category 'Browse articles&hellip;', category %>
+    <% link = link_to_category category, title: 'Browse articles&hellip;' %>
     <%= markdown [ description, link ].join(' ') %>
   </div>
 </div>

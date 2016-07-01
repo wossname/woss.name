@@ -6,31 +6,12 @@ description: |
   setting up email for a new domain. Let's see if we can find out what it's
   all about.
 
-introduction: |
-  I only just discovered Domain-based Message Authentication, Reporting &
-  Conformance (DMARC) today, as I was writing up some notes for an article on
-  setting up email for a new domain. While I was writing the section on DKIM,
-  I got to thinking, "That's all well and good, but how do I advertise the fact
-  that all my email sources are DKIM-signing messages, and that anything which
-  isn't signed is probably spam?" It turns out that DMARC is the answer to
-  that question &mdash; and more &mdash; and it's widely deployed. In addition to allowing
-  you to state that you sign everything, you can also opt in to getting reports
-  from mail service providers with details on what email is getting dropped.
-
-image:
-  cover: discovering-dmarc/cover.png
-  square: discovering-dmarc/square.png
-  thumbnail: discovering-dmarc/thumbnail.png
-
 alternates:
   - name: Medium
     url: https://blog.woss.name/discovering-dmarc-ed6a66df5c18
 
-sitemap_priority: 1.0
-sitemap_changefreq: 'weekly'
-
 published_on: 2016-05-31
-category: Internet
+category: The Internet
 tags:
   - Email
   - Security
@@ -38,7 +19,6 @@ tags:
   - Gmail
   - Internet
 ---
-
 I only just discovered
 [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/)
 today, as I was writing up some notes for an article on setting up email for a

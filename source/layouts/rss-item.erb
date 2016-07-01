@@ -10,123 +10,32 @@ absolute_urls: true
   <body>
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <link itemprop="mainEntityOfPage" href="<%= url_for(current_page, absolute: true) %>">
-    
-      <header id="article-title">
-        <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+
+      <header id="article-header">
+        <% if (cover = cover_image_for(current_page)) %>
           <figure data-mode="aspect-fit">
             <img src="<%= image_path(cover, absolute: true) %>" alt="<%= current_page.data.title %>">
           </figure>
         <% end %>
 
-        <h1 itemprop="name headline">
+        <h1 itemprop="name headline" id="article-title">
           <%= current_page.data.title %>
         </h1>
-    
+
         <% if subtitle = current_page.data.subtitle %>
           <h2>
             <%= subtitle %>
           </h2>
         <% end %>
-    
-        <address>
-          Written by
-          <span itemprop="author creator" itemscope itemtype="http://schema.org/Person">
-            <% link_to '/team/mathie.html', itemprop: 'url', absolute: true do %>
-              <span itemprop="name">
-                <span itemprop="givenName">
-                  Graeme
-                </span>
-                <span itemprop="familyName">
-                  Mathieson
-                </span>
-              </span>
-            <%- end -%>, Chief Coffee Drinker at
-          </span>
-    
-          <span itemprop="copyrightHolder publisher" itemscope itemtype="http://schema.org/Organization">
-            <% link_to '/', itemprop: 'url', absolute: true do %>
-              <span itemprop="name">
-                Wossname Industries
-              </span>
-            <%- end -%>.
-          </span>
-        </address>
 
-        <p>
-          <% if (updated_on = current_page.data.updated_on) %>
-            Published on
-            <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished', class: 'op-published' %>
-            (and updated on
-            <%= time_tag updated_on, itemprop: 'dateModified', class: 'op-modified' %>)
-          <% else %>
-            Published on
-            <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified', class: 'op-published' %>
-          <% end %>
-          in <%= link_to_category current_page.data.category, itemprop: 'articleSection', absolute: true %>. <br>
-          Tagged with: <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, absolute: true }.join(', ') %>
-        </p>
+        <%= partial 'partials/articles/byline', locals: { article: current_page } %>
       </header>
-    
+
       <div itemprop="articleBody text" id="article-body">
         <%= yield %>
       </div>
-    
-      <footer>
-        <% if (related = current_page.data[:related]) %>
-          <div id="related-articles">
-            <p>
-              If you've enjoyed this article, you might also like to read the
-              following related articles (hand-picked by me, not some deep
-              learning algorithm!):
-            </p>
-            
-            <ul class="iconlist">
-              <% related.each do |article| %>
-                <li>
-                  <%= entypo :news %>
-                  <h4 class="m-a-0"><%= link_to article[:title], article[:url], absolute: true %></h4>
 
-                  <% if article[:description] %>
-                    <%= markdown article[:description] %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <p>
-          <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-            <%= current_page.data.title %>
-          </span>
-          by <%= link_to 'Graeme Mathieson', '/team/mathie.html', absolute: true %>
-          is copyright &copy; 2015-<%= Date.today.year %>
-          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= url_for('/index.html', absolute: true) %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>.
-          It is licensed under a
-          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-      
-          <% if (canonical_source = current_page.data.canonical_source) %>
-            It was originally published on
-            <%= link_to canonical_source[:name], canonical_source[:url], absolute: true %> and
-            subsequently posted on the Wossname Industries website:
-          <% else %>
-            It was originally posted on the Wossname Industries website:
-          <% end %>
-          <%= link_to current_page.data.title, current_page.url, absolute: true %>.
-        </p>
-    
-        <% if (alternates = current_page.data.alternates) %>
-          <p>
-            It has also appeared on:
-          </p>
-          
-          <ul>
-            <% alternates.each do |source| %>
-              <li><%= link_to source[:name], source[:url], absolute: true %></li>
-            <% end %>
-          </ul>
-        <% end %>
-      </footer>
+      <%= partial 'partials/articles/footer', locals: { article: current_page } %>
     </article>
   </body>
 </html>

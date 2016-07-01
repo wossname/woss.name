@@ -19,7 +19,7 @@ config[:twitter_owner]    = 'wossname'
 config[:twitter_creator]  = 'mathie'
 
 config[:default_description] = <<-TEXT
-  Wossname Industries is Graeme Mathieson's software consultancy. We build
+  Wossname Industries is Graeme Mathieson's software consultancy. I build
   Ruby on Rails web apps, iOS apps, and the DevOps-ian infrastructure to manage
   it all.
 TEXT
@@ -36,23 +36,46 @@ config[:related]        = {
   github:   'https://github.com/wossname'
 }
 
+config[:affiliate_tags] = {
+  amazon: {
+    uk: 'wossname-21'
+  }
+}
+
 # Pages with no layout.
 [ :xml, :json, :txt ].each do |extension|
   page "/*.#{extension}", layout: false
 end
-page "/articles/*.html", layout: :article
+
+page "/articles/*.html", layout: :article, data: {
+  sitemap_priority: 1.0,
+  sitemap_changefreq: 'weekly'
+}
 
 page "/articles.html",   layout: :collection
 page "/categories.html", layout: :collection
 page "/tags.html",       layout: :collection
 
 # Generate pages for each category.
-data.categories.each do |slug, category|
-  proxy "/categories/#{slug}/index.html", '/articles/categories/category.html', data: { title: category[:name] }, locals: { name: category[:name], description: category[:description] }, ignore: true
-end
 
-data.tags.each do |slug, tag|
-  proxy "/tags/#{slug}/index.html", '/articles/tags/tag.html', data: { title: "Articles tagged '#{tag[:name]}'" }, locals: { name: tag[:name], description: tag[:description] }, ignore: true
+ready do
+  include SitemapHelper
+
+  all_categories.each do |category|
+    slug = parameterize(category)
+
+    proxy "/categories/#{slug}/index.html", '/category.html', data: {
+      title: "Articles posted in '#{category}'"
+    }, locals: { name: category }, ignore: true
+  end
+
+  all_tags.each do |tag|
+    slug = parameterize(tag)
+
+    proxy "/tags/#{slug}/index.html", '/tag.html', data: {
+      title: "Articles tagged '#{tag}'"
+    }, locals: { name: tag }, ignore: true
+  end
 end
 
 # General configuration

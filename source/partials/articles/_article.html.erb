@@ -1,0 +1,15 @@
+<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" class="summary block-bordered">
+  <link itemprop="mainEntityOfPage" href="<%= article.url %>">
+
+  <div class="container">
+    <div class="block-foreground">
+      <h2 itemprop="name headline">
+        <%= link_to article.data.title, article.url, itemprop: 'url' %>
+      </h2>
+
+      <%= partial 'partials/articles/byline', locals: { article: article, classes: [ 'text-muted' ] } %>
+      <%= partial 'partials/articles/thumbnail', locals: { article: article } %>
+      <%= partial 'partials/articles/excerpt', locals: { article: article, read_more: true } %>
+    </div>
+  </div>
+</article>

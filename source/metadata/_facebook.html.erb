@@ -9,7 +9,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="<%= config[:title] %>">
 
-<% if (image = (current_page.data[:image] || {})[:square]) %>
+<% if (image = square_image_for(current_page)) %>
   <%= open_graph_image_tags image %>
 <% else %>
   <meta property="og:image" content="<%= image_path config[:logo], absolute: true %>">

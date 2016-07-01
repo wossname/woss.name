@@ -2,7 +2,7 @@
 layout: collection
 ---
 <% introduction do %>
-  <% if description %>
+  <% if (description = description_for_category(name)) %>
     <%= markdown description %>
   <% end %>
 
@@ -14,4 +14,4 @@ layout: collection
   </p>
 <% end %>
 
-<%= partial 'articles/articles', locals: { articles: articles_for_tag(name) } %>
+<%= partial 'partials/articles/articles', locals: { articles: articles_for_category(name) } %>

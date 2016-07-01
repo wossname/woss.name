@@ -31,7 +31,7 @@ absolute_urls: true
     <% all_articles.each do |article| %>
       <item>
         <title><%= xml_escape(article.data.title) %></title>
-        <description><%= xml_escape(article.data.introduction || article.data.description) %></description>
+        <description><%= xml_escape(excerpt(article)) %></description>
         <pubDate><%= rfc822_timestamp(updated_on_meta(article)) %></pubDate>
         <link><%= url_for article.url %></link>
         <author><%= "#{config[:default_email_address]} (#{config[:company]})" %></author>

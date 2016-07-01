@@ -1,28 +1,28 @@
-require 'active_support/core_ext/date'
-require 'active_support/time_with_zone'
-
 module TagHelper
-  def time_tag(date_or_time, title_or_options = nil, options = nil, &block)
-    datetime = date_or_time.acts_like?(:time) ? date_or_time.xmlschema : date_or_time.iso8601
+  def link_to_tag(tag, options = {})
+    url_options = options.slice(:absolute)
+    link_to_options = options.except(:absolute)
 
-    if block_given?
-      options = title_or_options || {}
+    link_to tag, tag_path(tag, url_options), { rel: :tag }.merge(link_to_options)
+  end
 
-      content_tag :time, { datetime: datetime }.merge(options), &block
-    else
-      options ||= {}
+  def tag_path(tag, options = {})
+    url_for "/tags/#{tag_slug(tag)}/index.html", options
+  end
 
-      if title_or_options.is_a?(Hash)
-        title = nil
-        options = title_or_options
-      else
-        title = title_or_options
-      end
-
-      format = options.delete(:format) || :long
-      title ||= date_or_time.to_s(format)
-
-      content_tag :time, title, { datetime: datetime }.merge(options)
+  def description_for_tag(name)
+    if (tag = find_tag_by_name(name))
+      tag[:description]
     end
+  end
+
+  private
+
+  def find_tag_by_name(name)
+    data.tags[tag_slug(name)]
+  end
+
+  def tag_slug(name)
+    parameterize(name)
   end
 end

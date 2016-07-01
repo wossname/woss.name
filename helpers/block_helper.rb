@@ -1,15 +1,15 @@
 module BlockHelper
   def block(title: nil, id: nil, vertical_alignment: false, inverse: false, &block)
     id ||= parameterize(title)
-    partial 'blocks/block', locals: { id: id, title: title, vertical_alignment: vertical_alignment, inverse: inverse }, &block
+    partial 'partials/block', locals: { id: id, title: title, vertical_alignment: vertical_alignment, inverse: inverse }, &block
   end
 
   def introduction(title: current_page.data.title, &b)
     block title: title, id: :introduction, vertical_alignment: :middle, &b
   end
-  
-  def listing(id: nil, &block)
-    partial 'blocks/listing', locals: { id: id }, &block
+
+  def listing(id: nil, &b)
+    block id: id, &b
   end
 
   def featured_list_item(title: nil, subtitle: nil, icon: nil, id: nil, url: nil, &block)

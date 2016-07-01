@@ -4,26 +4,9 @@ description: |
   This morning I discovered that it’s possible to export all your data from
   Apple Health in an XML file. Here’s how you go about it.
 
-introduction: |
-  I made a discovery this morning: as a regular user, not a ninja iOS app
-  developer, you can export all your data from HealthKit!  I have to confess I
-  hadn’t specifically looked into it, but I had assumed that all my data was
-  kinda locked up in my phone (and in encrypted backups on iTunes) and that the
-  only way to get access to it was to give particular apps specific permissions
-  to access the data. In short, I assumed I was going to have to fire up Xcode
-  one day and write a wee app to trawl my data and extract it.
-
-image:
-  cover: exporting-your-data-from-healthkit/cover.png
-  square: exporting-your-data-from-healthkit/square.png
-  thumbnail: exporting-your-data-from-healthkit/thumbnail.png
-
 alternates:
   - name: Medium
     url: https://blog.woss.name/exporting-your-data-from-healthkit-fc289360d337
-
-sitemap_priority: 1.0
-sitemap_changefreq: 'weekly'
 
 published_on: 2016-04-29
 category: Quantified Self
@@ -47,12 +30,7 @@ one day and write a wee app to trawl my data and extract it[^1].
 But it turns out that’s not the case. While I was mucking around with the
 Health app this morning, I happened across a familiar looking share button:
 
-<figure class="panel panel-danger">
-  <div class="panel-body center-block">
-    <img src="<%= image_path "exporting-your-data-from-healthkit/a-share-button-in-healthkit.png", absolute: true %>" alt="A screenshot showing the familiar iOS share button inside HealthKit" class="img-responsive img-rounded center-block" data-action="zoom">
-  </div>
-  <figcaption class="panel-footer text-center">A share button in HealthKit?</figcaption>
-</figure>
+<%= figure 'a-share-button-in-healthkit.png', caption: 'A share button in HealthKit?', alt: 'A screenshot showing the familiar iOS share button inside HealthKit' %>
 
 Open up the Health app on your iPhone, then tap the *Health Data* tab at the
 bottom, tap *List* at the top, then tap on *All* (the first item in that list).
@@ -61,12 +39,7 @@ And, sure enough, on the top right hand corner, there’s that share button. I
 was curious, so I tapped it to see what happens. It popped up with a wee
 message, elucidating slightly:
 
-<figure class="panel panel-danger">
-  <div class="panel-body">
-    <img src="<%= image_path "exporting-your-data-from-healthkit/export-health-data-dialog.png", absolute: true %>" alt="A screenshot showing the export dialog" class="img-responsive img-rounded center-block" data-action="zoom">
-  </div>
-  <figcaption class="panel-footer text-center">Export Health Data dialog</figcaption>
-</figure>
+<%= figure 'export-health-data-dialog.png', caption: 'Export Health Data dialog', alt: 'A screenshot showing the export dialog' %>
 
 Curiouser and curiouser. Naturally, I ventured forth and tapped *Export*. It
 pops up a second dialog letting you know that it’s preparing your data for
@@ -82,12 +55,7 @@ moments to make sure it doesn’t lock again. It’s taken a good 2-3 minutes to
 prepare. But when it’s done, you’re presented with the familiar share sheet,
 including an option to save it to Dropbox:
 
-<figure class="panel panel-danger">
-  <div class="panel-body">
-    <img src="<%= image_path "exporting-your-data-from-healthkit/the-familiar-ios-share-sheet.png", absolute: true %>" alt="A screenshot showing the iOS 10 share sheet" class="img-responsive img-rounded center-block" data-action="zoom">
-  </div>
-  <figcaption class="panel-footer text-center">The familiar iOS share sheet</figcaption>
-</figure>
+<%= figure 'the-familiar-ios-share-sheet.png', caption: 'The familiar iOS share sheet', alt: 'A screenshot showing the iOS 9 share sheet' %>
 
 That’s the option I’ve chosen. It then proceeds to upload a file called
 `export.zip` to my Dropbox, which takes another couple of minutes. I have this

@@ -2,6 +2,6 @@
   <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
   <% articles.each do |article| %>
-    <%= partial 'articles/article', locals: { article: article } %>
+    <%= partial 'partials/articles/article', locals: { article: article } %>
   <% end %>
 </section>

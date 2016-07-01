@@ -4,11 +4,11 @@ module LinkHelper
   def url_for(path_or_resource, options = {})
     absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
     relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
-    
+
     raise "Can't have relative and absolute URLs together!" if absolute && relative
 
     url = super
-    
+
     if absolute && url.start_with?('/')
       "#{config[:url]}#{url}"
     else
@@ -19,11 +19,11 @@ module LinkHelper
   def image_path(path_or_resource, options = {})
     absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
     relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
-    
+
     raise "Can't have relative and absolute URLs together!" if absolute && relative
 
     url = super(path_or_resource)
-    
+
     if absolute && url.start_with?('/')
       "#{config[:url]}#{url}"
     else
@@ -88,25 +88,49 @@ module LinkHelper
     block_is_template?(block) ? concat_content(output) : output
   end
 
-  # This is blatantly stolen from ActiveSupport::Inflector#parameterize+. The
-  # only thing I wanted to change is that I'm happy with '.' being in the
-  # resulting string, since I'm using domain names for utm parameters... On the
-  # flip side, I don't want underscores.
-  def parameterize(string, sep = '-')
-    return string if string.blank?
-    string = string.to_s
-
-    # replace accented chars with their ascii equivalents
-    parameterized_string = ActiveSupport::Inflector.transliterate(string)
-    # Turn unwanted chars into the separator
-    parameterized_string.gsub!(/[^a-z0-9\-.]+/i, sep)
-    unless sep.nil? || sep.empty?
-      re_sep = Regexp.escape(sep)
-      # No more than one of the separator in a row.
-      parameterized_string.gsub!(/#{re_sep}{2,}/, sep)
-      # Remove leading/trailing separator.
-      parameterized_string.gsub!(/^#{re_sep}|#{re_sep}$/i, '')
+  def link_to_instapaper(title_or_resource, resource_or_options = nil, options = {}, &block)
+    if block_given?
+      title    = nil
+      resource = title_or_resource
+      options  = resource_or_options || {}
+    else
+      title    = title_or_resource
+      resource = resource_or_options
+      options  = options
     end
-    parameterized_string.downcase
+
+    url = 'http://www.instapaper.com/hello2'
+    query = {
+      url: url_for(resource.url, absolute: true),
+      title: resource.data.title,
+      description: excerpt(resource)
+    }
+    options = { query: query }.merge(options)
+
+    if block_given?
+      link_to url, options, &block
+    else
+      link_to title, url, options
+    end
+  end
+
+  def amazon_url_for(asin, store = :uk)
+    affiliate_tag = affiliate_tag(:amazon, store)
+
+    case store
+    when :uk
+      "http://www.amazon.co.uk/gp/product/#{asin}/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=#{asin}&linkCode=as2&tag=#{affiliate_tag}"
+    else
+      raise "FIXME: Need to generate Amazon product URLs for other stores."
+    end
+  end
+
+  def affiliate_tag(company, store = nil)
+    tags = (config[:affiliate_tags] || {})[company]
+    if tags.is_a?(Hash) && store
+      tags[store]
+    else
+      tags
+    end
   end
 end

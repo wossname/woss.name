@@ -18,81 +18,28 @@ module MetadataHelper
     classess.join(' ')
   end
 
-  def title_meta
-    strip_whitespace(current_page.data.title || config[:title])
+  def title_meta(page = current_page)
+    strip_whitespace(page.data.title || config[:title])
   end
 
-  def description_meta
-    strip_whitespace(strip_tags(current_page.data.description || config[:default_description]))
+  def description_meta(page = current_page)
+    strip_whitespace(strip_tags(page.data.description || config[:default_description]))
   end
 
-  def category_meta
-    current_page.data.category || config[:default_category]
+  def category_meta(page = current_page)
+    page.data.category || config[:default_category]
   end
 
-  def link_to_category(title_or_category, category_or_options = nil, options = nil)
-    title = title_or_category
-
-    if options.nil?
-      if category_or_options.nil?
-        category = title_or_category
-        options = {}
-      elsif category_or_options.is_a?(Hash)
-        category = title_or_category
-        options = category_or_options
-      else
-        category = category_or_options
-        options = {}
-      end
-    else
-      category = category_or_options
-    end
-
-    url_options = options.slice(:absolute)
-    link_to_options = options.except(:absolute)
-
-    link_to title, category_path(category, url_options), { rel: [ :section, :category ].join(' ') }.merge(link_to_options)
-  end
-
-  def category_path(category, options = {})
-    url_for "/categories/#{parameterize(category)}/index.html", options
-  end
-
-  def description_for_category(name)
-    slug, category = data.categories.find { |_, category| category[:name] == name }
-    if category
-      category[:description]
-    else
-      ''
-    end
-  end
-
-  def tags_meta
-    (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
-  end
-
-  def link_to_tag(tag, options = {})
-    url_options = options.slice(:absolute)
-    link_to_options = options.except(:absolute)
-
-    link_to tag, tag_path(tag, url_options), { rel: :tag }.merge(link_to_options)
-  end
-
-  def tag_path(tag, options = {})
-    url_for "/tags/#{parameterize(tag)}/index.html", options
+  def tags_meta(page = current_page)
+    (page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end
 
   def published_on_meta(page = current_page)
     if (published_on = page.data[:published_on])
       published_on.acts_like?(:date) ? published_on : Date.parse(published_on)
     else
-      # FIXME: This should pull the last modified time from Git/the filesystem.
-      Date.today
+      last_modified(page)
     end
-  end
-
-  def published_on_tag(page = current_page)
-    time_tag published_on_meta(page)
   end
 
   def updated_on_meta(page = current_page)
@@ -103,22 +50,18 @@ module MetadataHelper
     end
   end
 
-  def updated_on_tag(page = current_page)
-    time_tag updated_on_meta(page)
-  end
-
-  def canonical_url_meta
-    url = if (canonical_source = current_page.data.canonical_source)
+  def canonical_url_meta(page = current_page)
+    url = if (canonical_source = page.data.canonical_source)
       canonical_source[:url]
     else
-      current_page.url
+      page.url
     end
-    
+
     url_for(url, absolute: true)
   end
 
-  def alternate_urls_meta(options = {})
-    if (alternates = current_page.data.alternates)
+  def alternate_urls_meta(page, options = {})
+    if (alternates = page.data.alternates)
       alternates.map { |source| url_for source[:url], options }
     else
       []
@@ -145,41 +88,5 @@ module MetadataHelper
     tags << meta_tag(property: 'og:image:height', content: height) if height
 
     tags.join("\n")
-  end
-
-  def meta_tag(options = {})
-    tag :meta, options
-  end
-
-  def properties_for_image(path)
-    path = File.join(config[:images_dir], path) unless path.start_with?('/')
-    file = app.files.find(:source, path) || app.files.find(:source, path.sub(/^\//, ''))
-    full_path = file[:full_path].to_s
-
-    width, height = ::FastImage.size(full_path, raise_on_failure: true)
-    type = ::FastImage.type(full_path)
-    
-    [ width, height, type ]
-  rescue FastImage::UnknownImageType
-    []
-  rescue
-    warn "Couldn't determine dimensions for image #{path}: #{$ERROR_INFO.message}"
-    []
-  end
-
-  def xml_escape(str)
-    if str.blank?
-      ''
-    else
-      strip_whitespace(strip_tags(markdown str))
-    end
-  end
-
-  def strip_whitespace(str)
-    if str.blank?
-      ''
-    else
-      str.split(/\n/).map(&:strip).join(' ')
-    end
   end
 end
