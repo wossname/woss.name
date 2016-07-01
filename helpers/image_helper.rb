@@ -36,6 +36,23 @@ module ImageHelper
     []
   end
 
+  def figure(image, caption: nil, alt: nil)
+    alt ||= caption
+
+    content_tag :figure, class: 'panel panel-warning' do
+      body = content_tag :div, class: 'panel-body center-block' do
+        image_tag(image_path("#{article_slug(current_page)}/#{image}", absolute: true), alt: alt, class: 'img-responsive img-rounded center-block', data: { action: 'zoom' })
+      end
+
+      if caption
+        caption_tag = content_tag :figcaption, caption, class: 'panel-footer text-center'
+        body + caption_tag
+      else
+        body
+      end
+    end
+  end
+
   private
 
   def find_file(path)
