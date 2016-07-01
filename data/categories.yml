@@ -27,3 +27,9 @@ the-internet:
     are them. If the content here appeals to you, you should definitely check
     out the web site, and subscribe to the mailing list to keep up to date on
     its developments.
+software-development:
+  name: Software development
+  description: |
+    A motley collection of articles on various topics around software
+    development. There's everything from Ruby on Rails tips through to me
+    contemplating what Agile means to me.
