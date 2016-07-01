@@ -1,0 +1,15 @@
+<% if (related = article.data[:related]) %>
+  <div id="related-articles">
+    <p>
+      If you've enjoyed this article, you might also like to read the
+      following related articles (hand-picked by me, not some deep
+      learning algorithm!):
+    </p>
+
+    <ul class="iconlist">
+      <% related.each do |related_article| %>
+        <%= partial 'articles/related_article', locals: { related_article: related_article } %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

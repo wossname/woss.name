@@ -43,20 +43,12 @@ module MetadataHelper
     end
   end
 
-  def published_on_tag(page = current_page)
-    time_tag published_on_meta(page)
-  end
-
   def updated_on_meta(page = current_page)
     if (updated_on = page.data[:updated_on])
       Date.parse(updated_on)
     else
       published_on_meta(page)
     end
-  end
-
-  def updated_on_tag(page = current_page)
-    time_tag updated_on_meta(page)
   end
 
   def canonical_url_meta
@@ -97,52 +89,5 @@ module MetadataHelper
     tags << meta_tag(property: 'og:image:height', content: height) if height
 
     tags.join("\n")
-  end
-
-  def meta_tag(options = {})
-    tag :meta, options
-  end
-
-  def properties_for_image(path)
-    path = File.join(config[:images_dir], path) unless path.start_with?('/')
-    file = app.files.find(:source, path) || app.files.find(:source, path.sub(/^\//, ''))
-    full_path = file[:full_path].to_s
-
-    width, height = ::FastImage.size(full_path, raise_on_failure: true)
-    type = ::FastImage.type(full_path)
-
-    [ width, height, type ]
-  rescue FastImage::UnknownImageType
-    []
-  rescue
-    warn "Couldn't determine dimensions for image #{path}: #{$ERROR_INFO.message}"
-    []
-  end
-
-  def excerpt_for(article)
-    article.data.excerpt || article.data.description
-  end
-
-  def excerpt_with_link(article)
-    excerpt = excerpt_for(article)
-    link = link_to 'Read more&hellip;', article.url
-
-    [ excerpt, link ].join(' ')
-  end
-
-  def xml_escape(str)
-    if str.blank?
-      ''
-    else
-      strip_whitespace(strip_tags(markdown str))
-    end
-  end
-
-  def strip_whitespace(str)
-    if str.blank?
-      ''
-    else
-      str.split(/\n/).map(&:strip).join(' ')
-    end
   end
 end

@@ -1,0 +1,8 @@
+<li>
+  <%= entypo :news %>
+  <h4 class="m-a-0"><%= link_to related_article[:title], related_article[:url] %></h4>
+
+  <% if (description = related_article[:description]) %>
+    <%= markdown description %>
+  <% end %>
+</li>

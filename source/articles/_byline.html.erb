@@ -1,7 +1,7 @@
-<p class="text-muted">
+<p class="<%= classes.join(' ') %>">
   Written by
-  <%= partial 'microdata/author' %>
-  <%= partial 'microdata/organisation' %>
+  <%= partial 'microdata/author' %> &ndash;
+  <%= partial 'microdata/organisation' %>.
   <%= partial 'microdata/dates', locals: { article: article } %>
   in
   <%= partial 'microdata/category', locals: { category: article.data.category } %>.<br>

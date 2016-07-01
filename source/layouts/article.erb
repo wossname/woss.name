@@ -21,37 +21,16 @@
               </p>
             <% end %>
 
-            <p class="text-center">
-              Written by
-              <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>.
-
-              <% if (updated_on = current_page.data.updated_on) %>
-                Published
-                <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished' %>
-                (updated <%= time_tag updated_on, itemprop: 'dateModified' %>)
-                <meta itemprop="copyrightYear" content="<%= updated_on.year %>">
-              <% else %>
-                Published
-                <%= time_tag current_page.data.published_on, itemprop: 'dateCreated datePublished dateModified' %>
-                <meta itemprop="copyrightYear" content="<%= current_page.data.published_on.year %>">
-              <% end %>
-              in <%= link_to_category current_page.data.category, class: 'label label-info' %>. <br>
-              <%= current_page.data.tags.map(&:downcase).sort.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
-            </p>
-
-            <% if (excerpt = excerpt_for(current_page)) %>
-              <div class="lead" itemprop="description">
-                <%= markdown excerpt %>
-              </div>
-            <% end %>
+            <%= partial 'articles/byline', locals: { article: current_page, classes: [ 'text-center' ] } %>
+            <%= partial 'articles/excerpt', locals: { article: current_page, read_more: false } %>
 
             <p class="text-center">
               <% link_to '', fragment: 'article-body', class: 'btn btn-lg btn-primary-outline' do %>
                 <%= entypo :news %>
                 Continue reading&hellip;
               <% end %>
-              
-              <% link_to 'http://www.instapaper.com/hello2', query: { url: url_for(current_page.url, absolute: true), title: current_page.data.title, description: description_meta }, class: 'btn btn-lg btn-default-outline' do %>
+
+              <% link_to_instapaper current_page, class: 'btn btn-lg btn-default-outline' do %>
                 <%= entypo :save %>
                 Save to Instapaper
               <% end %>
@@ -62,7 +41,7 @@
             <div class="block-background sr-only" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
               <figure>
                 <%= image_tag square, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
-                <figcaption itemprop="caption" class="sr-only">Cover image for <%= current_page.data.title %>.</figcaption>
+                <figcaption itemprop="caption">Cover image for <%= current_page.data.title %>.</figcaption>
               </figure>
 
               <% if (dimensions = properties_for_image(square)) %>
@@ -85,192 +64,7 @@
       </div>
     </div>
 
-    <div class="block block-bordered">
-      <div class="container">
-        <% if (related = current_page.data[:related]) %>
-          <div id="related-articles">
-            <p>
-              If you've enjoyed this article, you might also like to read the
-              following related articles (hand-picked by me, not some deep
-              learning algorithm!):
-            </p>
-            
-            <ul class="iconlist">
-              <% related.each do |article| %>
-                <li>
-                  <%= entypo :news %>
-                  <h4 class="m-a-0"><%= link_to article[:title], article[:url] %></h4>
-
-                  <% if article[:description] %>
-                    <%= markdown article[:description] %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <p class="text-muted">
-          <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-            <%= current_page.data.title %>
-          </span> by <%= link_to 'Graeme Mathieson', '/team/mathie.html' %>, of
-          <a xmlns:cc="http://creativecommons.org/ns#" href="<%= url_for('/index.html') %>" property="cc:attributionName" rel="cc:attributionURL"><%= config[:company] %></a>,
-          is licensed under a
-          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-  
-          <% if (canonical_source = current_page.data.canonical_source) %>
-            It was originally published on <%= canonical_source[:name] %>:
-            <%= link_to current_page.data.title, canonical_source[:url] %>.
-          <% end %>
-  
-          <% if (alternates = current_page.data.alternates) %>
-            It has also appeared on
-            <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
-          <% end %>
-        </p>
-      </div>
-    </div>
-    
-    <div class="block block-bordered">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="panel">
-              <div class="panel-heading sr-only">
-                <h3 class="panel-title">
-                  About this article
-                </h3>
-              </div>
-    
-              <div class="panel-body">
-                <table class="table table-striped">
-                  <caption class="sr-only">Article metadata</caption>
-    
-                  <thead class="sr-only">
-                    <tr>
-                      <th>Attribute</th>
-                      <th>Value</th>
-                    </tr>
-                  </thead>
-      
-                  <tbody>
-                    <tr>
-                      <th scope="row" style="width: 40%">
-                        Author
-                      </th>
-                      <td>
-                        <span itemprop="author creator editor accountablePerson" itemscope itemtype="http://schema.org/Person">
-                          <% link_to '/team/mathie.html', itemprop: 'url' do %>
-                            <span itemprop="name">
-                              <span itemprop="givenName">
-                                Graeme
-                              </span>
-                              <span itemprop="familyName">
-                                Mathieson
-                              </span>
-                            </span>
-                          <% end %>
-                        </span>
-                      </td>
-                    </tr>
-      
-                    <tr>
-                      <th scope="row">
-                        Publisher
-                      </th>
-                      <td>
-                        <span itemprop="copyrightHolder publisher provider sourceOrganization" itemscope itemtype="http://schema.org/Organization">
-                          <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-                            <img itemprop="contentUrl url" src="<%= image_path config[:logo] %>" alt="Wossname Industries logo">
-                          </span>
-                          <% link_to '/', itemprop: 'url' do %>
-                            <span itemprop="name">
-                              Wossname Industries
-                            </span>
-                          <% end %>
-                        </span>
-                      </td>
-                    </tr>
-      
-                    <% if (canonical_source = current_page.data.canonical_source) %>
-                      <tr>
-                        <th scope="row">
-                          Originally published on
-                        </th>
-      
-                        <td>
-                          <%= link_to canonical_source[:name], canonical_source[:url], target: '_blank' %>
-                        </td>
-                      </tr>
-                    <% end %>
-      
-                    <% if (alternates = current_page.data.alternates) %>
-                      <tr>
-                        <th scope="row">
-                          Also appears on
-                        </th>
-      
-                        <td>
-                          <% alternates.each do |source| %>
-                            <%= link_to source[:name], source[:url], target: '_blank' %> <br>
-                          <% end %>
-                        </td>
-                      </tr>
-                    <% end %>
-      
-                    <tr>
-                      <th scope="row">
-                        First published
-                      </th>
-                      <td itemprop="dateCreated datePublished">
-                        <%= published_on_tag %>
-                      </td>
-                    </tr>
-      
-                    <tr>
-                      <th scope="row">
-                        Last updated
-                      </th>
-                      <td itemprop="dateModified">
-                        <%= updated_on_tag %>
-                      </td>
-                    </tr>
-      
-                    <tr>
-                      <th scope="row">
-                        Category
-                      </th>
-                      <td itemprop="articleSection">
-                        <%= link_to_category category_meta, class: 'label label-info' %>
-                      </td>
-                    </tr>
-      
-                    <tr>
-                      <th scope="row">
-                        Tags
-                      </th>
-                      <td>
-                        <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
-                      </td>
-                    </tr>
-      
-                    <tr>
-                      <th scope="row">
-                        License
-                      </th>
-                      <td>
-                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International Licence">
-                          <%= image_tag 'creative-commons-by-sa-4.0.png', alt: 'Creative Commons Licence' %>
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= partial 'articles/footer', locals: { article: current_page } %>
+    <%= partial 'articles/metadata_table', locals: { article: current_page } %>
   </article>
 <% end %>

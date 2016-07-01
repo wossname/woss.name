@@ -1,3 +1,3 @@
 <div class="lead" itemprop="description">
-  <%= markdown excerpt_with_link(article) %>
+  <%= markdown read_more ? excerpt_with_link(article) : excerpt(article) %>
 </div>

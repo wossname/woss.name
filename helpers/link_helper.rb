@@ -4,11 +4,11 @@ module LinkHelper
   def url_for(path_or_resource, options = {})
     absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
     relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
-    
+
     raise "Can't have relative and absolute URLs together!" if absolute && relative
 
     url = super
-    
+
     if absolute && url.start_with?('/')
       "#{config[:url]}#{url}"
     else
@@ -19,11 +19,11 @@ module LinkHelper
   def image_path(path_or_resource, options = {})
     absolute = options.key?(:absolute) ? options.delete(:absolute) : (current_page.data[:absolute_urls] || config[:relative_urls])
     relative = options.key?(:relative) ? options[:relative] : config[:relative_links]
-    
+
     raise "Can't have relative and absolute URLs together!" if absolute && relative
 
     url = super(path_or_resource)
-    
+
     if absolute && url.start_with?('/')
       "#{config[:url]}#{url}"
     else
@@ -86,6 +86,32 @@ module LinkHelper
     output = link_to title, url, options
 
     block_is_template?(block) ? concat_content(output) : output
+  end
+
+  def link_to_instapaper(title_or_resource, resource_or_options = nil, options = {}, &block)
+    if block_given?
+      title    = nil
+      resource = title_or_resource
+      options  = resource_or_options || {}
+    else
+      title    = title_or_resource
+      resource = resource_or_options
+      options  = options
+    end
+
+    url = 'http://www.instapaper.com/hello2'
+    query = {
+      url: url_for(resource.url, absolute: true),
+      title: resource.data.title,
+      description: excerpt(resource)
+    }
+    options = { query: query }.merge(options)
+
+    if block_given?
+      link_to url, options, &block
+    else
+      link_to title, url, options
+    end
   end
 
   # This is blatantly stolen from ActiveSupport::Inflector#parameterize+. The

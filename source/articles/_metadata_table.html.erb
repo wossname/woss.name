@@ -1,0 +1,113 @@
+<div class="block block-bordered">
+  <div class="container">
+    <h3>
+      About this article
+    </h3>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <caption>Article metadata</caption>
+
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row" style="width: 40%">
+              Author
+            </th>
+            <td>
+              <%= partial 'microdata/author' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Publisher
+            </th>
+            <td>
+              <%= partial 'microdata/organisation' %>
+            </td>
+          </tr>
+
+          <% if (canonical_source = current_page.data.canonical_source) %>
+            <tr>
+              <th scope="row">
+                Originally published on
+              </th>
+
+              <td>
+                <%= link_to canonical_source[:name], canonical_source[:url], rel: 'canonical', target: '_blank' %>
+              </td>
+            </tr>
+          <% end %>
+
+          <% if (alternates = current_page.data.alternates) %>
+            <tr>
+              <th scope="row">
+                Also appears on
+              </th>
+
+              <td>
+                <% alternates.each do |source| %>
+                  <%= link_to source[:name], source[:url], rel: 'alternate', target: '_blank' %> <br>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+          <tr>
+            <th scope="row">
+              First published
+            </th>
+            <td itemprop="dateCreated datePublished">
+              <%= published_on_tag %>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Last updated
+            </th>
+            <td itemprop="dateModified">
+              <%= updated_on_tag %>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Category
+            </th>
+            <td itemprop="articleSection">
+              <%= link_to_category category_meta, class: 'label label-info' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              Tags
+            </th>
+            <td>
+              <%= tags_meta.map { |tag| link_to_tag tag, class: 'label label-warning' }.join(' ') %>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">
+              License
+            </th>
+            <td>
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International Licence">
+                <%= image_tag 'creative-commons-by-sa-4.0.png', alt: 'Creative Commons Licence' %>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
