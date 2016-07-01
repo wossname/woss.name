@@ -1,4 +1,20 @@
 module ImageHelper
+  def thumbnail_image_for(page)
+    image_for(page, :thumbnail)
+  end
+
+  def square_image_for(page)
+    image_for(page, :square)
+  end
+
+  def cover_image_for(page)
+    image_for(page, :cover)
+  end
+
+  def image_for(page, type)
+    page.data[:image] && page.data[:image][type]
+  end
+
   def properties_for_image(path)
     path = File.join(config[:images_dir], path) unless path.start_with?('/')
     file = find_file(path)

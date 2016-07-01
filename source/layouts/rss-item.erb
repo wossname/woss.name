@@ -12,7 +12,7 @@ absolute_urls: true
       <link itemprop="mainEntityOfPage" href="<%= url_for(current_page, absolute: true) %>">
 
       <header id="article-header">
-        <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+        <% if (cover = cover_image_for(current_page)) %>
           <figure data-mode="aspect-fit">
             <img src="<%= image_path(cover, absolute: true) %>" alt="<%= current_page.data.title %>">
           </figure>

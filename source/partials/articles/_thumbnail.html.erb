@@ -1,4 +1,4 @@
-<% if article.data.image && (thumbnail = article.data.image[:thumbnail]) %>
+<% if (thumbnail = thumbnail_image_for(article)) %>
   <div class="pull-left m-a-md" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
     <figure>
       <% link_to article.url, title: article.data.title do %>

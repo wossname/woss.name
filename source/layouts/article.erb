@@ -2,7 +2,7 @@
   <article itemscope itemtype="http://schema.org/BlogPosting">
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
-    <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
+    <% if (cover = cover_image_for(current_page)) %>
       <header class="block block-fill-height" id="article-header" style="background-image: url(<%= image_path cover %>)">
     <% else %>
       <header class="block block-fill-height" id="article-header">
@@ -37,7 +37,7 @@
             </p>
           </div>
 
-          <% if current_page.data[:image] && (square = current_page.data[:image][:square]) %>
+          <% if (square = square_image_for(current_page)) %>
             <div class="block-background sr-only" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
               <figure>
                 <%= image_tag square, class: 'img-responsive img-rounded center-block', itemprop: 'url contentUrl' %>
@@ -49,10 +49,6 @@
                 <meta itemprop="height" content="<%= dimensions[1] %>">
               <% end %>
             </div>
-          <% end %>
-
-          <% if current_page.data[:image] && (thumbnail = current_page.data[:image][:thumbnail]) %>
-            <%= image_tag thumbnail, itemprop: 'thumbnailUrl', class: 'hidden' %>
           <% end %>
         </div>
       </div>
@@ -66,5 +62,9 @@
 
     <%= partial 'partials/articles/footer', locals: { article: current_page } %>
     <%= partial 'partials/articles/metadata_table', locals: { article: current_page } %>
+
+    <% if (thumbnail = thumbnail_image_for(current_page)) %>
+      <%= image_tag thumbnail, itemprop: 'thumbnailUrl', class: 'hidden' %>
+    <% end %>
   </article>
 <% end %>
