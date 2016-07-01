@@ -1,7 +1,7 @@
 require 'active_support/core_ext/date'
 require 'active_support/time_with_zone'
 
-module TagHelper
+module HtmlTagHelper
   def time_tag(date_or_time, title_or_options = nil, options = nil, &block)
     datetime = date_or_time.acts_like?(:time) ? date_or_time.xmlschema : date_or_time.iso8601
 
