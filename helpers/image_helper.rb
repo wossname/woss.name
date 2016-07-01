@@ -11,8 +11,13 @@ module ImageHelper
     image_for(page, :cover)
   end
 
-  def image_for(page, type)
-    page.data[:image] && page.data[:image][type]
+  def image_for(article, type)
+    slug = article_slug(article)
+    basename = File.join(config[:images_dir], slug, type.to_s)
+
+    if (image_path = find_file("#{basename}.png") || find_file("#{basename}.jpg"))
+      image_path.relative_path.to_s.gsub(/^#{config[:images_dir]}\//, '')
+    end
   end
 
   def properties_for_image(path)
@@ -36,4 +41,5 @@ module ImageHelper
   def find_file(path)
     app.files.find(:source, path) || app.files.find(:source, path.sub(/^\//, ''))
   end
+
 end

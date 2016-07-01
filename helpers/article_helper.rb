@@ -34,4 +34,8 @@ module ArticleHelper
 
     body.split(/\n{2,}/).select { |paragraph| paragraph !~ /^#/ }
   end
+
+  def article_slug(article)
+    File.basename(article.source_file).gsub(/\..*$/, '')
+  end
 end
