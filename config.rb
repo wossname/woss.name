@@ -40,7 +40,13 @@ config[:related]        = {
 [ :xml, :json, :txt ].each do |extension|
   page "/*.#{extension}", layout: false
 end
-page "/articles/*.html", layout: :article
+
+page "/articles/*.html", layout: :article, data: {
+  sitemap_priority: 1.0,
+  sitemap_changefreq: 'weekly'
+}
+
+
 
 page "/articles.html",   layout: :collection
 page "/categories.html", layout: :collection
