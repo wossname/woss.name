@@ -47,6 +47,19 @@ nav.navbar, .btn {
   .lead();
 }
 
+code {
+  font-size: 75%;
+}
+
+pre {
+  font-weight: 100;
+  letter-spacing: 0;
+  font-size: (@font-size-base * 0.75);
+  color: @gray;
+
+  .pre-scrollable();
+}
+
 .block-fill-height {
   // Boostrap defaults the full height to '110vh' -- which I guess is 110% of
   // the full height. This is slightly suboptimal in that it means the
