@@ -17,4 +17,13 @@ business:
   description: |
     These articles are focused around running a small, (hopefully!) sustainable
     business, namely Wossname Industries.
-
+the-internet:
+  name: The Internet
+  description: |
+    I'm in the process of writing a book, called
+    [A Sneak Peek at The Internet](https://the-internet.io/) which is all about
+    how the Internet works. While I'm chipping away at the content for the
+    book, I come up with all sorts of articles that might stand alone. These
+    are them. If the content here appeals to you, you should definitely check
+    out the web site, and subscribe to the mailing list to keep up to date on
+    its developments.

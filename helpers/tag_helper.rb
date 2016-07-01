@@ -10,7 +10,17 @@ module TagHelper
     url_for "/tags/#{tag_slug(tag)}/index.html", options
   end
 
+  def description_for_tag(name)
+    if (tag = find_tag_by_name(name))
+      tag[:description]
+    end
+  end
+
   private
+
+  def find_tag_by_name(name)
+    data.tags[tag_slug(name)]
+  end
 
   def tag_slug(name)
     parameterize(name)

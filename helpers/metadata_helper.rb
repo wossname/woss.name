@@ -38,8 +38,7 @@ module MetadataHelper
     if (published_on = page.data[:published_on])
       published_on.acts_like?(:date) ? published_on : Date.parse(published_on)
     else
-      # FIXME: This should pull the last modified time from Git/the filesystem.
-      Date.today
+      last_modified(page)
     end
   end
 

@@ -14,17 +14,13 @@ module CategoryHelper
   def description_for_category(name)
     if (category = find_category_by_name(name))
       category[:description]
-    else
-      ''
     end
   end
 
   private
 
   def find_category_by_name(name)
-    name = name.downcase
-
-    data.categories.find { |_, category| category[:name].downcase == name }.second
+    data.categories[category_slug(name)]
   end
 
   def category_slug(name)

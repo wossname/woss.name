@@ -2,7 +2,7 @@
 layout: collection
 ---
 <% introduction do %>
-  <% if description %>
+  <% if (description = description_for_tag(name)) %>
     <%= markdown description %>
   <% end %>
 

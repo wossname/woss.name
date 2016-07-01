@@ -2,7 +2,9 @@
 layout: collection
 ---
 <% introduction do %>
-  <%= markdown description %>
+  <% if (description = description_for_category(name)) %>
+    <%= markdown description %>
+  <% end %>
 
   <p class="text-center">
     <% link_to '', fragment: 'latest-articles', class: 'btn btn-lg btn-default' do %>
