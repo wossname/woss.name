@@ -44,7 +44,7 @@ module MetadataHelper
 
   def updated_on_meta(page = current_page)
     if (updated_on = page.data[:updated_on])
-      Date.parse(updated_on)
+      updated_on.acts_like?(:date) ? updated_on : Date.parse(updated_on)
     else
       published_on_meta(page)
     end
