@@ -18,20 +18,20 @@ module MetadataHelper
     classess.join(' ')
   end
 
-  def title_meta
-    strip_whitespace(current_page.data.title || config[:title])
+  def title_meta(page = current_page)
+    strip_whitespace(page.data.title || config[:title])
   end
 
-  def description_meta
-    strip_whitespace(strip_tags(current_page.data.description || config[:default_description]))
+  def description_meta(page = current_page)
+    strip_whitespace(strip_tags(page.data.description || config[:default_description]))
   end
 
-  def category_meta
-    current_page.data.category || config[:default_category]
+  def category_meta(page = current_page)
+    page.data.category || config[:default_category]
   end
 
-  def tags_meta
-    (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
+  def tags_meta(page = current_page)
+    (page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end
 
   def published_on_meta(page = current_page)
@@ -51,18 +51,18 @@ module MetadataHelper
     end
   end
 
-  def canonical_url_meta
-    url = if (canonical_source = current_page.data.canonical_source)
+  def canonical_url_meta(page = current_page)
+    url = if (canonical_source = page.data.canonical_source)
       canonical_source[:url]
     else
-      current_page.url
+      page.url
     end
 
     url_for(url, absolute: true)
   end
 
-  def alternate_urls_meta(options = {})
-    if (alternates = current_page.data.alternates)
+  def alternate_urls_meta(page, options = {})
+    if (alternates = page.data.alternates)
       alternates.map { |source| url_for source[:url], options }
     else
       []
