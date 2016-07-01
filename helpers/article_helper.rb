@@ -21,6 +21,17 @@ module ArticleHelper
   private
 
   def excerpt(article)
-    article.data.excerpt || article.data.description
+    article.data.excerpt || article_paragraphs(article).first
+  end
+
+  # Select all the paragraphs from the body text which are actual paragraphs
+  # (ie not headings). It's probably not an entirely accurate algorithm, but
+  # I think it's good enough for extracting the first paragraph to use as
+  # an excerpt.
+  def article_paragraphs(article)
+    source = article.file_descriptor.read
+    body = source.split("---\n", 3).last
+
+    body.split(/\n{2,}/).select { |paragraph| paragraph !~ /^#/ }
   end
 end
