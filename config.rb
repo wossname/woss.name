@@ -90,6 +90,10 @@ activate :external_pipeline,
   command: "npm #{build? ? 'run build' : 'start'}",
   source: 'dist/'
 
+# Since we're managing CSS through the external asset pipeline, ignore the less
+# source internally.
+ignore 'stylesheets/*.less'
+
 set :markdown_engine, :redcarpet
 set :markdown, smartypants: true, with_toc_data: true, footnotes: true,
   superscript: true, fenced_code_blocks: true, tables: true,
