@@ -3,9 +3,9 @@
     <link itemprop="mainEntityOfPage" href="<%= current_page.url %>">
 
     <% if current_page.data[:image] && (cover = current_page.data[:image][:cover]) %>
-      <header class="block block-fill-height" id="article-title" style="background-image: url(<%= image_path cover %>)">
+      <header class="block block-fill-height" id="article-header" style="background-image: url(<%= image_path cover %>)">
     <% else %>
-      <header class="block block-fill-height" id="article-title">
+      <header class="block block-fill-height" id="article-header">
     <% end %>
 
       <div class="block-md-middle">
