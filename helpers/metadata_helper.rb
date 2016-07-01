@@ -30,43 +30,6 @@ module MetadataHelper
     current_page.data.category || config[:default_category]
   end
 
-  def link_to_category(title_or_category, category_or_options = nil, options = nil)
-    title = title_or_category
-
-    if options.nil?
-      if category_or_options.nil?
-        category = title_or_category
-        options = {}
-      elsif category_or_options.is_a?(Hash)
-        category = title_or_category
-        options = category_or_options
-      else
-        category = category_or_options
-        options = {}
-      end
-    else
-      category = category_or_options
-    end
-
-    url_options = options.slice(:absolute)
-    link_to_options = options.except(:absolute)
-
-    link_to title, category_path(category, url_options), { rel: [ :section, :category ].join(' ') }.merge(link_to_options)
-  end
-
-  def category_path(category, options = {})
-    url_for "/categories/#{parameterize(category)}/index.html", options
-  end
-
-  def description_for_category(name)
-    slug, category = data.categories.find { |_, category| category[:name] == name }
-    if category
-      category[:description]
-    else
-      ''
-    end
-  end
-
   def tags_meta
     (current_page.data.tags || config[:default_tags] || []) + (config[:site_tags] || []).sort
   end
