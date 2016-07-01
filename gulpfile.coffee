@@ -56,17 +56,20 @@ gulp.task 'build:stylesheets:development', ->
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:stylesheets:production', ->
-  gulp.src(paths.less)
+  css = gulp.src(paths.less)
     .pipe(sourcemaps.init(loadMaps: true))
     .pipe(less(paths: paths.lessPaths))
     .pipe(minifyCSS())
     .pipe(autoprefixer())
-    .pipe(rollbar(
+
+  if process.env.ROLLBAR_TOKEN
+    css = css.pipe(rollbar(
       accessToken:          process.env.ROLLBAR_TOKEN,
       version:              process.env.TRAVIS_COMMIT,
       sourceMappingURLPrefix: 'https://woss.name'
     ))
-    .pipe(sourcemaps.write('../maps'))
+
+  css.pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.stylesheets))
 
 gulp.task 'build:javascripts:development', ->
@@ -77,16 +80,19 @@ gulp.task 'build:javascripts:development', ->
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:javascripts:production', ->
-  gulp.src(paths.javascripts)
+  js = gulp.src(paths.javascripts)
     .pipe(sourcemaps.init(loadMaps: true))
     .pipe(concat('all.js'))
     .pipe(uglify())
-    .pipe(rollbar(
+
+  if process.env.ROLLBAR_TOKEN
+    js = js.pipe(rollbar(
       accessToken:          process.env.ROLLBAR_TOKEN,
       version:              process.env.TRAVIS_COMMIT,
       sourceMappingURLPrefix: 'https://woss.name'
     ))
-    .pipe(sourcemaps.write('../maps'))
+
+  js.pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest(paths.dist.javascripts))
 
 gulp.task 'build:sourcemaps', ->
