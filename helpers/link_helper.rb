@@ -113,4 +113,24 @@ module LinkHelper
       link_to title, url, options
     end
   end
+
+  def amazon_url_for(asin, store = :uk)
+    affiliate_tag = affiliate_tag(:amazon, store)
+
+    case store
+    when :uk
+      "http://www.amazon.co.uk/gp/product/#{asin}/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=#{asin}&linkCode=as2&tag=#{affiliate_tag}"
+    else
+      raise "FIXME: Need to generate Amazon product URLs for other stores."
+    end
+  end
+
+  def affiliate_tag(company, store = nil)
+    tags = (config[:affiliate_tags] || {})[company]
+    if tags.is_a?(Hash) && store
+      tags[store]
+    else
+      tags
+    end
+  end
 end

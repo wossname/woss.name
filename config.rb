@@ -36,6 +36,12 @@ config[:related]        = {
   github:   'https://github.com/wossname'
 }
 
+config[:affiliate_tags] = {
+  amazon: {
+    uk: 'wossname-21'
+  }
+}
+
 # Pages with no layout.
 [ :xml, :json, :txt ].each do |extension|
   page "/*.#{extension}", layout: false
