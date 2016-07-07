@@ -1,6 +1,6 @@
 <span itemprop="copyrightHolder publisher provider sourceOrganization" itemscope itemtype="http://schema.org/Organization">
   <span class="hidden" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-    <img itemprop="contentUrl url" src="<%= image_path config[:logo], absolute: true %>" alt="Wossname Industries logo">
+    <img itemprop="contentUrl url" src="<%= image_path config[:logo], absolute: true %>" alt="<%= config[:company] %> logo">
   </span>
 
   <% link_to '/index.html', absolute: true, itemprop: 'url', property: 'cc:attributionName', rel: 'cc:attributionURL' do %>

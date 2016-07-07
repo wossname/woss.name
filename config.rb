@@ -8,6 +8,7 @@ config[:default_utm_campaign]  = 'Wossname Industries website'
 # Defaults for metadata that can be overridden on pages with more specific
 # content.
 config[:company]          = 'Wossname Industries'
+config[:legal_entity]     = "#{config[:company]} Ltd"
 config[:title]            = config[:company]
 config[:copyright]        = "Copyright &copy; 2015-#{Date.today.year} #{config[:company]}. All rights reserved."
 config[:default_category] = 'Software Development'
@@ -116,7 +117,7 @@ configure :build do
 end
 
 activate :s3_sync do |s3|
-  s3.bucket                = 'woss.name'
+  s3.bucket                = config[:domain]
   s3.aws_access_key_id     = ENV['AWS_ACCESS_KEY_ID']
   s3.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
 end

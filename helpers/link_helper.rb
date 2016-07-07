@@ -51,6 +51,8 @@ module LinkHelper
 
     email_address = options.delete(:email_address) || config[:default_email_address]
 
+    options[:title] ||= "Send an email to #{config[:default_email_address]}"
+
     output = mail_to email_address, title || email_address, options
 
     block_is_template?(block) ? concat_content(output) : output

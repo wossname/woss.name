@@ -9,10 +9,10 @@
     </p>
 
     <p class="text-center">
-      <a href="mailto:hello@woss.name" title="Send an email to hello@woss.name" class="btn btn-lg btn-primary">
+      <% mail_to_link class: 'btn btn-lg btn-primary' do %>
         <span class="icon icon-mail"></span>
         Send me an email
-      </a>
+      <% end %>
     </p>
 
     <div class="row">
@@ -76,7 +76,7 @@
 
         <div class="row">
           <address class="col-sm-6">
-            <strong>Wossname Industries</strong><br>
+            <strong><%= config[:company] %></strong><br>
             11 Alexandra Terrace<br>
             Teignmouth<br>
             Devon. TQ14 8HA<br>
@@ -86,13 +86,11 @@
           <div class="col-sm-6">
             <ul class="list-unstyled">
               <li>
-                <strong>Email:</strong>
-                <a href="mailto:hello@woss.name">hello@woss.name</a>
+                <strong>Email:</strong> <%= mail_to_link %>
               </li>
 
               <li>
-                <strong>Call:</strong>
-                <a href="tel:+44-7949-077744">+44 (0)7949 077744</a>
+                <strong>Call:</strong> <a href="tel:+44-7949-077744">+44 (0)7949 077744</a>
               </li>
             </ul>
           </div>
