@@ -2,7 +2,7 @@ require 'cgi'
 require 'rake/clean'
 
 CLEAN.include 'build', 'dist'
-CLOBBER.include 'node_modules', '.sass-cache'
+CLOBBER.include 'bower_components', 'node_modules', '.sass-cache'
 
 task default: :build
 
