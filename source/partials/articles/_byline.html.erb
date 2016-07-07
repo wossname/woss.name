@@ -1,14 +1,14 @@
 <div class="byline">
   <address>
     Written by
-    <%= partial 'microdata/author' %> @
-    <%= partial 'microdata/organisation' %>.
+    <%= partial 'partials/microdata/author' %> @
+    <%= partial 'partials/microdata/organisation' %>.
   </address>
 
   <p>
-    <%= partial 'microdata/dates', locals: { article: article } %>
+    <%= partial 'partials/microdata/dates', locals: { article: article } %>
     in
-    <%= partial 'microdata/category', locals: { category: article.data.category } %>.<br>
-    Tagged with: <%= partial 'microdata/tags', locals: {tags: article_tags(article) } %>
+    <%= partial 'partials/microdata/category', locals: { category: article.data.category } %>.<br>
+    Tagged with: <%= partial 'partials/microdata/tags', locals: {tags: article_tags(article) } %>
   </p>
 </div>
