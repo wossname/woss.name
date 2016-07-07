@@ -5,23 +5,11 @@ sitemap_changefreq: 'weekly'
 ---
 <% introduction do %>
   <p>
-    I've got all sorts of projects on the go at any one time. Mostly I'm
-    trying out new ideas, practicing new techniques, or just playing with a
-    new technology. I'm pretty excited about version 5 of the Ruby on Rails
-    framework, for example, so I'm busy upgrading all my apps to take advantage
-    of the new features. And I'm already playing with some toy projects in
-    Swift 3 on iOS 10, just to see what's coming up.
+    I've got all sorts of projects on the go at any one time. Mostly I'm trying out new ideas, practicing new techniques, or just playing with a new technology. I'm pretty excited about version 5 of the Ruby on Rails framework, for example, so I'm busy upgrading all my apps to take advantage of the new features. And I'm already playing with some toy projects in Swift 3 on iOS 10, just to see what's coming up.
   </p>
 
   <p>
-    My free time to spend on these projects is somewhat limited right now
-    &ndash; especially when I've got client projects to focus on! &ndash; so
-    they're all making slow progress, but they'll get there eventually. The
-    advantage of having several projects on the go is that I'm never short of
-    something to do, no matter what takes my fancy. If you'd be interested in
-    helping me to pursue any of these projects, do
-    <%= mail_to_link 'get in touch' %>. I'd love to find a way to spend more
-    time on them, and I'd be delighted to have other people get involved.
+    My free time to spend on these projects is somewhat limited right now &ndash; especially when I've got client projects to focus on! &ndash; so they're all making slow progress, but they'll get there eventually. The advantage of having several projects on the go is that I'm never short of something to do, no matter what takes my fancy. If you'd be interested in helping me to pursue any of these projects, do <%= mail_to_link 'get in touch' %>. I'd love to find a way to spend more time on them, and I'd be delighted to have other people get involved.
   </p>
 
   <p>
@@ -29,8 +17,7 @@ sitemap_changefreq: 'weekly'
   </p>
 
   <% data.projects.each_with_index do |(id, project), i| %>
-    <% case i % 2 %>
-    <% when 0 %>
+    <% if i % 2 == 0 %>
       <div class="row m-t-md">
         <div class="col-sm-5 col-sm-offset-1">
           <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
@@ -38,7 +25,7 @@ sitemap_changefreq: 'weekly'
             <%= project[:name] %>
           <% end %>
         </div>
-    <% when 1 %>
+    <% else %>
         <div class="col-sm-5">
           <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
             <%= entypo project[:icon] %>

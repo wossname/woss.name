@@ -4,10 +4,7 @@ sitemap_priority: 0.1
 ---
 <% introduction do %>
   <p>
-    Oh, no, something has gone wrong. Chances are it's because a page has gone
-    missing while I've been migrating to the new web site. They'll all reappear
-    in time, but if you're in a hurry, the old version is at
-    <a href="http://mathie.github.io/" title="Notes from a Messy Desk">http://mathie.github.io/</a>.
+    Oh, no, something has gone wrong. Chances are it's because a page has gone missing while I've been migrating to the new web site. They'll all reappear in time, but if you're in a hurry, the old version is at <a href="http://mathie.github.io/" title="Notes from a Messy Desk">http://mathie.github.io/</a>.
   </p>
 
   <p class="lead">
@@ -16,23 +13,19 @@ sitemap_priority: 0.1
 
   <p class="text-center">
     <% link_to url_for('/search.html'), class: 'btn btn-lg btn-default' do %>
-      <%= entypo :magnifying_glass %>
-      Search the site
+      <%= entypo :magnifying_glass %> Search the site
     <% end %>
 
     <% link_to url_for('/articles.html'), class: 'btn btn-lg btn-primary' do %>
-      <%= entypo :news %>
-      Browse recent articles
+      <%= entypo :news %> Browse recent articles
     <% end %>
 
     <% link_to url_for('/index.html'), class: 'btn btn-lg btn-default' do %>
-      <%= entypo :home %>
-      See the home page
+      <%= entypo :home %> See the home page
     <% end %>
   </p>
 
   <p class="lead">
-    Or you could <%= link_to 'get in touch', url_for('/contact.html') %> and
-    I'll see what I can do to help you out!
+    Or you could <%= link_to 'get in touch', url_for('/contact.html') %> and I'll see what I can do to help you out!
   </p>
 <% end %>

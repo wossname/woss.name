@@ -1,35 +1,20 @@
 quantified-self:
   name: Quantified Self
   description: |
-    I have a real interest in collecting data, about ourselves, and our
-    environment, in order to better understand the context in which we operate.
-    I think that collecting data, and analysing it, gives us some real insights
-    into our behaviour. It allows us to experiment with making changes, and
-    objectively observing how those changes affect us. These articles explore
-    that whole topic in various ways.
+    I have a real interest in collecting data, about ourselves, and our environment, in order to better understand the context in which we operate. I think that collecting data, and analysing it, gives us some real insights into our behaviour. It allows us to experiment with making changes, and objectively observing how those changes affect us. These articles explore that whole topic in various ways.
 writing:
   name: Writing
   description: |
-    Sometimes I just like to write. These articles tend towards that sort of a
-    thing.
+    Sometimes I just like to write. These articles tend towards that sort of a thing.
 business:
   name: Business
   description: |
-    These articles are focused around running a small, (hopefully!) sustainable
-    business, namely Wossname Industries.
+    These articles are focused around running a small, (hopefully!) sustainable business, namely Wossname Industries.
 the-internet:
   name: The Internet
   description: |
-    I'm in the process of writing a book, called
-    [A Sneak Peek at The Internet](https://the-internet.io/) which is all about
-    how the Internet works. While I'm chipping away at the content for the
-    book, I come up with all sorts of articles that might stand alone. These
-    are them. If the content here appeals to you, you should definitely check
-    out the web site, and subscribe to the mailing list to keep up to date on
-    its developments.
+    I'm in the process of writing a book, called [A Sneak Peek at The Internet](https://the-internet.io/) which is all about how the Internet works. While I'm chipping away at the content for the book, I come up with all sorts of articles that might stand alone. These are them. If the content here appeals to you, you should definitely check out the web site, and subscribe to the mailing list to keep up to date on its developments.
 software-development:
   name: Software development
   description: |
-    A motley collection of articles on various topics around software
-    development. There's everything from Ruby on Rails tips through to me
-    contemplating what Agile means to me.
+    A motley collection of articles on various topics around software development. There's everything from Ruby on Rails tips through to me contemplating what Agile means to me.

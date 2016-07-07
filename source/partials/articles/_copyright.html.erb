@@ -2,20 +2,13 @@
   <span href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
     <%= article.data.title %>
   </span>
-  by
-  <%= partial 'microdata/author' %>
-  of
-  <%= partial 'microdata/organisation' %>
-  is licensed under a
-  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+  by <%= partial 'microdata/author' %> of <%= partial 'microdata/organisation' %> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
   <% if (canonical_source = article.data.canonical_source) %>
-    It was originally published on <%= canonical_source[:name] %>:
-    <%= link_to article.data.title, canonical_source[:url] %>.
+    It was originally published on <%= canonical_source[:name] %>: <%= link_to article.data.title, canonical_source[:url] %>.
   <% end %>
 
   <% if (alternates = article.data.alternates) %>
-    It has also appeared on
-    <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
+    It has also appeared on <%= alternates.map { |source| link_to source[:name], source[:url] }.to_sentence %>.
   <% end %>
 </p>

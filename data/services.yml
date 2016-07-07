@@ -3,117 +3,53 @@ web-app-development:
   subtitle: with Ruby on Rails
   icon: browser
   description: |
-    I first discovered Ruby on Rails back in 2005, before it reached
-    1.0. I fell in love with its simplicity and expressiveness, and
-    I've been using it ever since. They require different tactics, but
-    it suits projects large and small. I've used it to build apps that
-    are used by a dozen people, and I've helped build systems that
-    scale to hundreds of thousands of users.
+    I first discovered Ruby on Rails back in 2005, before it reached 1.0. I fell in love with its simplicity and expressiveness, and I've been using it ever since. They require different tactics, but it suits projects large and small. I've used it to build apps that are used by a dozen people, and I've helped build systems that scale to hundreds of thousands of users.
 
-    Naturally, I do a fair chunk of JavaScript, too, when needs dictate
-    it. I can't say I'm much of a designer, but if I'm handed a CSS
-    framework, I can put it to good use. I've got some ace designers
-    around who can help me with the finer points of user experience.
+    Naturally, I do a fair chunk of JavaScript, too, when needs dictate it. I can't say I'm much of a designer, but if I'm handed a CSS framework, I can put it to good use. I've got some ace designers around who can help me with the finer points of user experience.
   call_to_action:
     title: UK Ruby on Rails Consulting
     url: https://www.rubyonrails.co.uk/
     description: |
-      I've put together a wee web site dedicated to my Ruby on
-      Rails-related services\:
+      I've put together a wee web site dedicated to my Ruby on Rails-related services:
 ios-development:
   title: iOS development
   subtitle: for iPhone, iPad, and Apple Watch
   icon: tablet_mobile_combo
   description: |
-    I've built a fair few projects on iOS. Most of them have been
-    focused on the iPhone as the primary use case, but thanks to
-    Apple's clever adaptive user interfaces, they all looked good on
-    the iPad, too. I haven't yet had an excuse to build something for
-    the Apple Watch, but I'd love to give it a try!
+    I've built a fair few projects on iOS. Most of them have been focused on the iPhone as the primary use case, but thanks to Apple's clever adaptive user interfaces, they all looked good on the iPad, too. I haven't yet had an excuse to build something for the Apple Watch, but I'd love to give it a try!
 
-    I cut my teeth on Objective-C back in 2003, writing an XMPP chat
-    app for Mac OS X, but recently I've switched entirely to Swift for
-    iOS projects. It's a delightful language, and I reckon it's the way
-    forward when it comes to developing for Apple's platforms.
+    I cut my teeth on Objective-C back in 2003, writing an XMPP chat app for Mac OS X, but recently I've switched entirely to Swift for iOS projects. It's a delightful language, and I reckon it's the way forward when it comes to developing for Apple's platforms.
 
-    Right now, I'm really interested in what we can do when we combine
-    mobile apps with additional sensors to better understand our
-    environment &ndash; on a personal level with Apple Health, or
-    throughout our dwellings with HomeKit. There's a lot we can learn
-    by collecting data from our context, correlating it, and producing
-    insights&hellip;
+    Right now, I'm really interested in what we can do when we combine mobile apps with additional sensors to better understand our environment &ndash; on a personal level with Apple Health, or throughout our dwellings with HomeKit. There's a lot we can learn by collecting data from our context, correlating it, and producing insights&hellip;
 devops:
   title: DevOps
   subtitle: scalably managing infastructure
   icon: cloud
   description: |
-    I could talk all day about configuration management, if you give me
-    the chance. I've built, deployed, and scaled physical servers, even
-    racking a few of them myself. These days, much like everyone else,
-    I rather like the flexibility of cloud-based services, whether
-    that's plain ol' virtual machines, or using entirely managed
-    services from the likes of Amazon or Google. It all depends on the
-    size of the project, and the budget. I can help you figure out the
-    right platform to build upon, and when you should be looking at
-    transitioning to alternative solutions.
+    I could talk all day about configuration management, if you give me the chance. I've built, deployed, and scaled physical servers, even racking a few of them myself. These days, much like everyone else, I rather like the flexibility of cloud-based services, whether that's plain ol' virtual machines, or using entirely managed services from the likes of Amazon or Google. It all depends on the size of the project, and the budget. I can help you figure out the right platform to build upon, and when you should be looking at transitioning to alternative solutions.
 
-    When it comes to running services, I've tended to manage machines
-    with Chef or Puppet, but these days I'd probably opt for a fleet of
-    disposable Docker containers, and the infrastructure to build them.
-    I've run web servers, mail servers, message queues, databases, DNS
-    services &ndash; in fact, I'm old enough to have run Usenet News
-    servers!
+    When it comes to running services, I've tended to manage machines with Chef or Puppet, but these days I'd probably opt for a fleet of disposable Docker containers, and the infrastructure to build them. I've run web servers, mail servers, message queues, databases, DNS services &ndash; in fact, I'm old enough to have run Usenet News servers!
 
-    In fact, my interest in all things Ops-related is such that I'm
-    writing a wee book in my spare time called
-    [A Sneak Peek at The Internet](https://the-internet.io/?utm_campaign=wossname-industries-website&utm_content=a-sneak-peek-at-the-internet&utm_medium=website&utm_source=woss.name).
-    Its goal is to give software developers some insight into how the
-    Internet they rely on really works.
+    In fact, my interest in all things Ops-related is such that I'm writing a wee book in my spare time called [A Sneak Peek at The Internet](https://the-internet.io/?utm_campaign=wossname-industries-website&utm_content=a-sneak-peek-at-the-internet&utm_medium=website&utm_source=woss.name). Its goal is to give software developers some insight into how the Internet they rely on really works.
 teaching:
   title: Teaching
   subtitle: delivering courses in Ruby, Rails, iOS, DevOps, and Agile practices
   icon: open-book
   description: |
-    I love being able to help other people learn about technology. I've done a
-    fair bit of teaching throughout my career, whether it's pairing with other
-    developers, coaching a development team, or delivering training courses.
-    I'm happy to put together bespoke training packages for your needs. We can
-    cover web development with Ruby on Rails, building a scalable hosting
-    infrastructure, iOS development, Agile project management, or a mixture of
-    all these things together.
+    I love being able to help other people learn about technology. I've done a fair bit of teaching throughout my career, whether it's pairing with other developers, coaching a development team, or delivering training courses. I'm happy to put together bespoke training packages for your needs. We can cover web development with Ruby on Rails, building a scalable hosting infrastructure, iOS development, Agile project management, or a mixture of all these things together.
 managing-humans:
   title: Managing Humans
   subtitle: hiring, running, and scaling development teams
   icon: user
   description: |
-    I've run a few teams on various projects. I can define software
-    development processes -- Agile ones, to one degree or another
-    -- and help teams work with them. I've interviewed dozens of
-    developers, and I'm pretty good at spotting the ones who'll best
-    fit a particular project. On the whole, I'd rather write code, but
-    it's reassuring to know I can handle this end of the spectrum too.
+    I've run a few teams on various projects. I can define software development processes -- Agile ones, to one degree or another -- and help teams work with them. I've interviewed dozens of developers, and I'm pretty good at spotting the ones who'll best fit a particular project. On the whole, I'd rather write code, but it's reassuring to know I can handle this end of the spectrum too.
 
-    Talking of software development processes, I'm definitely in the
-    Agile camp. To me, agility is all about being able to respond to
-    change. If the code we write is able to change in response to the
-    ever-flighty needs of the market, then I feel I've done a good job.
-    If we're able to change our process to suit the business as it
-    scales, then we're doing the right thing. I do my best work when we
-    can deliver small things, frequently, and I've always found that to
-    be a workflow which suits the companies I work with.
+    Talking of software development processes, I'm definitely in the Agile camp. To me, agility is all about being able to respond to change. If the code we write is able to change in response to the ever-flighty needs of the market, then I feel I've done a good job. If we're able to change our process to suit the business as it scales, then we're doing the right thing. I do my best work when we can deliver small things, frequently, and I've always found that to be a workflow which suits the companies I work with.
 consulting:
   title: Consulting
   subtitle: Part time Chief Technology Officer
   icon: briefcase
   description: |
-    If you're needing a hand with the high level IT side of things, I can pitch
-    in there, too. I've been "part-time CTO" to a few companies before, working
-    out the company's IT strategy, figuring out the roadmap, scaling the
-    organisation, that kind of thing. I'm pretty comfortable with business
-    planning, building models in Excel, and presenting to investors.
-    
-    If you've already got an app in production and you're looking for a bit of
-    help to get it to the next level, I can review the code base, and give
-    you some advice on the next steps. And if your existing developer has
-    dropped out of contact &ndash; which sadly happens now and again &ndash;
-    then I can step in and rescue you!
+    If you're needing a hand with the high level IT side of things, I can pitch in there, too. I've been "part-time CTO" to a few companies before, working out the company's IT strategy, figuring out the roadmap, scaling the organisation, that kind of thing. I'm pretty comfortable with business planning, building models in Excel, and presenting to investors.
+
+    If you've already got an app in production and you're looking for a bit of help to get it to the next level, I can review the code base, and give you some advice on the next steps. And if your existing developer has dropped out of contact &ndash; which sadly happens now and again &ndash; then I can step in and rescue you!

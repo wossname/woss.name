@@ -5,27 +5,15 @@ sitemap_changefreq: 'weekly'
 ---
 <% introduction do %>
   <p>
-    I'm one of those types of folks who can turn their hand to a bit of
-    everything. I do web app development, using the Ruby on Rails framework.
-    I do iOS development &ndash; apps for the iPhone, iPad, and Apple Watch
-    &ndash; with Swift. I cover the full gamut of services that come under
-    the DevOps banner. And I'll even project manage myself into the bargain.
-    If you're looking for a good all-rounder who can be your entire
-    development team then, as Leonard Cohen sang: I'm your man!
+    I'm one of those types of folks who can turn their hand to a bit of everything. I do web app development, using the Ruby on Rails framework. I do iOS development &ndash; apps for the iPhone, iPad, and Apple Watch &ndash; with Swift. I cover the full gamut of services that come under the DevOps banner. And I'll even project manage myself into the bargain. If you're looking for a good all-rounder who can be your entire development team then, as Leonard Cohen sang: I'm your man!
   </p>
 
   <p>
-    If your project is too big for one person, or if you're in a hurry to get
-    it launched, I can still help out. I can be your "part-time CTO" &ndash;
-    coming up with your IT strategy, figuring out the right architecture for
-    your scaling needs, dealing with security &amp; information governance,
-    and helping you to hire the best development team for your project. Have a
-    read through the sorts of services I can offer in a little more detail:
+    If your project is too big for one person, or if you're in a hurry to get it launched, I can still help out. I can be your "part-time CTO" &ndash; coming up with your IT strategy, figuring out the right architecture for your scaling needs, dealing with security &amp; information governance, and helping you to hire the best development team for your project. Have a read through the sorts of services I can offer in a little more detail:
   </p>
 
   <% data.services.each_with_index do |(id, service), i| %>
-    <% case i % 2 %>
-    <% when 0 %>
+    <% if i % 2 == 0 %>
       <div class="row m-t-md">
         <div class="col-sm-5 col-sm-offset-1">
           <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
@@ -33,7 +21,7 @@ sitemap_changefreq: 'weekly'
             <%= service[:title] %>
           <% end %>
         </div>
-    <% when 1 %>
+    <% else %>
         <div class="col-sm-5">
           <% link_to '', fragment: id, class: 'btn btn-lg btn-block btn-default' do %>
             <%= entypo service[:icon] %>
@@ -68,7 +56,6 @@ sitemap_changefreq: 'weekly'
 
 <% block title: 'So, how can I help you?', inverse: true do %>
   <p>
-    Does it sound like I could be of some value to you? I hope so! Drop me an
-    email, to <%= mail_to_link %>, and let's see what we can build together.
+    Does it sound like I could be of some value to you? I hope so! Drop me an email, to <%= mail_to_link %>, and let's see what we can build together.
   </p>
 <% end %>

@@ -1,10 +1,7 @@
 ---
 title: Starting a new Rails project
 description: |
-  Since Ruby on Rails 4.2 has just been released, perhaps how is a good time to
-  review creating a shiny new Rails project. In this post we'll go through
-  setting up a new Rails app with RSpec and Guard for testing, and with Twitter
-  Bootstrap for UI styling.
+  Since Ruby on Rails 4.2 has just been released, perhaps how is a good time to review creating a shiny new Rails project. In this post we'll go through setting up a new Rails app with RSpec and Guard for testing, and with Twitter Bootstrap for UI styling.
 
 published_on: 2014-12-27
 updated_on: 2016-06-01
@@ -19,55 +16,31 @@ tags:
   - foreman
   - guard
 ---
-I'm dusting off an old post this evening, since I've spent the entire day coding
-in Rails on a new side project. As it happens, I had the opportunity to
-test-drive this article to see if it still works, and it does! For bonus points,
-it nearly works with Rails 5-rc1, too, which is what I ended up playing with for
-most of the day. I've run out of time now, but sometime in the next few days,
-I'll update this article for Rails 5, switching from unicorn to puma &mdash;
-since that's what [Heroku](https://heroku.com/) now recommend &mdash; and trying
-out Bootstrap v4! But meanwhile, if you've got the opportunity to bootstrap a
-new greenfield Rails project, give this a shot.
+I'm dusting off an old post this evening, since I've spent the entire day coding in Rails on a new side project. As it happens, I had the opportunity to test-drive this article to see if it still works, and it does! For bonus points, it nearly works with Rails 5-rc1, too, which is what I ended up playing with for most of the day. I've run out of time now, but sometime in the next few days, I'll update this article for Rails 5, switching from unicorn to puma &mdash; since that's what [Heroku](https://heroku.com/) now recommend &mdash; and trying out Bootstrap v4! But meanwhile, if you've got the opportunity to bootstrap a new greenfield Rails project, give this a shot.
 
 <hr>
 
-Since Ruby on Rails 4.2 has [just been released][42release], perhaps now is a
-good time to review creating a shiny new Rails project. It's not often I get to
-create a new project from scratch, but it's Christmas and I've got a bit of
-downtime -- and an itch I'd like to scratch! So, let's get started.
+Since Ruby on Rails 4.2 has [just been released][42release], perhaps now is a good time to review creating a shiny new Rails project. It's not often I get to create a new project from scratch, but it's Christmas and I've got a bit of downtime -- and an itch I'd like to scratch! So, let's get started.
 
-I'm aiming to build a wee project that keeps track of [OmniFocus][]
-perspectives. I've noticed that people are sharing their perspectives as
-screenshots and descriptions, in tweets and blog posts. Wouldn't it be awesome
-if there was a one-stop-shop for everybody's perspectives?
+I'm aiming to build a wee project that keeps track of [OmniFocus][] perspectives. I've noticed that people are sharing their perspectives as screenshots and descriptions, in tweets and blog posts. Wouldn't it be awesome if there was a one-stop-shop for everybody's perspectives?
 
 A couple of early decisions in terms of the basic starting point:
 
-* Chances are I'll deploy the app onto Heroku, so it's a no-brainer to start
-  out by using PostgreSQL in development. (Even if I wasn't using Heroku,
-  personally I'd choose it over MySQL if I could!)
+* Chances are I'll deploy the app onto Heroku, so it's a no-brainer to start out by using PostgreSQL in development. (Even if I wasn't using Heroku, personally I'd choose it over MySQL if I could!)
 
-* I have no design skills whatsoever, so I'll be using [Twitter
-  Bootstrap][Bootstrap] to provide some basic styling.
+* I have no design skills whatsoever, so I'll be using [Twitter Bootstrap][Bootstrap] to provide some basic styling.
 
-* I'll be using [RSpec][] for testing -- both unit tests and integration tests.
-  I'll give Cucumber a miss, at least for now.
+* I'll be using [RSpec][] for testing -- both unit tests and integration tests. I'll give Cucumber a miss, at least for now.
 
-* Eventually, I'd like to move away from the asset pipeline, managing client
-  side assets separately, but I'll save that for a future refactoring.
+* Eventually, I'd like to move away from the asset pipeline, managing client side assets separately, but I'll save that for a future refactoring.
 
-With that in mind, let's get started. I'm assuming that you've got suitable
-versions of Ruby, and Git, and that you've got PostgreSQL running locally. If
-you haven't, but you're on a Mac, may I politely point you in the direction of
-[homebrew][], [rbenv][], and [ruby-build][]? If you're not on Mac OS X, please
-feel free to help out in the comments. :)
+With that in mind, let's get started. I'm assuming that you've got suitable versions of Ruby, and Git, and that you've got PostgreSQL running locally. If you haven't, but you're on a Mac, may I politely point you in the direction of [homebrew][], [rbenv][], and [ruby-build][]? If you're not on Mac OS X, please feel free to help out in the comments. :)
 
 So, let's install Rails through Rubygems:
 
     $ gem install rails
 
-Now we'll create the new project, and add the generated skeleton as our initial
-[git commit](https://github.com/mathie/perspectives/commit/2972a0d6203217e2e616cb2af9108cc65e14d848):
+Now we'll create the new project, and add the generated skeleton as our initial [git commit](https://github.com/mathie/perspectives/commit/2972a0d6203217e2e616cb2af9108cc65e14d848):
 
     $ rails new perspectives -d postgresql --skip-keeps --skip-test-unit
     [ ... ]
@@ -76,9 +49,7 @@ Now we'll create the new project, and add the generated skeleton as our initial
     $ git add .
     $ git commit -m 'Skeleton Rails project.'
 
-Now let's set up the database configuration. Edit `config/database.yml` to
-remove the production stanza (which is provided by our production configuration
-management system!), and remove the boilerplate comments:
+Now let's set up the database configuration. Edit `config/database.yml` to remove the production stanza (which is provided by our production configuration management system!), and remove the boilerplate comments:
 
 ```yaml
 default: &default
@@ -95,18 +66,14 @@ test:
   database: perspectives_test
 ```
 
-Let's create the two databases, generate the initial schema, and
-[commit](https://github.com/mathie/perspectives/commit/ac4c53dd8dc1a899ea7fd496c130776b7658abf4)
-the changes back to git:
+Let's create the two databases, generate the initial schema, and [commit](https://github.com/mathie/perspectives/commit/ac4c53dd8dc1a899ea7fd496c130776b7658abf4) the changes back to git:
 
     $ rake db:create:all
     $ rake db:migrate
     $ git add .
     $ git commit -m "Database configuration."
 
-Now we'll just tidy up the bundler dependencies in `Gemfile`, just because
-there's stuff in there we'll never use. We can always add them back in at the
-point we need them after all. `Gemfile` now contains just:
+Now we'll just tidy up the bundler dependencies in `Gemfile`, just because there's stuff in there we'll never use. We can always add them back in at the point we need them after all. `Gemfile` now contains just:
 
 ```ruby
 source 'https://rubygems.org'
@@ -127,22 +94,16 @@ group :development, :test do
 end
 ```
 
-Since we've removed the turbolinks gem, we'll need to remove the reference to
-it from `app/assets/javascripts/application.js`, lest we start getting errors
-on every page load. Run `bundle install` again to tidy up the lock file, add
-the changes to the index and [commit](https://github.com/mathie/perspectives/commit/db9a3ce07c804d41142ff42ae8cb7fdebc63cb5d):
+Since we've removed the turbolinks gem, we'll need to remove the reference to it from `app/assets/javascripts/application.js`, lest we start getting errors on every page load. Run `bundle install` again to tidy up the lock file, add the changes to the index and [commit](https://github.com/mathie/perspectives/commit/db9a3ce07c804d41142ff42ae8cb7fdebc63cb5d):
 
     $ git add .
     $ git commit -m "Tidy up gem dependencies."
 
-It's a good idea to set the Ruby version. This tells [rbenv][] or [rvm][] which
-version of Ruby you want to use in development, and tells Heroku which one you
-want in production. I'm currently working with Ruby 2.1.5, so let's set that:
+It's a good idea to set the Ruby version. This tells [rbenv][] or [rvm][] which version of Ruby you want to use in development, and tells Heroku which one you want in production. I'm currently working with Ruby 2.1.5, so let's set that:
 
     $ echo '2.1.5' > .ruby-version
 
-We'll get bundler to pick up that same setting, just so we're not repeating
-ourselves. In Gemfile, just under the `source` declaration, add:
+We'll get bundler to pick up that same setting, just so we're not repeating ourselves. In Gemfile, just under the `source` declaration, add:
 
 ```ruby
 ruby File.read(File.expand_path('../.ruby-version', __FILE__)).chomp
@@ -153,17 +114,11 @@ Again, keeping with small, discrete changes, we'll [commit](https://github.com/m
     $ git add .
     $ git commit -m "Set Ruby version to 2.1.5."
 
-We should figure out a way to run the application server. I like to use
-[foreman][] to have all the app's components up and running in development. I
-have it installed through the [Heroku Toolbelt][], but you can just install it
-through Rubygems, with `gem install foreman`. In terms of the application
-server itself, unless I have a compelling reason to use something different,
-I'll use [Unicorn][]. Create a `Procfile` in the root of the project with:
+We should figure out a way to run the application server. I like to use [foreman][] to have all the app's components up and running in development. I have it installed through the [Heroku Toolbelt][], but you can just install it through Rubygems, with `gem install foreman`. In terms of the application server itself, unless I have a compelling reason to use something different, I'll use [Unicorn][]. Create a `Procfile` in the root of the project with:
 
     web: bundle exec unicorn --port=${PORT} --config-file config/unicorn.rb
 
-add the 'unicorn' gem to our bundler dependencies, and create a Unicorn
-configuration file in `config/unicorn.rb`:
+add the 'unicorn' gem to our bundler dependencies, and create a Unicorn configuration file in `config/unicorn.rb`:
 
 ```ruby
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 3)
@@ -188,29 +143,22 @@ after_fork do |_server, _worker|
 end
 ```
 
-This is pretty much cargo-culted from the [Heroku documentation for using
-Unicorn](https://devcenter.heroku.com/articles/rails-unicorn), but it's doing a
-couple of key things:
+This is pretty much cargo-culted from the [Heroku documentation for using Unicorn](https://devcenter.heroku.com/articles/rails-unicorn), but it's doing a couple of key things:
 
-* Translating between the TERM and QUIT signals, so that Unicorn does the right
-  thing when Heroku's process supervision system tells it to die.
+* Translating between the TERM and QUIT signals, so that Unicorn does the right thing when Heroku's process supervision system tells it to die.
 
-* Makes sure that every worker process has its own connection to the PostgreSQL
-  database, instead of sharing one inherited from the master (which doesn't
-  need it at all).
+* Makes sure that every worker process has its own connection to the PostgreSQL database, instead of sharing one inherited from the master (which doesn't need it at all).
 
 Now we can run:
 
     $ foreman start
 
-to start up an application server, and it should allow us to visit
-<http://localhost:5000/>. [Commit those changes](https://github.com/mathie/perspectives/commit/1c4eb1152695e21e7323ec19516b59f24261bbe6):
+to start up an application server, and it should allow us to visit <http://localhost:5000/>. [Commit those changes](https://github.com/mathie/perspectives/commit/1c4eb1152695e21e7323ec19516b59f24261bbe6):
 
     $ git add .
     $ git commit -m "Unicorn and foreman for the app server."
 
-Let's setup some testing next. My testing framework of choice is [RSpec][].
-Let's add it, and spring support, to the Gemfile:
+Let's setup some testing next. My testing framework of choice is [RSpec][]. Let's add it, and spring support, to the Gemfile:
 
 ```ruby
 group :development, :test do
@@ -220,8 +168,7 @@ group :development, :test do
 end
 ```
 
-and run `bundle install` to add them to our bundle. Now generate the rspec
-binstub so it uses spring to load faster:
+and run `bundle install` to add them to our bundle. Now generate the rspec binstub so it uses spring to load faster:
 
     $ spring binstub --all
 
@@ -233,19 +180,9 @@ and generate the skeleton configuration for rspec:
           create  spec/spec_helper.rb
           create  spec/rails_helper.rb
 
-Note that two spec helpers are now generated -- one that just loads and
-configures rspec, and one which also loads the full Rails environment. This
-means that, if you have code which doesn't depend on Rails itself, you can skip
-loading the whole shebang, which means your tests run faster. Awesome. (Though
-with the help of Spring, I can't say I've suffered enough from slow specs to
-need the separation lately.)
+Note that two spec helpers are now generated -- one that just loads and configures rspec, and one which also loads the full Rails environment. This means that, if you have code which doesn't depend on Rails itself, you can skip loading the whole shebang, which means your tests run faster. Awesome. (Though with the help of Spring, I can't say I've suffered enough from slow specs to need the separation lately.)
 
-the `spec/spec_helper.rb` file comes with a sensible default configuration
-that's commented out in an `=begin`/`=end` clause. They're all useful defaults,
-so just remove the `=begin` and `=end`, and we're good to start testing.
-Sometimes, spring gets in the way a bit, in that it needs to be manually
-restarted to pick up changes. This is one of those times, so let's restart
-(well, stop -- it'll automatically start again when it needs to) it:
+the `spec/spec_helper.rb` file comes with a sensible default configuration that's commented out in an `=begin`/`=end` clause. They're all useful defaults, so just remove the `=begin` and `=end`, and we're good to start testing. Sometimes, spring gets in the way a bit, in that it needs to be manually restarted to pick up changes. This is one of those times, so let's restart (well, stop -- it'll automatically start again when it needs to) it:
 
     $ spring stop
 
@@ -271,9 +208,7 @@ That's working nicely, so let's
     $ git add .
     $ git commit -m "Add rspec for testing."
 
-It's handy to have quick feedback from tests. In particular, I like to have
-tests run automatically when I make changes to a related file. [Guard][] has my
-back here, so let's use it. Add the following to the `Gemfile`:
+It's handy to have quick feedback from tests. In particular, I like to have tests run automatically when I make changes to a related file. [Guard][] has my back here, so let's use it. Add the following to the `Gemfile`:
 
 ```ruby
 group :development, :test do
@@ -287,9 +222,7 @@ and run `bundle install` to install them. Now we can generate a skeleton
 
     $ bundle exec guard init bundler rspec
 
-The configuration in here has changed substantially since last time I generated
-a Guardfile! Suffice to say, all that really needs to be changed is to tell
-guard to use spring's binstub to launch rspec. Change the rspec declaration to:
+The configuration in here has changed substantially since last time I generated a Guardfile! Suffice to say, all that really needs to be changed is to tell guard to use spring's binstub to launch rspec. Change the rspec declaration to:
 
 ```ruby
 guard :rspec, cmd: "bin/rspec" do
@@ -301,16 +234,12 @@ We can now start guard in a new shell, with:
 
     $ bundle exec guard start
 
-and it'll keep an eye out for file changes, running the appropriate tests for
-us when a file is saved. Hit enter to run all the tests now, just to check it's
-working. Tests passing? Good, let's [commit our changes](https://github.com/mathie/perspectives/commit/81557a41a390fcfba34dcf309cca640d44e6c7b7):
+and it'll keep an eye out for file changes, running the appropriate tests for us when a file is saved. Hit enter to run all the tests now, just to check it's working. Tests passing? Good, let's [commit our changes](https://github.com/mathie/perspectives/commit/81557a41a390fcfba34dcf309cca640d44e6c7b7):
 
     $ git add .
     $ git commit -m "Guard, for automatically running our tests."
 
-Winning. Let's actually start serving some content -- in particular, it's
-always helpful to start with a static home page. Let's start by specifying the
-routes. Create `spec/routing/pages_controller_routing_spec.rb` with:
+Winning. Let's actually start serving some content -- in particular, it's always helpful to start with a static home page. Let's start by specifying the routes. Create `spec/routing/pages_controller_routing_spec.rb` with:
 
 ```ruby
 require 'rails_helper'
@@ -326,8 +255,7 @@ RSpec.describe PagesController do
 end
 ```
 
-then replace the contents of `config/routes.rb` with the following to make the
-specs pass:
+then replace the contents of `config/routes.rb` with the following to make the specs pass:
 
 ```ruby
 Rails.application.routes.draw do
@@ -376,10 +304,7 @@ And, finally, a view, in `app/views/pages/index.html.erb`:
 <h1>Hello World</h1>
 ```
 
-Not only should our specs be green, but visiting <http://localhost:5000/>
-should reveal the newly minted view being rendered. Just for completeness,
-we'll add a feature spec as a simple integration test to check the entire stack
-is working. Create `spec/features/pages_spec.rb` with:
+Not only should our specs be green, but visiting <http://localhost:5000/> should reveal the newly minted view being rendered. Just for completeness, we'll add a feature spec as a simple integration test to check the entire stack is working. Create `spec/features/pages_spec.rb` with:
 
 ```ruby
 require 'rails_helper'
@@ -398,18 +323,14 @@ Let's [commit our changes](https://github.com/mathie/perspectives/commit/e30575d
     $ git add .
     $ git commit -m "Add in a static home page."
 
-The final stage is to make things look a little bit prettier, and for that
-we'll use [Bootstrap][]. In particular, since we're still using the asset
-pipeline, in order to reduce the number of dependencies, we'll use the SASS
-port of Bootstrap. Add the following to the `Gemfile`:
+The final stage is to make things look a little bit prettier, and for that we'll use [Bootstrap][]. In particular, since we're still using the asset pipeline, in order to reduce the number of dependencies, we'll use the SASS port of Bootstrap. Add the following to the `Gemfile`:
 
 ```ruby
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 ```
 
-and run `bundle install` to install it. Rename the application stylesheet so
-it's processed as sass:
+and run `bundle install` to install it. Rename the application stylesheet so it's processed as sass:
 
     git mv app/assets/stylesheets/application.css{,.scss}
 
@@ -515,15 +436,9 @@ Finally, create a layout suitable for bootstrap, in `app/views/layouts/applicati
 </html>
 ```
 
-It's a bit of a mouthful, but that's the template I wind up starting with for all
-my new projects. It gives me a nice title, a menu bar, flash messages, and a
-prettily styled body. A good start for putting together the rest of the app.
-Finally, [commit that change](https://github.com/mathie/perspectives/commit/aeb9566705fafaae3fb76bfde25654e5960d47bd).
+It's a bit of a mouthful, but that's the template I wind up starting with for all my new projects. It gives me a nice title, a menu bar, flash messages, and a prettily styled body. A good start for putting together the rest of the app. Finally, [commit that change](https://github.com/mathie/perspectives/commit/aeb9566705fafaae3fb76bfde25654e5960d47bd).
 
-That's about it for getting started on a new Rails project. All in all --
-especially when I crib from another project -- it takes about half an hour to
-get up and running with a full test suite, a pretty UI, and a pleasant
-development environment. Now it's time to implement the first feature!
+That's about it for getting started on a new Rails project. All in all -- especially when I crib from another project -- it takes about half an hour to get up and running with a full test suite, a pretty UI, and a pleasant development environment. Now it's time to implement the first feature!
 
 [42release]: http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/
 [OmniFocus]: https://www.omnigroup.com/omnifocus/
