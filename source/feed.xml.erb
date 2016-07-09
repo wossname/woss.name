@@ -9,7 +9,7 @@ absolute_urls: true
     <link><%= url_for('/index.html') %></link>
 
     <language>en-gb</language>
-    <copyright>Copyright 2015-<%= Date.today.year %> Wossname Industries.</copyright>
+    <copyright><%= config[:copyright] %></copyright>
 
     <managingEditor>
       <%= "#{config[:default_email_address]} (#{config[:company]})" %>

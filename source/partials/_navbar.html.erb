@@ -9,15 +9,15 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">
-          <h1 id="wossname-industries-logo" class="text-hide hidden-xs hidden-sm">Wossname Industries</h1>
-          <h1 id="wossname-industries-logo-sm" class="text-hide visible-xs visible-sm">Wossname Industries</h1>
+          <h1 id="wossname-industries-logo" class="text-hide hidden-xs hidden-sm"><%= config[:title] %></h1>
+          <h1 id="wossname-industries-logo-sm" class="text-hide visible-xs visible-sm"><%= config[:title] %></h1>
         </a>
       </div>
 
       <div class="navbar-collapse collapse" id="navbar-collapse-primary">
         <form class="navbar-form navbar-right visible-lg" role="search" action="/search/" method="get" id="search-form">
           <div class="input-group input-group-sm">
-            <label class="sr-only" for="search">Search Wossname Industries' Projects</label>
+            <label class="sr-only" for="search">Search <%= config[:company] %>' Projects</label>
             <input type="search" id="search" name="q" class="form-control" placeholder="Search for&hellip;">
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary">Go!</button>
