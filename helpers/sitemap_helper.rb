@@ -16,7 +16,7 @@ module SitemapHelper
   end
 
   def all_tags
-    sitemap.resources.map { |resource| resource.data[:tags] }.to_a.compact.flatten.sort { |a, b| a.downcase <=> b.downcase }.uniq
+    sitemap.resources.map { |resource| resource.data[:tags] }.to_a.compact.flatten.map(&:downcase).sort.uniq
   end
 
   def articles_for_category(category, options = {})
