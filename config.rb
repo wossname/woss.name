@@ -58,7 +58,11 @@ page "/categories.html", layout: :collection
 page "/tags.html",       layout: :collection
 
 # Redirect a pile of old articles to new locations.
-redirect '2007/07/22/convention-for-restful-search-in-rails.html', to: '/articles/convention-for-restful-search-in-rails.html'
+[
+  [ '2007/07/22', 'convention-for-restful-search-in-rails' ]
+].each do |prefix, slug|
+  redirect "#{prefix}/#{slug}.html", to: "/articles/#{slug}.html"
+end
 
 # Generate pages for each category.
 
