@@ -56,16 +56,9 @@ page "/articles/*.html", layout: :article, data: {
 page "/articles.html",   layout: :collection
 page "/categories.html", layout: :collection
 page "/tags.html",       layout: :collection
+page "/blog*",           directory_index: false
 
-# Redirect a pile of old articles to new locations.
-[
-  [ '2007/07/22', 'convention-for-restful-search-in-rails' ]
-].each do |prefix, slug|
-  redirect "#{slug}.html", to: "/articles/#{slug}.html"
-  redirect "#{prefix}/#{slug}.html", to: "/articles/#{slug}.html"
-end
-
-# And some artefacts of the SquareSpace site
+# And some artefacts of previous incarnations of the site.
 redirect 's/keybase.txt',           to: '/keybase.txt'
 redirect 'hire_me.html',            to: '/services.html'
 redirect 'page/2.html',             to: '/articles.html'
@@ -74,11 +67,21 @@ redirect 'team.html',               to: 'team/mathie.html'
 redirect 'software/PloneCC.html',   to: 'https://github.com/mathie/PloneCC'
 redirect 'software/PloneAtom.html', to: 'https://github.com/mathie/PloneAtom'
 
-# Generate pages for each category.
-
 ready do
   include SitemapHelper
 
+  # Might as well generate redirects for all articles from their hypothetical
+  # old locations. Worst case, they're just unreferenced and never get seen.
+  all_articles.each do |article|
+    slug = article.path.gsub(/^articles\//, '').gsub(/\.html$/, '')
+    prefix = article.data.published_on.strftime('%Y/%m/%d')
+
+    redirect "#{slug}.html", to: "/articles/#{slug}.html"
+    redirect "blog/#{prefix.gsub(/\/0/, '/')}/#{slug}.html", to: "/articles/#{slug}.html"
+    redirect "#{prefix}/#{slug}.html", to: "/articles/#{slug}.html"
+  end
+
+  # Generate pages for each category.
   all_categories.each do |category|
     slug = parameterize(category)
 
@@ -87,6 +90,7 @@ ready do
     }, locals: { name: category }, ignore: true
   end
 
+  # And all the tags.
   all_tags.each do |tag|
     slug = parameterize(tag)
 
