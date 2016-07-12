@@ -61,8 +61,18 @@ page "/tags.html",       layout: :collection
 [
   [ '2007/07/22', 'convention-for-restful-search-in-rails' ]
 ].each do |prefix, slug|
+  redirect "#{slug}.html", to: "/articles/#{slug}.html"
   redirect "#{prefix}/#{slug}.html", to: "/articles/#{slug}.html"
 end
+
+# And some artefacts of the SquareSpace site
+redirect 's/keybase.txt',           to: '/keybase.txt'
+redirect 'hire_me.html',            to: '/services.html'
+redirect 'page/2.html',             to: '/articles.html'
+redirect 'author/mathie.html',      to: 'team/mathie.html'
+redirect 'team.html',               to: 'team/mathie.html'
+redirect 'software/PloneCC.html',   to: 'https://github.com/mathie/PloneCC'
+redirect 'software/PloneAtom.html', to: 'https://github.com/mathie/PloneAtom'
 
 # Generate pages for each category.
 

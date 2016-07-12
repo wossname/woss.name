@@ -62,7 +62,16 @@ Port articles across from Medium:
 - Awesome!!!1!: https://medium.com/notes-from-a-messy-desk/awesome-1-12c0e5b7de53 @done(2016-07-09)
 
 Port articles across from mathie.github.io:
-If I’m porting them across anyway, I should import them to Medium while I’m there. Probably the best strategy is to start with the ones that are generating the most 404s, seeing as they’re linked to from elsewhere on the web. Then there will be the long tail of articles that probably aren’t worth the bother.
+If I’m porting them across anyway, I should import them to Medium while I’m there. Probably the best strategy is to start with the ones that are generating the most 404s, seeing as they’re linked to from elsewhere on the web. Then there will be the long tail of articles that probably aren’t worth the bother. Aha, a list of pages I ought to port across can be found here: https://www.google.com/webmasters/tools/crawl-errors?hl=en&siteUrl=https://woss.name/#t2=1 The top 10 are
+- vim is keyword?
+- Specifying Rails controller with rspec (parts 1 & 2)
+- Using tcpflow
+- Hyperpower
+- Equality comparison and ordering in Ruby
+- Dockerising a Rails app
+- There and back again: A packet’s tale
+- Read only clones and committing changes to submodules
+- Running tmux in Mac OS X terminal
 
 Bigger someday/maybe projects:
 - Figure out what Accelerated Mobile Pages (AMP) are, and whether I can start generating them alongside existing pages.
