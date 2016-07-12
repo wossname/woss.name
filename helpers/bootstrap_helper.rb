@@ -4,10 +4,14 @@ module BootstrapHelper
     content_for :navbar, "<li#{current ? ' class="active"' : ''}>#{link_to title, path, options}</li>"
   end
 
-  def markdown(text)
+  def markdown(text, erb: true)
+    if erb
+      text = Tilt['erb'].new { text }.render(self)
+    end
+
     Tilt['markdown'].new { text }.render(self)
   end
-  
+
   def entypo(icon, options = {})
     icon = parameterize(icon)
     classes = options.delete(:class) || []
