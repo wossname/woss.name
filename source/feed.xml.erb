@@ -2,14 +2,14 @@
 absolute_urls: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title><%= title_meta %></title>
     <description><%= description_meta %></description>
     <link><%= url_for('/index.html') %></link>
 
     <language>en-gb</language>
-    <copyright><%= config[:copyright] %></copyright>
+    <copyright><%= xml_escape config[:copyright] %></copyright>
 
     <managingEditor>
       <%= "#{config[:default_email_address]} (#{config[:company]})" %>
