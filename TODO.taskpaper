@@ -5,19 +5,20 @@ Just for the LOLs, I thought it might be useful to start tracking todo lists ins
 General tasks:
 - Figure out if I can change the file extensions for articles so that `.md` is the main extension.
 	That way, all the Markdown apps I use — especially on iOS — will correctly determine the file format. I’m wondering if I can drop the `.erb` bit of the extension entirely and still have it processed by ERB (perhaps by specifying it in `config.rb`) or if I can at least switch the extensions around so `.md` comes last.
-- Add a README for the project.
-	- Link to the Trello board: https://trello.com/b/Fux05K1K/5-wossname-industries
-	- Link to the CI build on TravisCI: https://travis-ci.org/wossname/woss.name
-	- Link to Google Analytics: https://analytics.google.com/analytics/web/#report/defaultid/a73667132w111651136p116531138/
-	- Link to Google Tag Manager: https://tagmanager.google.com/?hl=en#/container/accounts/273912313/containers/2329943
-	- Links to the other associated pages on the Internet: Facebook Page, Google+ page, Twitter, etc.
-	- Document how to build and deploy it.
+- Add a README for the project. @done(2016-07-12)
+	- Link to the Trello board: https://trello.com/b/Fux05K1K/5-wossname-industries @done(2016-07-12)
+	- Link to the CI build on TravisCI: https://travis-ci.org/wossname/woss.name @done(2016-07-12)
+	- Link to Google Analytics: https://analytics.google.com/analytics/web/#report/defaultid/a73667132w111651136p116531138/ @done(2016-07-12)
+	- Link to Google Tag Manager: https://tagmanager.google.com/?hl=en#/container/accounts/273912313/containers/2329943 @done(2016-07-12)
+	- Links to the other associated pages on the Internet: Facebook Page, Google+ page, Twitter, etc. @done(2016-07-12)
+	- Document how to build and deploy it. @done(2016-07-12)
 - Add ids to all the anchor tags
 	This is so that Google Analytics can correctly attribute clicked links. I should at least add ids to the links in the layouts.
 - Add Product micro data to the sections in /products and /services.
 - Add LocalBusiness micro data to the contact section.
 - Add some more obvious share buttons at the end of each article.
 - Create an obvious call to action (to get notified about new articles) at the end of each article.
+- Add some unsubtle sharing links to the end of each article.
 - Verify that the articles are being formatted correctly on various readability sites
 	- Instapaper
 	- Readability
