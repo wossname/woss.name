@@ -28,7 +28,7 @@ module SitemapHelper
   end
 
   def sitemap_pages
-    sitemap.resources.find_all { |resource| resource.content_type =~ /text\/html/ }
+    sitemap.resources.find_all { |resource| resource.content_type =~ /text\/html/ && !resource.is_a?(Middleman::Sitemap::Extensions::RedirectResource) }
   end
 
   def last_modified(page)
