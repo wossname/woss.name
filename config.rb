@@ -77,6 +77,13 @@ ready do
       title: "Articles tagged '#{tag}'"
     }, locals: { name: tag }, ignore: true
   end
+
+  # FIXME: #proxy doesn't seem to cause the sitemap to update/rebuild/whatever,
+  # so s3_sync isn't picking up these files. Running something that tweaks the
+  # sitemap and causes it to be refreshed seems to do the trick. (As to why a
+  # query on the sitemap rebuilds it, I don't know!). End result is that this
+  # gets s3_sync to pick up the tag and category pages...
+  all_tags
 end
 
 # General configuration
