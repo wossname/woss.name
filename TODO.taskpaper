@@ -32,6 +32,8 @@ General tasks:
 		- Main CSS file.
 	- That’s about all I have control over! @done(2016-07-09)
 - Figure out a workflow for getting from a source image (in Sketch?) to optimised assets for the web site.
+- Remove unused CSS to slim down the site a bit. 
+	Doing something like this: https://hellojason.net/blog/remove-unused-css-from-middleman-before-deploying/ in an `after_build` step might work.
 
 Port articles across from Medium:
 - Mental Wellbeing App Survey: https://blog.woss.name/mental-wellbeing-app-survey-54fd3f572e86#.l246uyxgn
