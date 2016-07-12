@@ -9,7 +9,14 @@ task default: :build
 desc 'Install all the dependencies required to build and deploy the site.'
 task :deps do
   bundle :install
-  npm :install
+  npm    :install
+end
+
+desc 'Update all the dependencies to the newest versions.'
+task :update do
+  bundle :update
+  npm    :update
+  bower  :update
 end
 
 desc 'Build the web site and output the contents in the build/ folder.'
@@ -69,11 +76,17 @@ def npm(command, *args)
   run :npm, command, *args
 end
 
+def bower(command, *args)
+  run 'node_modules/bower/bin/bower', command, *args
+end
+
 def rollbar
   environment   = 'production'
   rollbar_token = ENV['ROLLBAR_TOKEN']
   user          = ENV['USER']
   revision      = ENV['TRAVIS_COMMIT'] || `git log -n 1 --pretty = format:"%H"`.chomp
 
-  sh "curl https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{environment} -F revision=#{revision} -F local_username=#{user}"
+  if rollbar_token
+    sh "curl https://api.rollbar.com/api/1/deploy/ -F access_token=#{rollbar_token} -F environment=#{environment} -F revision=#{revision} -F local_username=#{user}"
+  end
 end
