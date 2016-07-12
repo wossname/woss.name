@@ -57,6 +57,9 @@ page "/articles.html",   layout: :collection
 page "/categories.html", layout: :collection
 page "/tags.html",       layout: :collection
 
+# Redirect a pile of old articles to new locations.
+redirect '2007/07/22/convention-for-restful-search-in-rails.html', to: '/articles/convention-for-restful-search-in-rails.html'
+
 # Generate pages for each category.
 
 ready do
