@@ -23,7 +23,7 @@ module MetadataHelper
   end
 
   def description_meta(page = current_page)
-    strip_whitespace(strip_tags(page.data.description || config[:default_description]))
+    plaintext(page.data.description || config[:default_description])
   end
 
   def category_meta(page = current_page)

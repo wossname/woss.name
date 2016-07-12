@@ -20,6 +20,10 @@ module ArticleHelper
 
   private
 
+  def plain_excerpt(article)
+    plaintext(excerpt(article))
+  end
+
   def excerpt(article)
     article.data.excerpt || article_paragraphs(article).first
   end

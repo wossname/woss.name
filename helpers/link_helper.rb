@@ -105,7 +105,7 @@ module LinkHelper
     query = {
       url: url_for(resource.url, absolute: true),
       title: resource.data.title,
-      description: excerpt(resource)
+      description: plain_excerpt(resource)
     }
     options = { query: query }.merge(options)
 
