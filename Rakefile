@@ -37,7 +37,6 @@ end
 desc 'Deploy the site to S3. Assumes you have AWS credentials in your environment. Assumes you have already run :build.'
 task :deploy do
   middleman :sync
-  middleman :invalidate
 
   rollbar
 
