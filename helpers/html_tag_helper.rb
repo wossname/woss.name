@@ -33,4 +33,18 @@ module HtmlTagHelper
   def label(type, &block)
     content_tag :span, class: "label label-#{type}", &block
   end
+
+  def embedly_quote(key, cite: nil, &block)
+    quote = content_tag :blockquote, class: 'embedly-card', data: { card: { key: key }, controls: 0 } do
+      content = markdown capture_html(&block)
+
+      if cite
+        content << content_tag(:cite, cite)
+      end
+
+      content
+    end
+
+    block_is_template?(block) ? concat_content(quote) : quote
+  end
 end
