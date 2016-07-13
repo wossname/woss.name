@@ -59,13 +59,23 @@ page "/tags.html",       layout: :collection
 page "/blog*",           directory_index: false
 
 # And some artefacts of previous incarnations of the site.
-redirect 's/keybase.txt',           to: '/keybase.txt'
-redirect 'hire_me.html',            to: '/services.html'
-redirect 'page/2.html',             to: '/articles.html'
-redirect 'author/mathie.html',      to: 'team/mathie.html'
-redirect 'team.html',               to: 'team/mathie.html'
-redirect 'software/PloneCC.html',   to: 'https://github.com/mathie/PloneCC'
-redirect 'software/PloneAtom.html', to: 'https://github.com/mathie/PloneAtom'
+redirect 's/keybase.txt',            to: '/keybase.txt'
+redirect 'hire_me.html',             to: '/services.html'
+redirect 'page/2.html',              to: '/articles.html'
+redirect 'author/mathie.html',       to: 'team/mathie.html'
+redirect 'team.html',                to: 'team/mathie.html'
+redirect 'contributor/7068656.html', to: 'team/mathie.html'
+redirect 'contributor/7068769.html', to: 'team/mathie.html'
+redirect 'display/Login.html',       to: '/index.html'
+redirect 'splash.html',              to: '/index.html'
+redirect 'software/PloneCC.html',    to: 'https://github.com/mathie/PloneCC'
+redirect 'software/PloneAtom.html',  to: 'https://github.com/mathie/PloneAtom'
+
+# Old Wordpress categories.
+redirect 'category/geekery/software-configuration-management.html', to: '/categories/internet.html'
+redirect 'category/geekery/solaris.html',                           to: '/categories/internet.html'
+redirect 'category/geekery/mac-os-x.html',                          to: '/categories/internet.html'
+redirect 'category/geekery/ruby-and-rails.html',                    to: '/categories/software-development.html'
 
 # NaNoWriMo articles I initially published separately.
 redirect "nanowrimo.html", to: "/articles.html"
