@@ -1,8 +1,8 @@
 ---
 published_on: 2007-07-20
 title: Capistrano 2 Rocks My World
-redirect_from: "/2007/07/20/capistrano-2-rocks-my-world/"
-category: Programming
+
+category: Software development
 tags:
   - edinburgh
   - capistrano

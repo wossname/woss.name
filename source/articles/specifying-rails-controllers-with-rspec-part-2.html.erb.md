@@ -2,7 +2,7 @@
 published_on: 2014-11-20
 title: Specifying Ruby on Rails Controllers with RSpec
 subtitle: "Part 2: Command actions"
-category: Programming
+category: Software development
 tags:
   - ruby
   - rails

@@ -1,8 +1,8 @@
 ---
 published_on: 2005-10-05
 title: Ejecting CDs
-redirect_from: "/2005/10/05/ejecting-cds/"
-category: Ops
+
+category: Internet
 tags:
   - mac os x
   - powerbook

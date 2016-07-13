@@ -1,8 +1,8 @@
 ---
 published_on: 2005-11-22
 title: Using launchd on Mac OS X
-redirect_from: "/2005/11/22/using-launchd-on-mac-os-x/"
-category: Ops
+
+category: Internet
 tags:
   - launchd
   - init

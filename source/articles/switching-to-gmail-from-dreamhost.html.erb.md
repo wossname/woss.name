@@ -1,8 +1,8 @@
 ---
 published_on: 2006-10-19
 title: Switching to Gmail from DreamHost
-redirect_from: "/2006/10/19/switching-to-gmail-from-dreamhost/"
-category: Ops
+
+category: Internet
 tags:
   - gmail
   - email
@@ -18,7 +18,7 @@ I've been using DreamHost for a number of things over the past couple of years -
 
 * I've had incoming messages, from a friend's Yahoo address, turn up over a week late because of an apparent misconfiguration in the spam filtering system.
 
-* I'm still having outgoing messages bounced because they are [regularly listed in Spamcop](/2006/07/17/outgoing-mail-grumps/).  See the linked post for a more balanced discussion of that, but it still doesn't help me communicate with the people who's ISP uses Spamcop!
+* I'm still having outgoing messages bounced because they are [regularly listed in Spamcop](/articles/outgoing-mail-grumps/).  See the linked post for a more balanced discussion of that, but it still doesn't help me communicate with the people who's ISP uses Spamcop!
 
 * The spam filtering has been going remarkably downhill, with me getting much more spam in my inbox.  This could be something to do with the copy of amavisd dating from June 2003, though I don't know if they update the rules system separately/more frequently.
 

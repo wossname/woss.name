@@ -1,8 +1,8 @@
 ---
 published_on: 2008-04-10
 title: Read-only clones and committing changes to submodules
-redirect_from: "/2008/04/10/read-only-clones-and-commiting-changes-to-submodules/"
-category: Programming
+
+category: Software development
 tags:
   - git
   - submodules

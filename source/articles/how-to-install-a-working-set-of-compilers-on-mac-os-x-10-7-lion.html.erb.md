@@ -3,8 +3,8 @@ published_on: 2012-01-24
 title: How to install a working set of compilers on Mac OS X 10.7 (Lion)
 excerpt: Xcode 4.2 removed GCC, which seems to be causing a bit of confusion. Here's
   a bit of background and a workaround 'til the dust settles.
-redirect_from: "/2012/01/24/how-to-install-a-working-set-of-compilers-on-mac-os-x-10-7-lion/"
-category: Ops
+
+category: Internet
 tags:
   - mac os x
   - lion

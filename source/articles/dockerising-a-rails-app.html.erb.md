@@ -7,7 +7,7 @@ excerpt: |
   environment, and link the containers together so they can talk to each other.
   On the way, we'll automate the build with Rake, and discover a little more
   about how container linking actually works.
-category: Ops
+category: Internet
 tags:
   - docker
   - ruby

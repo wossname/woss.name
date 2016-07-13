@@ -1,8 +1,8 @@
 ---
 published_on: 2012-04-30
 title: Shower Power
-redirect_from: "/2012/04/30/shower-power/"
-category: Programming
+
+category: Software development
 tags:
   - modelling
   - javascript

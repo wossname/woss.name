@@ -4,7 +4,7 @@ title: "Keybase: A Web 2.0 of Trust"
 excerpt: |
   A short introduction to public key cryptography, how the web of trust is
   formed, and what Keybase brings to the key signing party.
-category: Ops
+category: Internet
 tags:
   - Keybase
   - PGP

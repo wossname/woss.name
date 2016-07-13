@@ -2,7 +2,7 @@
 published_on: 2014-11-18
 title: Front End Development 101
 subtitle: "Part 1: Goals, Go, Node and Bower"
-category: Programming
+category: Software development
 tags:
   - JavaScript
   - Less

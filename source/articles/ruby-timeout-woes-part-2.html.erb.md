@@ -1,10 +1,10 @@
 ---
 published_on: 2011-08-30
 title: Ruby Timeout Woes, Part 2
-redirect_from: "/2011/08/30/ruby-timeout-woes-part-2/"
+
 excerpt: in which I discover how Ruby's Timeout implementation actually works, and
   discover why some of our code inside a timeout block never really times out.
-category: Programming
+category: Software development
 tags:
   - ruby
   - timeout

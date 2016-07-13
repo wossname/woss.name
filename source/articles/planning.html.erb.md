@@ -1,7 +1,7 @@
 ---
 published_on: 2013-10-31
 title: Planning
-redirect_from: "/nanowrimo/articles/planning/"
+
 category: Writing
 tags:
   - nanowrimo

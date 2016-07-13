@@ -6,8 +6,8 @@ excerpt: |
   necessary information to support named time zones out of the box. Once we
   have that sorted, there are some new and exciting ways we can query local
   times while storing them as UTC in MySQL.
-redirect_from: "/2013/01/23/mysql-and-time-zones/"
-category: Programming
+
+category: Software development
 tags:
   - ruby
   - rails

@@ -1,10 +1,7 @@
 ---
 published_on: 2010-03-15
 title: Updating the path everywhere on Ubuntu 09.10
-redirect_from:
-  - "/2010/03/15/updating-the-path-everywhere-on-ubuntu-09-10/"
-  - "/blog/2010/3/15/updating-the-path-everywhere-on-ubuntu-0910.html"
-category: Ops
+category: Internet
 tags:
   - debian
   - ubuntu

@@ -1,10 +1,7 @@
 ---
 published_on: 2006-10-25
 title: Migrating your Rails application to Unicode
-redirect_from:
-  - "/2006/10/25/migrating-your-rails-application-to-unicode/"
-  - "/blog/2006/10/25/migrating-your-rails-application-to-unicode.html"
-category: Programming
+category: Software development
 tags:
   - unicode
   - ruby
@@ -12,7 +9,7 @@ tags:
   - mysql
   - utf8
 ---
-**Update** Make sure you read the comments on this post before considering it.  In particular, [Pete](/2006/10/25/migrating-your-rails-application-to-unicode/#comment-13156) brings up some concerns about applications having data which is already UTF-8, but marked as Latin1 in the database, may cause problems.
+**Update** Make sure you read the comments on this post before considering it.  In particular, [Pete](/articles/migrating-your-rails-application-to-unicode/#comment-13156) brings up some concerns about applications having data which is already UTF-8, but marked as Latin1 in the database, may cause problems.
 
 So you've got this Rails application you've been developing and all of a sudden
 you need to support Unicode. After all, not everybody speaks English. And some
@@ -20,7 +17,7 @@ really awkward people like all sorts of typographic symbols in their medical
 articles. In fact, you wouldn't believe all the weird characters these
 print-production-oriented people like to use&hellip;
 
-Most of the instructions here were gleamed from a [jabbering giraffe](http://happygiraffe.net/blog/archives/2006/09/16/unicode-for-rails) and the [notes I wrote up from his talk](/2006/10/11/railsconf-europe-2006-unicode-for-rails-dominic-mitchell/).  But I like to think I've had a bright idea of my own. :-)  Note that these instructions assume you're using Ruby 1.8.x, MySQL >= 5 and edge (soon to be 1.2) rails.
+Most of the instructions here were gleamed from a [jabbering giraffe](http://happygiraffe.net/blog/archives/2006/09/16/unicode-for-rails) and the [notes I wrote up from his talk](/articles/railsconf-europe-2006-unicode-for-rails-dominic-mitchell/).  But I like to think I've had a bright idea of my own. :-)  Note that these instructions assume you're using Ruby 1.8.x, MySQL >= 5 and edge (soon to be 1.2) rails.
 
 OK, so to get Rails basically talking UTF-8, you have to do a couple of things.
 Firstly, make Ruby itself a little bit Unicode-aware, by sticking the following

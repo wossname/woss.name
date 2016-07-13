@@ -1,8 +1,8 @@
 ---
 published_on: 2006-11-20
 title: "Howto: Using Mail.app to archive your GMail email"
-redirect_from: "/2006/11/20/howto-using-mailapp-to-archive-your-gmail-email/"
-category: Ops
+
+category: Internet
 tags:
   - gmail
   - mail
@@ -12,9 +12,9 @@ tags:
   - google apps
   - dreamhost
 ---
-I'll write this while I have the chance, since my mail inbox will be [strangely quiet](/2006/11/20/omg-extreme-critical-emergency-everythings-broken-people-are-dying/) for the next few hours...
+I'll write this while I have the chance, since my mail inbox will be [strangely quiet](/articles/omg-extreme-critical-emergency-everythings-broken-people-are-dying/) for the next few hours...
 
-As regular readers will know, I recently [switched to using GMail](/2006/10/19/switching-to-gmail-from-dreamhost/) for my regular mail using their [Google Apps for your Domain](https://www.google.com/a/) offering.  I'm extremely happy with it -- there are a few wrinkles, but on the whole it's a big improvement on my email workflow.
+As regular readers will know, I recently [switched to using GMail](/articles/switching-to-gmail-from-dreamhost/) for my regular mail using their [Google Apps for your Domain](https://www.google.com/a/) offering.  I'm extremely happy with it -- there are a few wrinkles, but on the whole it's a big improvement on my email workflow.
 
 One thing I was missing: an offline archive of my email.  Sometimes I am sitting in a random place without Internet access.  And I'm not always the most organised person in the world about extracting useful information from my email when I should.  Case in point: I was meeting some people for lunch in Leith last Thursday.  The car was in for service, so I was taking the bus and was running a little late.  I'd forgotten to update my mobile phone with any of their phone numbers.  I know, I thought, I'll just check on my laptop.  I felt silly enough pulling out my laptop on a public service bus in the middle of a less than salubrious area of the city.  I felt even sillier when I realised I didn't have their phone numbers in my address book and, though they were definitely in my inbox, I couldn't access it!
 

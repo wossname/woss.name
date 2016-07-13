@@ -1,8 +1,8 @@
 ---
 published_on: 2011-10-12
 title: Understanding the Rails Logger
-redirect_from: "/2011/10/12/understanding-the-rails-logger/"
-category: Programming
+
+category: Software development
 tags:
   - ruby
   - rails

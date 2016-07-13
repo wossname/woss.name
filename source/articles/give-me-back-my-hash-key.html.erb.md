@@ -4,8 +4,8 @@ title: "Give me back my # key!"
 excerpt: Since I switched on "Use option as meta" in my Terminal app, I've lost my
   hash key. Can I have it back, please? Plus a bonus tip for quickly commenting out
   commands at the command line.
-redirect_from: "/2011/12/30/give-me-back-my-hash-key/"
-category: Ops
+
+category: Internet
 tags:
   - bash
   - meta

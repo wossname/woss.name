@@ -1,12 +1,12 @@
 ---
 published_on: 2014-09-08
 title: Personal Code Review
-redirect_from: "/nanowrimo/articles/personal-code-review/"
+
 excerpt: |
   I have a micro work flow I use when I working with git, usually -- but not
   always -- while I'm developing software. Most git work flows talk about a
   larger scale, so I thought I'd share my own, personal, micro work flow.
-category: Programming
+category: Software development
 tags:
   - workflow
   - git

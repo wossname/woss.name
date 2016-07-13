@@ -4,8 +4,8 @@ title: Retrieving BigDecimals from a database with Anorm & Scala
 excerpt: In which I take a long, long time just to retrieve a couple of numbers from
   a DB and display them on a web page. Ah, the joys of learning a new programming
   language, framework and ecosystem, all at once!
-redirect_from: "/2012/04/02/retrieving-bigdecimals-from-a-database-with-anorm-scala/"
-category: Programming
+
+category: Software development
 tags:
   - scala
   - anorm

@@ -1,7 +1,7 @@
 ---
 published_on: 2013-11-23
 title: Death of a Gruffalo
-redirect_from: "/nanowrimo/articles/the-demise-of-the-gruffalo/"
+
 excerpt: |
   It all began with a mouse strolling through the deep, dark, wood. How could
   the Gruffalo live with the shame?

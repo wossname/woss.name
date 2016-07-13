@@ -1,8 +1,8 @@
 ---
 published_on: 2006-04-21
 title: Getting Started with a Sun T2000
-redirect_from: "/2006/04/21/getting-started-with-a-sun-t2000/"
-category: Ops
+
+category: Internet
 tags:
   - coolthreads
   - t2000

@@ -3,8 +3,8 @@ published_on: 2012-02-13
 title: "Today I Learned: Vim command line fu"
 excerpt: In which I learn some useful shortcuts to make life faster with the Vim command
   line.
-redirect_from: "/2012/02/13/today-i-learned-vim-command-line-fu/"
-category: Ops
+
+category: Internet
 tags:
   - vim
   - editors

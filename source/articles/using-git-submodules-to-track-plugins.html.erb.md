@@ -1,11 +1,7 @@
 ---
 published_on: 2008-04-09
 title: Using git submodules to track plugins
-redirect_from:
-  - "/2008/04/09/using-git-submodules-to-track-plugins/"
-  - "/blog/2008/4/9/using-git-submodules-to-track-plugins.html"
-  - "/2008/04/09/using-git-submodules-to-track-vendorrails/"
-category: Programming
+category: Software development
 tags:
   - git
   - ruby

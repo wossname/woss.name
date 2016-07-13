@@ -1,8 +1,8 @@
 ---
 published_on: 2007-05-26
 title: "Thumper: Debugging and not jumping to conclusions"
-redirect_from: "/2007/05/26/thumper-debugging-and-not-jumping-to-conclusions/"
-category: Ops
+
+category: Internet
 tags:
   - thumper
   - x4500

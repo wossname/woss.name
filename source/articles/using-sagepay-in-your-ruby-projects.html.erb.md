@@ -1,8 +1,8 @@
 ---
 published_on: 2011-01-27
 title: Using SagePay in your Ruby Projects
-redirect_from: "/2011/01/27/using-sagepay-in-your-ruby-projects/"
-category: Programming
+
+category: Software development
 tags:
   - ruby
   - rails

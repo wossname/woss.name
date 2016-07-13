@@ -1,7 +1,7 @@
 ---
 published_on: 2014-11-23
 title: "Vagrant, Docker & VMWare Fusion: Oh my!"
-category: Ops
+category: Internet
 excerpt: |
   Today we figure out how to run Docker containers on Mac OS X with a little
   help from VMWare Fusion, and Vagrant.

@@ -7,7 +7,7 @@ excerpt: |
   automate repetitive tasks and to automatically build artefacts when a source
   file changes. And we'll use Grunt to compile our stylesheets, from our own
   Less CSS source, and Twitter Bootstrap.
-category: Programming
+category: Software development
 tags:
   - JavaScript
   - Grunt

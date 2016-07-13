@@ -67,6 +67,12 @@ redirect 'team.html',               to: 'team/mathie.html'
 redirect 'software/PloneCC.html',   to: 'https://github.com/mathie/PloneCC'
 redirect 'software/PloneAtom.html', to: 'https://github.com/mathie/PloneAtom'
 
+# NaNoWriMo articles I initially published separately.
+redirect "nanowrimo.html", to: "/articles.html"
+[ 'personal-code-review', 'planning', 'the-demise-of-the-gruffalo', 'the-inner-game-of-pool', 'walking' ].each do |slug|
+  redirect "nanowrimo/articles/#{slug}.html", to: "/articles/#{slug}.html"
+end
+
 ready do
   include SitemapHelper
 

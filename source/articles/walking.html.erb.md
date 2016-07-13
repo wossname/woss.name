@@ -1,7 +1,7 @@
 ---
 published_on: 2013-11-13
 title: Walking
-redirect_from: "/nanowrimo/articles/walking/"
+
 excerpt: |
   I love walking. The world is full of beauty, and the best way to find it is
   to wander through it. It's good for your physical health, and it's good for

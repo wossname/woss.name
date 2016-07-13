@@ -6,7 +6,7 @@ exceprt: |
   accounts on the Internet, while not proving a major inconvenience. Here's a
   little bit of background, some options for apps that support it, and a plea
   to 1Password to support it natively!
-category: Ops
+category: Internet
 tags:
   - passwords
   - authentication

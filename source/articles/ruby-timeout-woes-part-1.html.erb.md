@@ -1,10 +1,10 @@
 ---
 published_on: 2011-08-30
 title: Ruby Timeout Woes, Part 1
-redirect_from: "/2011/08/30/ruby-timeout-woes-part-1/"
+
 excerpt: in which I discover that the behaviour of Ruby's built in timeout mechanism
   has changed slightly between Ruby 1.8.x and Ruby 1.9.
-category: Programming
+category: Software development
 tags:
   - ruby
   - rails

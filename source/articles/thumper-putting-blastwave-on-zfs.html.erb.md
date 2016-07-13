@@ -1,8 +1,8 @@
 ---
 published_on: 2007-05-25
 title: "Thumper: Putting Blastwave on ZFS"
-redirect_from: "/2007/05/25/thumper-putting-blastwave-on-zfs/"
-category: Ops
+
+category: Internet
 tags:
   - solaris
   - zfs

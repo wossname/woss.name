@@ -1,7 +1,7 @@
 ---
 published_on: 2013-11-07
 title: The inner game of pool
-redirect_from: "/nanowrimo/articles/the-inner-game-of-pool/"
+
 excerpt: |
   It's a funny old game, pool. But how do you learn to play it? Malcolm and I
   experiment a little with it, and have some insight on how to learn/teach

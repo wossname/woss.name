@@ -1,8 +1,8 @@
 ---
 published_on: 2011-01-20
 title: Equality, Comparison and Uniqueness in Ruby
-redirect_from: "/2011/01/20/equality-comparison-and-ordering-in-ruby/"
-category: Programming
+
+category: Software development
 tags:
   - ruby
   - rails

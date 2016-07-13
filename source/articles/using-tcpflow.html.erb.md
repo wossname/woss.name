@@ -7,8 +7,8 @@ excerpt: Sometimes, when you're writing applications that use a library to talk 
   very problem yesterday, so I dug `tcpflow` out my toolbox to better understand what
   was happening.
 updated: 2014-10-22 00:00:00 +01:00
-redirect_from: "/2011/03/06/using-tcpflow/"
-category: Ops
+
+category: Internet
 tags:
   - tcpflow
   - tcpdump

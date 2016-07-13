@@ -1,8 +1,8 @@
 ---
 published_on: 2005-08-25
 title: Subversion and NFS file locking
-redirect_from: "/2005/08/25/subversion-and-nfs-file-locking/"
-category: Ops
+
+category: Internet
 tags:
   - subversion
   - nfs

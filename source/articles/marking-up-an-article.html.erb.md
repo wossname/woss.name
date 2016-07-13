@@ -6,7 +6,7 @@ excerpt: |
   Let's have a bit of a dive into the metadata associated with blog posts, and
   figure out how to produce the right information that all our social media
   tools (Google, Facebook, Twitter, etc) can consume.
-category: Programming
+category: Software development
 tags:
   - microdata
   - opengraph
@@ -64,7 +64,7 @@ excerpt: |
   Today, we'll figure out how to replace the caps lock key
   with the (far more useful) HYPER key on Mac OS X, and
   have a think about the ways we can put it to use.
-category: Ops
+category: Internet
 tags:
   - hyper
   - capslock

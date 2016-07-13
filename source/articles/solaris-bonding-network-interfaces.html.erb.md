@@ -1,8 +1,8 @@
 ---
 published_on: 2007-06-09
 title: "Solaris: Bonding network interfaces"
-redirect_from: "/2007/06/09/solaris-bonding-network-interfaces/"
-category: Ops
+
+category: Internet
 tags:
   - thumper
   - solaris

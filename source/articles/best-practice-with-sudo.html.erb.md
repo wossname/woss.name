@@ -1,8 +1,8 @@
 ---
 published_on: 2007-06-12
 title: Best Practice with sudo
-redirect_from: "/2007/06/12/best-practice-with-sudo/"
-category: Ops
+
+category: Internet
 tags:
   - sudo
   - authorisation

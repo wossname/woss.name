@@ -1,8 +1,8 @@
 ---
 published_on: 2012-01-29
 title: Symlink corruption on Mac OS X
-redirect_from: "/2012/01/29/symlink-corruption-on-mac-os-x/"
-category: Ops
+
+category: Internet
 tags:
   - mac os x
   - lion

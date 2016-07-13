@@ -1,7 +1,7 @@
 ---
 published_on: 2014-11-16
 title: "tmux: New Windows in the Current Working Directory"
-category: Ops
+category: Internet
 tags:
   - tmux
   - path

@@ -1,8 +1,8 @@
 ---
 published_on: 2007-06-24
 title: Integrating capistrano with SMF
-redirect_from: "/2007/06/24/integrating-capistrano-with-smf/"
-category: Ops
+
+category: Internet
 tags:
   - ruby
   - rails
@@ -14,7 +14,7 @@ tags:
 ---
 I've got a new application I'm in the process of deploying in order to demo for a client (no, it's not ready for everybody else to have a nosy at just yet!) and figured I'd take the opportunity to learn two things:
 
-* What's new and shiny about [Capistrano 2](http://www.capify.org/).  Most of that was putting what I learned at [Harnessing Capistrano](/2007/05/18/harnessing-capistrano/) into practice.
+* What's new and shiny about [Capistrano 2](http://www.capify.org/).  Most of that was putting what I learned at [Harnessing Capistrano](/articles/harnessing-capistrano/) into practice.
 
 * How to make the Solaris [Service Management Facility](http://www.opensolaris.org/os/community/smf/) (SMF) manage all my mongrel processes for me.
 

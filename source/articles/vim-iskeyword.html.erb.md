@@ -7,7 +7,7 @@ excerpt: |
   for method names in Ruby. In particular, it now means that when I hit
   `ctrl-]` with my cursor in a method name containing a `!`, it will take me
   to the correct method definition. Let's see how.
-category: Programming
+category: Software development
 tags:
   - Ruby
   - Vim

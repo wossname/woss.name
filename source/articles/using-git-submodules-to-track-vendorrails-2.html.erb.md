@@ -1,8 +1,8 @@
 ---
 published_on: 2008-04-11
 title: Using git submodules to track vendor/rails
-redirect_from: "/2008/04/11/using-git-submodules-to-track-vendorrails-2/"
-category: Programming
+
+category: Software development
 tags:
   - git
   - submodules
@@ -12,14 +12,14 @@ tags:
   - edge
   - stable
 ---
-In a previous post, [Using git submodules to track plugins](/2008/04/09/using-git-submodules-to-track-vendorrails/)
+In a previous post, [Using git submodules to track plugins](/articles/using-git-submodules-to-track-vendorrails/)
 I introduced the idea of using git submodules as part of your workflow in
 developing Rails applications. At the time, Rails itself wasn't using git, but
 that has finally happened. You can find the official Ruby on Rails source code
 repository at <http://github.com/rails/rails>. So, how to we track Rails with
 git submodules?
 
-Let's start from our books application of the [previous post](/2008/04/09/using-git-submodules-to-track-vendorrails/).
+Let's start from our books application of the [previous post](/articles/using-git-submodules-to-track-vendorrails/).
 And we'll add in the submodule for Rails:
 
     mathie@tullibardine:books$ git submodule add git://github.com/rails/rails.git vendor/rails

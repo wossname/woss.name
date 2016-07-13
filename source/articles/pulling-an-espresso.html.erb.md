@@ -1,7 +1,7 @@
 ---
 published_on: 2013-01-19
 title: Pulling an Espresso
-redirect_from: "/2013/01/19/pulling-an-espresso/"
+
 category: Kitchen
 tags:
   - espresso

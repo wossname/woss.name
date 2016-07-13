@@ -2,7 +2,7 @@
 published_on: 2014-11-27
 title: Counselling for Geeks
 subtitle: An introduction to Transactional Analysis
-category: writing
+category: Writing
 tags:
   - transactional analysis
   - counselling for toads

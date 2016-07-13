@@ -1,7 +1,7 @@
 ---
 published_on: 2013-12-06
 title: National Novel Writing Month
-redirect_from: "/nanowrimo/"
+
 excerpt: |
   I did it! I successfully validated 50,340 written words for NaNoWriMo by the
   end of the month. I am inordinately pleased about that, even if it pushed me

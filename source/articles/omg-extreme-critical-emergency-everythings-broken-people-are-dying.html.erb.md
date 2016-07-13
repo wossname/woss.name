@@ -1,8 +1,8 @@
 ---
 published_on: 2006-11-20
 title: OMG! EXTREME CRITICAL EMERGENCY!! EVERYTHING'S BROKEN! People are DYING!
-redirect_from: "/2006/11/20/omg-extreme-critical-emergency-everythings-broken-people-are-dying/"
-category: Ops
+
+category: Internet
 tags:
   - dreamhost
   - dns

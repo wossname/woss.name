@@ -7,7 +7,7 @@ excerpt: |
   through a worked example on test-driving a Ruby on Rails controller with
   RSpec, Capybara feature specs, and plenty of mocking. Along the way, we'll
   see some neat new features of RSpec in action.
-category: Programming
+category: Software development
 tags:
   - rails
   - ruby

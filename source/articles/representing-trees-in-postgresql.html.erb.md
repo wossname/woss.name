@@ -1,7 +1,7 @@
 ---
 published_on: 2014-11-21
 title: Representing Trees in PostgreSQL
-category: Programming
+category: Software development
 excerpt: |
   Today we figure out a novel approach to the materialised path pattern for
   representing hierarchical data in SQL. It takes advantage of PostgreSQL's

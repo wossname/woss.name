@@ -6,7 +6,7 @@ excerpt: |
   A bit of an archaeology dig in ancient home directories turned up a couple of
   Rails apps that I built while I was studying for a Diploma in Accounting.
   Let's see if we can dust them off a little and learn something from them.
-category: Programming
+category: Software development
 tags:
   - accounting
   - t-tables

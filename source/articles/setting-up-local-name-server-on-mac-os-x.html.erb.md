@@ -1,8 +1,8 @@
 ---
 published_on: 2006-11-13
 title: Setting up a local name server on Mac OS X
-redirect_from: "/2006/11/13/setting-up-local-name-server-on-mac-os-x/"
-category: Ops
+
+category: Internet
 tags:
   - dns
   - subdomains

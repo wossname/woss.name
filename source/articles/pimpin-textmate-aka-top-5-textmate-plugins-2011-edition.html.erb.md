@@ -4,8 +4,8 @@ title: Pimpin' TextMate (aka Top 5 TextMate Plugins, 2011 Edition)
 excerpt: I've put together a list of the indispensable TextMate plugins that take
   a great editor and make it awesome, including enhanced file finding, project search
   and Lion full screen support.
-redirect_from: "/2011/08/28/pimpin-textmate-aka-top-5-textmate-plugins-2011-edition/"
-category: Ops
+
+category: Internet
 tags:
   - mac os x
   - textmate
