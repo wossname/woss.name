@@ -138,7 +138,7 @@ parentheses. I like the new syntax.
 Let's just assume we've implemented this particular scenario, by inserting the following into `app/views/layouts/application.html.erb`:
 
 ```erb
-<li><%= link_to 'List widgets', widgets_path %></li>
+<li><%%= link_to 'List widgets', widgets_path %></li>
 ```
 
 It does bring up the issue of routes, though: how to we specify that the list
@@ -359,16 +359,16 @@ and finish off the implementation with the view template, in `app/views/widgets/
 <h1>All Widgets</h1>
 
 <ul>
-  <%= render @widgets %>
+  <%%= render @widgets %>
 </ul>
 ```
 
 and, finally, `app/views/widgets/widget.html.erb`:
 
 ```erb
-<%= content_tag_for :li, widget do %>
-  <%= widget.name %> (<%= widget.size %>mm)
-<% end %>
+<%%= content_tag_for :li, widget do %>
+  <%%= widget.name %> (<%%= widget.size %>mm)
+<%% end %>
 ```
 
 Our controller tests and our scenarios pass, time to commit our code, push to
