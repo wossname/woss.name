@@ -238,7 +238,7 @@ Then in my `app/views/nodes/index.html.erb` view, I'd like to do:
 
 ```erb
 <ul>
-  <%= render @nodes %>
+  <%%= render @nodes %>
 </ul>
 ```
 
@@ -246,13 +246,13 @@ and in `app/views/nodes/_node.html.erb` I can simply do:
 
 ```erb
 <li>
-  <%= link_to node.name, node %>
+  <%%= link_to node.name, node %>
 
-  <% if node.children.present? %>
+  <%% if node.children.present? %>
     <ul>
-      <%= render node.children %>
+      <%%= render node.children %>
     </ul>
-  <% end %>
+  <%% end %>
 </li>
 ```
 

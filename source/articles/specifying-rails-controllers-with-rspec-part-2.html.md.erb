@@ -65,7 +65,7 @@ end
 and implement that by adding the appropriate link on the widget listing page:
 
 ```erb
-<%= link_to 'New widget', new_widget_path %>
+<%%= link_to 'New widget', new_widget_path %>
 ```
 
 Now our tests are failing all over the place, complaining about `new_widget_path` not existing. We should write a couple of routing specs to check that works:
@@ -148,18 +148,18 @@ and the view in `app/views/widgets/new.html.erb`:
 ```erb
 <h1>New Widget</h1>
 
-<%= render 'form', widget: @widget %>
+<%%= render 'form', widget: @widget %>
 ```
 
 and, finally, the form in `app/views/widgets/_form.html.erb`:
 
 ```erb
-<%= form_for widget do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :size %>
+<%%= form_for widget do |f| %>
+  <%%= f.text_field :name %>
+  <%%= f.text_field :size %>
 
-  <%= f.submit %>
-<% end %>
+  <%%= f.submit %>
+<%% end %>
 ```
 
 (I still love that you can express forms so simply, while using a `FormBuilder`
