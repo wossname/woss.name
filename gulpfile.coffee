@@ -6,6 +6,7 @@ less         = require 'gulp-less'
 autoprefixer = require 'gulp-autoprefixer'
 sourcemaps   = require 'gulp-sourcemaps'
 minifyCSS    = require 'gulp-minify-css'
+uncss        = require 'gulp-uncss'
 uglify       = require 'gulp-uglify'
 rollbar      = require 'gulp-rollbar'
 
@@ -110,3 +111,8 @@ gulp.task 'watch', ->
   gulp.watch [ paths.less ].concat(watchedLessPaths), [ 'build:stylesheets:development' ]
   gulp.watch paths.javascripts, [ 'build:javascripts:development' ]
   gulp.watch paths.fonts, [ 'build:fonts' ]
+
+gulp.task 'uncss', ->
+  gulp.src(path.join(paths.dist.stylesheets, '**', '*.css'))
+    .pipe(uncss(html: path.join('build', '**', '*.html')))
+    .pipe(gulp.dest(paths.dist.stylesheets))
