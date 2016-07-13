@@ -3,7 +3,7 @@
 Just for the LOLs, I thought it might be useful to start tracking todo lists inside my GitHub repositories, using the TaskPaper data format. I wonder if GitHub supports the TaskPaper data format in some way? That’d be pretty cool! Anyway, stuff that still wants to be done in this repository…
 
 General tasks:
-- Figure out if I can change the file extensions for articles so that `.md` is the main extension.
+- Figure out if I can change the file extensions for articles so that `.md` is the main extension. @done(2016-07-13)
 	That way, all the Markdown apps I use — especially on iOS — will correctly determine the file format. I’m wondering if I can drop the `.erb` bit of the extension entirely and still have it processed by ERB (perhaps by specifying it in `config.rb`) or if I can at least switch the extensions around so `.md` comes last.
 - Add a README for the project. @done(2016-07-12)
 	- Link to the Trello board: https://trello.com/b/Fux05K1K/5-wossname-industries @done(2016-07-12)
@@ -25,7 +25,7 @@ General tasks:
 	- Readability
 	- Pocket
 	- Safari’s reader view
-- Set up redirects for the pages that no longer exist on the site, but which used to
+- Set up redirects for the pages that no longer exist on the site, but which used to @done(2016-07-13)
 	I need to investigate how to do this effectively with Middleman and S3. I suspect I’m going to have to write a wee plugin that will generate some boilerplate HTML pages for where I need to redirect from, with some meta-refresh tag inside them, but which also have the appropriate `x-amz-website-redirect-location` header applied to them when they’re uploaded to S3.
 - Fix anything on Page Speed Insights that I have control over: https://developers.google.com/speed/pagespeed/insights/?utm_source=analytics&tab=desktop&url=https%3A%2F%2Fwoss.name%2F
 	- Optimise all the images in the world ever
@@ -36,42 +36,42 @@ General tasks:
 - Figure out a workflow for getting from a source image (in Sketch?) to optimised assets for the web site.
 
 Port articles across from Medium:
-- Mental Wellbeing App Survey: https://blog.woss.name/mental-wellbeing-app-survey-54fd3f572e86#.l246uyxgn
-- Measuring Happiness through Social Engagement: https://blog.woss.name/measuring-happiness-through-social-engagement-a768085c05c5#.r7aruwr4k
-- Consuming your iCloud Calendar with Zapier: https://blog.woss.name/consuming-your-icloud-calendar-with-zapier-92943fc53cb9#.l5jiezyto
-- Creating a website with Middleman: https://blog.woss.name/creating-a-website-with-middleman-1fc68338bf74#.dt51c8yk3
-- The Single Irresponsibility Principle (Dec 12 edition): https://blog.woss.name/the-single-irresponsibility-principle-december-2012-edition-e44566c97911#.tws9f49er
-- Discovering DMARC: https://blog.woss.name/discovering-dmarc-ed6a66df5c18 @done(2016-07-09)
-- On the Dangers of Sarcasm: https://blog.woss.name/on-the-dangers-of-sarcasm-60deb97a4e79 @done(2016-07-09)
-- Finding your Muse: https://blog.woss.name/finding-your-muse-354b74ed915a#.lp5jfhyca
-- Exporting your data from Apple Health: https://blog.woss.name/exporting-your-data-from-healthkit-fc289360d337 @done(2016-07-09)
-- On the Connectedness of Apps & Services: https://blog.woss.name/on-the-connectedness-of-apps-services-33ace526d20e @done(2016-07-09)
-- Representing Trees in PostgreSQL: https://medium.com/notes-from-a-messy-desk/representing-trees-in-postgresql-cbcdae419022
-- Making use of Personal Analytics for Health: https://blog.woss.name/making-use-of-personal-analytics-for-health-8e89428382d2
-- That which is measured improves: https://blog.woss.name/that-which-is-measured-improves-361572b3c0f8
-- Memepark Minecraft Marathon: https://blog.woss.name/memepark-minecraft-marathon-c1dfdac177ff
-- HomeKit Concepts: https://blog.woss.name/homekit-concepts-64dbfff342da
-- Measuring, Decision Making, and Outcomes: https://blog.woss.name/measuring-decision-making-and-outcomes-8a4468517020
-- HomeKit Goals: https://blog.woss.name/homekit-goals-cc6530e59a01
-- Journalling with Day One 2.0: https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f @done(2016-07-09)
-- HomeKitting out the House: https://blog.woss.name/homekitting-out-the-house-2ed350fa276d @done(2016-07-09)
-- The Happiness Manifesto: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af @done(2016-07-09)
-- The Happiness Mission: https://blog.woss.name/the-happiness-mission-98f5338f72c @done(2016-07-09)
-- There and back again: A packet’s tale: https://medium.com/notes-from-a-messy-desk/there-and-back-again-a-packets-tale-ca913aeacdb0
-- Starting a new Rails 4.x Project: https://medium.com/notes-from-a-messy-desk/starting-a-new-rails-4-x-project-58d60730fee9 @done(2016-07-09)
-- Awesome!!!1!: https://medium.com/notes-from-a-messy-desk/awesome-1-12c0e5b7de53 @done(2016-07-09)
+	- Mental Wellbeing App Survey: https://blog.woss.name/mental-wellbeing-app-survey-54fd3f572e86#.l246uyxgn
+	- Measuring Happiness through Social Engagement: https://blog.woss.name/measuring-happiness-through-social-engagement-a768085c05c5#.r7aruwr4k
+	- Consuming your iCloud Calendar with Zapier: https://blog.woss.name/consuming-your-icloud-calendar-with-zapier-92943fc53cb9#.l5jiezyto
+	- Creating a website with Middleman: https://blog.woss.name/creating-a-website-with-middleman-1fc68338bf74#.dt51c8yk3
+	- The Single Irresponsibility Principle (Dec 12 edition): https://blog.woss.name/the-single-irresponsibility-principle-december-2012-edition-e44566c97911#.tws9f49er
+	- Discovering DMARC: https://blog.woss.name/discovering-dmarc-ed6a66df5c18 @done(2016-07-09)
+	- On the Dangers of Sarcasm: https://blog.woss.name/on-the-dangers-of-sarcasm-60deb97a4e79 @done(2016-07-09)
+	- Finding your Muse: https://blog.woss.name/finding-your-muse-354b74ed915a#.lp5jfhyca
+	- Exporting your data from Apple Health: https://blog.woss.name/exporting-your-data-from-healthkit-fc289360d337 @done(2016-07-09)
+	- On the Connectedness of Apps & Services: https://blog.woss.name/on-the-connectedness-of-apps-services-33ace526d20e @done(2016-07-09)
+	- Representing Trees in PostgreSQL: https://medium.com/notes-from-a-messy-desk/representing-trees-in-postgresql-cbcdae419022 @done(2016-07-13)
+	- Making use of Personal Analytics for Health: https://blog.woss.name/making-use-of-personal-analytics-for-health-8e89428382d2
+	- That which is measured improves: https://blog.woss.name/that-which-is-measured-improves-361572b3c0f8
+	- Memepark Minecraft Marathon: https://blog.woss.name/memepark-minecraft-marathon-c1dfdac177ff
+	- HomeKit Concepts: https://blog.woss.name/homekit-concepts-64dbfff342da
+	- Measuring, Decision Making, and Outcomes: https://blog.woss.name/measuring-decision-making-and-outcomes-8a4468517020
+	- HomeKit Goals: https://blog.woss.name/homekit-goals-cc6530e59a01
+	- Journalling with Day One 2.0: https://blog.woss.name/journalling-with-day-one-2-0-962acb18950f @done(2016-07-09)
+	- HomeKitting out the House: https://blog.woss.name/homekitting-out-the-house-2ed350fa276d @done(2016-07-09)
+	- The Happiness Manifesto: https://blog.woss.name/the-happiness-manifesto-6dc722b0b7af @done(2016-07-09)
+	- The Happiness Mission: https://blog.woss.name/the-happiness-mission-98f5338f72c @done(2016-07-09)
+	- There and back again: A packet’s tale: https://medium.com/notes-from-a-messy-desk/there-and-back-again-a-packets-tale-ca913aeacdb0
+	- Starting a new Rails 4.x Project: https://medium.com/notes-from-a-messy-desk/starting-a-new-rails-4-x-project-58d60730fee9 @done(2016-07-09)
+	- Awesome!!!1!: https://medium.com/notes-from-a-messy-desk/awesome-1-12c0e5b7de53 @done(2016-07-09)
 
 Port articles across from mathie.github.io:
-If I’m porting them across anyway, I should import them to Medium while I’m there. Probably the best strategy is to start with the ones that are generating the most 404s, seeing as they’re linked to from elsewhere on the web. Then there will be the long tail of articles that probably aren’t worth the bother. Aha, a list of pages I ought to port across can be found here: https://www.google.com/webmasters/tools/crawl-errors?hl=en&siteUrl=https://woss.name/#t2=1 The top 10 are
-- vim is keyword?
-- Specifying Rails controller with rspec (parts 1 & 2)
-- Using tcpflow
-- Hyperpower
-- Equality comparison and ordering in Ruby
-- Dockerising a Rails app
-- There and back again: A packet’s tale
-- Read only clones and committing changes to submodules
-- Running tmux in Mac OS X terminal
+	If I’m porting them across anyway, I should import them to Medium while I’m there. Probably the best strategy is to start with the ones that are generating the most 404s, seeing as they’re linked to from elsewhere on the web. Then there will be the long tail of articles that probably aren’t worth the bother. Aha, a list of pages I ought to port across can be found here: https://www.google.com/webmasters/tools/crawl-errors?hl=en&siteUrl=https://woss.name/#t2=1 The top 10 are
+	- vim is keyword? @done(2016-07-13)
+	- Specifying Rails controller with rspec (parts 1 & 2) @done(2016-07-13)
+	- Using tcpflow @done(2016-07-13)
+	- Hyperpower @done(2016-07-13)
+	- Equality comparison and ordering in Ruby @done(2016-07-13)
+	- Dockerising a Rails app @done(2016-07-13)
+	- There and back again: A packet’s tale @done(2016-07-13)
+	- Read only clones and committing changes to submodules @done(2016-07-13)
+	- Running tmux in Mac OS X terminal @done(2016-07-13)
 
 Bigger someday/maybe projects:
 - Figure out what Accelerated Mobile Pages (AMP) are, and whether I can start generating them alongside existing pages.
